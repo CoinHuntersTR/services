@@ -1,10 +1,5 @@
 ---
-cover: https://pbs.twimg.com/profile_banners/1408025751463600128/1670446180/1500x500
-coverY: 0
 layout:
-  cover:
-    visible: true
-    size: hero
   title:
     visible: true
   description:
@@ -18,6 +13,8 @@ layout:
 ---
 
 # Introduction
+
+<figure><img src="https://pbs.twimg.com/profile_banners/1408025751463600128/1670446180/1500x500" alt=""><figcaption></figcaption></figure>
 
 ### CoinHunters <a href="#cryptonodeid" id="cryptonodeid"></a>
 
