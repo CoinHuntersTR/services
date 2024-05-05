@@ -1,5 +1,5 @@
 ---
-cover: https://pbs.twimg.com/profile_banners/1408025751463600128/1670446180/1500x500
+cover: [Twitter](https://pbs.twimg.com/profile_banners/1408025751463600128/1670446180/1500x500) 
 coverY: 0
 layout:
   cover:
