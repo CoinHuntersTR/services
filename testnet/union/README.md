@@ -1,10 +1,5 @@
 ---
-cover: https://pbs.twimg.com/profile_banners/1687201209306824704/1712069560/1500x500
-coverY: 0
 layout:
-  cover:
-    visible: true
-    size: hero
   title:
     visible: true
   description:
@@ -18,6 +13,8 @@ layout:
 ---
 
 # Union
+
+<figure><img src="https://pbs.twimg.com/profile_banners/1687201209306824704/1712069560/1500x500" alt=""><figcaption></figcaption></figure>
 
 Union Labs is a blockchain interoperability developer creating a cross-chain bridge using zero-knowledge proofs. The Union network serves as an efficient zero-knowledge infrastructure layer for various applications, including message passing, asset transfers, NFTs, and DeFi. It prioritizes speed, security, future-proofing, and user-friendliness with a high-level API for developers.\
 
