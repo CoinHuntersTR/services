@@ -14,9 +14,10 @@ layout:
 
 # AligendLayer
 
-<figure><img src="https://pbs.twimg.com/profile_banners/1687201209306824704/1712069560/1500x500" alt=""><figcaption></figcaption></figure>
-
-Union Labs is a blockchain interoperability developer creating a cross-chain bridge using zero-knowledge proofs. The Union network serves as an efficient zero-knowledge infrastructure layer for various applications, including message passing, asset transfers, NFTs, and DeFi. It prioritizes speed, security, future-proofing, and user-friendliness with a high-level API for developers.\
 
 
-**Offical Links**: [Web ](https://union.build/)| [Twitter ](https://twitter.com/union\_build)| [Discord ](https://discord.gg/union-build)| [Blog](https://union.build/blog/)
+<figure><img src="https://pbs.twimg.com/profile_banners/1752189672770469888/1707249217/1500x500" alt=""><figcaption></figcaption></figure>
+
+Aligned Layer is a universal verification layer designed for Ethereum, enhancing its capabilities for zero-knowledge SNARK proofs. Developed on EigenLayer, Aligned Layer aims to make Ethereum a more efficient and cost-effective platform for SNARK verification by leveraging restaking and proof aggregation. This initiative supports various zero-knowledge technology developments, aiming to expand Ethereum's utility and support the future of trustless applications with enhanced security and verifiability.
+
+**Offical Links**: [Web ](https://alignedlayer.com/)| [Twitter](https://twitter.com/alignedlayer) | [Discord ](https://discord.gg/alignedlayer)| Blog
