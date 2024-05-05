@@ -31,3 +31,7 @@
     * [Service](testnet/warden-protocol/service.md)
     * [Installation](testnet/warden-protocol/installation.md)
     * [Useful commands](testnet/warden-protocol/useful-commands.md)
+  * [Lava Network](testnet/lava-network/README.md)
+    * [Service](testnet/lava-network/service.md)
+    * [Installation](testnet/lava-network/installation.md)
+    * [Useful commands](testnet/lava-network/useful-commands.md)
