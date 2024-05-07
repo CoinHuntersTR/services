@@ -53,3 +53,7 @@
     * [Service](testnet/warden-protocol/service.md)
     * [Installation](testnet/warden-protocol/installation.md)
     * [Useful commands](testnet/warden-protocol/useful-commands.md)
+  * [Dymension](testnet/dymension/README.md)
+    * [Service](testnet/dymension/service.md)
+    * [Installation](testnet/dymension/installation.md)
+    * [Useful commands](testnet/dymension/useful-commands.md)
