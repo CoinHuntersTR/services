@@ -27,6 +27,8 @@
     * [Service](testnet/aligendlayer/service.md)
     * [Installation](testnet/aligendlayer/installation.md)
     * [Useful commands](testnet/aligendlayer/useful-commands.md)
+  * [Avail](testnet/avail/README.md)
+    * [Installation](testnet/avail/installation.md)
   * [CrossFi](testnet/crossfi/README.md)
     * [Service](testnet/crossfi/service.md)
     * [Installation](testnet/crossfi/installation.md)
