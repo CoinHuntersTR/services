@@ -52,7 +52,7 @@ Please make sure you have adjusted **moniker**, **identity**, **details** and **
 
 ```
 mantrachaind tx staking create-validator \
---amount 1000000mpx \
+--amount 1000000uom \
 --from $WALLET \
 --commission-rate 0.1 \
 --commission-max-rate 0.2 \
