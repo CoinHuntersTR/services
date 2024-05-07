@@ -333,7 +333,7 @@ sudo systemctl stop crossfid
 **RESTART SERVICE**
 
 ```
-sudo systemctl restartcrossfid
+sudo systemctl restart crossfid
 ```
 
 **CHECK SERVICE STATUS**

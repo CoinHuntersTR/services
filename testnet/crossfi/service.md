@@ -1,18 +1,22 @@
 # Service
 
-API
+### API
 
 {% embed url="https://crossfi-api.chainad.org/" %}
 
-RPC
+### RPC
 
 {% embed url="https://crossfi-rpc.chainad.org/" %}
 
-EXPLORER
+### EXPLORER
 
 {% embed url="https://explorer.coinhunterstr.com/crossfi" %}
 
-Faucet
+### JSON RPC
+
+{% embed url="https://crossfi-jsonrpc.chainad.org/" %}
+
+### Faucet
 
 {% embed url="https://testnet-faucet-nft.vercel.app/" %}
 
