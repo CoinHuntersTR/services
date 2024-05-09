@@ -290,9 +290,9 @@ Please, before proceeding with the next step! All chain data will be lost! Make 
 
 ```
 cd $HOME
-sudo systemctl stop 0gchaind
-sudo systemctl disable 0gchaind
-sudo rm /etc/systemd/system/0gchaind
+sudo systemctl stop 0gchain
+sudo systemctl disable 0gchain
+sudo rm /etc/systemd/system/0gchain
 sudo systemctl daemon-reload
 rm -f $(which 0gchaind)
 rm -rf $HOME/.0gchaind
@@ -310,41 +310,41 @@ sudo systemctl daemon-reload
 **ENABLE SERVICE**
 
 ```
-sudo systemctl enable 0gchaind
+sudo systemctl enable 0gchain
 ```
 
 **DISABLE SERVICE**
 
 ```
-sudo systemctl disable 0gchaind
+sudo systemctl disable 0gchain
 ```
 
 **START SERVICE**
 
 ```
-sudo systemctl start 0gchaind
+sudo systemctl start 0gchain
 ```
 
 **STOP SERVICE**
 
 ```
-sudo systemctl stop 0gchaind
+sudo systemctl stop 0gchain
 ```
 
 **RESTART SERVICE**
 
 ```
-sudo systemctl restart 0gchaind
+sudo systemctl restart 0gchain
 ```
 
 **CHECK SERVICE STATUS**
 
 ```
-sudo systemctl status 0gchaind
+sudo systemctl status 0gchain
 ```
 
 **CHECK SERVICE LOGS**
 
 ```
-sudo journalctl -u 0gchaind -f --no-hostname -o cat
+sudo journalctl -u 0gchain -f --no-hostname -o cat
 ```
