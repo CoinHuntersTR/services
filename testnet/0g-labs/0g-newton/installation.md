@@ -86,7 +86,7 @@ sed -i "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.0gchain/config/config.toml
 #### Snapshot
 
 ```
-sudo systemctl stop og
+sudo systemctl stop 0gchain
 cp $HOME/.0gchain/data/priv_validator_state.json $HOME/.0gchain/priv_validator_state.json.backup
 rm -rf $HOME/.0gchain/data && mkdir -p $HOME/.0gchain/data
 ```
