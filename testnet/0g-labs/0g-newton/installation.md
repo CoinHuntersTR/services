@@ -46,7 +46,7 @@ EOF
 
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable 0gchaind
+sudo systemctl enable 0gchain
 ```
 
 ### Set Vars
@@ -102,5 +102,5 @@ mv $HOME/.0gchain/priv_validator_state.json.backup $HOME/.0gchain/data/priv_vali
 #### Start service
 
 ```
-sudo systemctl restart 0gchaind && sudo journalctl -u 0gchaind -f
+sudo systemctl restart 0gchain && sudo journalctl -u 0gchain -f
 ```
