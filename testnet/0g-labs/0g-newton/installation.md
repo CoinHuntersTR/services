@@ -1,5 +1,7 @@
 # Installation
 
+### Manual Installation <a href="#installation" id="installation"></a>
+
 #### Install dependencies <a href="#install-dependencies" id="install-dependencies"></a>
 
 **UPDATE SYSTEM AND INSTALL BUILD TOOLS**
@@ -49,9 +51,9 @@ sudo systemctl daemon-reload
 sudo systemctl enable 0gchain
 ```
 
-### Set Vars
+#### Set Vars
 
-`wallet` yerine istediğiniz bir ismi, `$MONIKER` yerine bir validator adı yazmayı unutmayın. &#x20;
+`wallet` yerine istediğiniz bir ismi, `$MONIKER` yerine bir validator adı yazmayı unutmayın.
 
 ```
 echo 'export CHAIN_ID="zgtendermint_16600-1"' >> ~/.bash_profile
@@ -103,4 +105,15 @@ mv $HOME/.0gchain/priv_validator_state.json.backup $HOME/.0gchain/data/priv_vali
 
 ```
 sudo systemctl restart 0gchain && sudo journalctl -u 0gchain -f
+```
+
+
+
+### Automatic Installation <a href="#auto-installation" id="auto-installation"></a>
+
+> `wallet` yerine cüzdan isminizi girmeyi unutmayın.\
+> `$MONIKER` yerine kullanmak istediğiniz validator adını giriniz.
+
+```
+wget -q -O 0g-Newton.sh https://raw.githubusercontent.com/CoinHuntersTR/props/main/AutoInstall/0g-Newton.sh && chmod +x 0g-Newton.sh && ./0g-Newton.sh
 ```
