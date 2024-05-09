@@ -239,13 +239,13 @@ sed -i \
 **GET VALIDATOR INFO**
 
 ```
-0gchaind status 2>&1 | jq .ValidatorInfo
+0gchaind status 2>&1 | jq
 ```
 
 **GET SYNC INFO**
 
 ```
-0gchaind status 2>&1 | jq .SyncInfo
+0gchaind status 2>&1 | jq
 ```
 
 **GET NODE PEER**
