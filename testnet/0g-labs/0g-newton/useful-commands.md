@@ -14,6 +14,12 @@
 0gchaind keys add wallet --recover --eth
 ```
 
+**WALLET EVM ADDRESS**
+
+```
+echo "0x$(0gchaind debug addr $(0gchaind keys show wallet -a) | grep hex | awk '{print $3}')"
+```
+
 **LIST ALL KEYS**
 
 ```
@@ -66,7 +72,7 @@ Please make sure you have adjusted **moniker**, **identity**, **details** and **
 --from wallet \
 --gas-adjustment 1.5 \
 --gas auto \
---gas-prices 9999ua0gi \
+--gas-prices 0.00252ua0gi \
 -y
 ```
 
@@ -83,14 +89,14 @@ Please make sure you have adjusted **moniker**, **identity**, **details** and **
 --from wallet \
 --gas-adjustment 1.5 \
 --gas auto \
---gas-prices 9999ua0gi \
+--gas-prices 0.00252ua0gi \
 -y
 ```
 
 **UNJAIL VALIDATOR**
 
 ```
-0gchaind tx slashing unjail --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 9999ua0gi -y
+0gchaind tx slashing unjail --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 **JAIL REASON**
@@ -122,43 +128,43 @@ Please make sure you have adjusted **moniker**, **identity**, **details** and **
 **WITHDRAW REWARDS FROM ALL VALIDATORS**
 
 ```
-0gchaind tx distribution withdraw-all-rewards --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 9999ua0gi -y
+0gchaind tx distribution withdraw-all-rewards --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 **WITHDRAW COMMISSION AND REWARDS FROM YOUR VALIDATOR**
 
 ```
-0gchaind tx distribution withdraw-rewards $(0gchaind keys show wallet --bech val -a) --commission --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 9999ua0gi -y
+0gchaind tx distribution withdraw-rewards $(0gchaind keys show wallet --bech val -a) --commission --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 **DELEGATE TOKENS TO YOURSELF**
 
 ```
-0gchaind tx staking delegate $(0gchaind keys show wallet --bech val -a) 100000ua0gi --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 9999ua0gi -y
+0gchaind tx staking delegate $(0gchaind keys show wallet --bech val -a) 100000ua0gi --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 **DELEGATE TOKENS TO VALIDATOR**
 
 ```
-0gchaind tx staking delegate <TO_VALOPER_ADDRESS> 100000ua0gi --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 9999ua0gi -y
+0gchaind tx staking delegate <TO_VALOPER_ADDRESS> 100000ua0gi --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 **REDELEGATE TOKENS TO ANOTHER VALIDATOR**
 
 ```
-0gchaind tx staking redelegate $(0gchaind keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 100000ua0gi --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 9999ua0gi -y
+0gchaind tx staking redelegate $(0gchaind keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 100000ua0gi --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 **UNBOND TOKENS FROM YOUR VALIDATOR**
 
 ```
-0gchaind tx staking unbond $(0gchaind keys show wallet --bech val -a) 100000ua0gi --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 9999ua0gi -y
+0gchaind tx staking unbond $(0gchaind keys show wallet --bech val -a) 100000ua0gi --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 **SEND TOKENS TO THE WALLET**
 
 ```
-0gchaind tx bank send wallet <TO_WALLET_ADDRESS> 100000ua0gi --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 9999ua0gi -y
+0gchaind tx bank send wallet <TO_WALLET_ADDRESS> 100000ua0gi --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 ### 🗳 Governance <a href="#governance" id="governance"></a>
@@ -178,25 +184,25 @@ Please make sure you have adjusted **moniker**, **identity**, **details** and **
 **VOTE ‘YES’**
 
 ```
-0gchaind tx gov vote 1 yes --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 9999ua0gi -y
+0gchaind tx gov vote 1 yes --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 **VOTE ‘NO’**
 
 ```
-0gchaind tx gov vote 1 no --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 9999ua0gi -y
+0gchaind tx gov vote 1 no --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 **VOTE ‘ABSTAIN’**
 
 ```
-0gchaind tx gov vote 1 abstain --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 9999ua0gi -y
+0gchaind tx gov vote 1 abstain --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 **VOTE ‘NOWITHVETO’**
 
 ```
-0gchaind tx gov vote 1 NoWithVeto --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 9999ua0gi -y
+0gchaind tx gov vote 1 NoWithVeto --from wallet --chain-id zgtendermint_16600-1 --gas-adjustment 1.5 --gas auto --gas-prices 0.00252ua0gi -y
 ```
 
 ### ⚡️ Utility <a href="#utility" id="utility"></a>
