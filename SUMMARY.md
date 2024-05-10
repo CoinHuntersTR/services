@@ -61,3 +61,7 @@
     * [Service](testnet/warden-protocol/service.md)
     * [Installation](testnet/warden-protocol/installation.md)
     * [Useful commands](testnet/warden-protocol/useful-commands.md)
+  * [Airchains](testnet/airchains/README.md)
+    * [Service](testnet/airchains/service.md)
+    * [Installation](testnet/airchains/installation.md)
+    * [Useful commands](testnet/airchains/useful-commands.md)
