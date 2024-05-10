@@ -1,49 +1,46 @@
 # Installation
 
+### Manual Installation <a href="#installation" id="installation"></a>
+
 #### Install dependencies <a href="#install-dependencies" id="install-dependencies"></a>
 
 **UPDATE SYSTEM AND INSTALL BUILD TOOLS**
 
 ```
 sudo apt update && sudo apt upgrade -y
-sudo apt install curl git wget htop tmux build-essential jq make lz4 gcc unzip -y
+sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential git make lz4 unzip ncdu -y
 ```
 
 **INSTALL GO**
 
 ```
-cd $HOME
-VER="1.21.3"
-wget "https://golang.org/dl/go$VER.linux-amd64.tar.gz"
-sudo rm -rf /usr/local/go
-sudo tar -C /usr/local -xzf "go$VER.linux-amd64.tar.gz"
-rm "go$VER.linux-amd64.tar.gz"
-[ ! -f ~/.bash_profile ] && touch ~/.bash_profile
-echo "export PATH=$PATH:/usr/local/go/bin:~/go/bin" >> ~/.bash_profile
-source $HOME/.bash_profile
-[ ! -d ~/go/bin ] && mkdir -p ~/go/bin
-```
+ver="1.21.5" 
+cd $HOME 
+wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" 
 
-### Set Vars
+sudo rm -rf /usr/local/go 
+sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz" 
+rm "go$ver.linux-amd64.tar.gz"
 
-WALLET yerine istediğiniz bir ismi, MONIKER yerine bir validator adı yazmayı unutmayın.&#x20;
-
-```
-echo "export WALLET="wallet"" >> $HOME/.bash_profile
-echo "export MONIKER="test"" >> $HOME/.bash_profile
-echo "export WARDEN_CHAIN_ID="buenavista-1"" >> $HOME/.bash_profile
-echo "export WARDEN_PORT="18"" >> $HOME/.bash_profile
-source $HOME/.bash_profile
+echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile
+source $HOME/.bash_profile    
 ```
 
 #### Download and build binaries <a href="#download-and-build-binaries" id="download-and-build-binaries"></a>
 
 ```
-cd $HOME
-rm -rf wardenprotocol
-git clone --depth 1 --branch v0.3.0 https://github.com/warden-protocol/wardenprotocol/
-cd wardenprotocol
-make install
+wget https://github.com/airchains-network/junction/releases/download/v0.1.0/junctiond
+chmod +x junctiond
+sudo mv junctiond /usr/local/bin
+```
+
+#### Set Vars
+
+> `Moniker` yerine validator adınızı ekliyoruz.
+
+```
+junctiond config chain-id junction
+junctiond init "Moniker" --chain-id junction
 ```
 
 #### Config init app
@@ -56,68 +53,132 @@ sed -i -e "s|^node *=.*|node = \"tcp://localhost:${WARDEN_PORT}657\"|" $HOME/.wa
 #### Download Genesis and Addrbook
 
 ```
-wget -O $HOME/.warden/config/genesis.json https://testnet-files.itrocket.net/warden/genesis.json
-wget -O $HOME/.warden/config/addrbook.json https://testnet-files.itrocket.net/warden/addrbook.json
-```
+sudo wget -O $HOME/.junction/config/genesis.json https://raw.githubusercontent.com/CoinHuntersTR/props/main/Airchains/genesis.json
+sudo wget -O $HOME/.junction/config/addrbook.json https://raw.githubusercontent.com/CoinHuntersTR/props/main/Airchains/addrbook.json
 
-#### Set seeds and peers
-
-```
-SEEDS="8288657cb2ba075f600911685670517d18f54f3b@warden-testnet-seed.itrocket.net:18656"
-PEERS="b14f35c07c1b2e58c4a1c1727c89a5933739eeea@warden-testnet-peer.itrocket.net:18656,7e9adbd0a34fcab219c3a818a022248c575f622b@65.108.227.207:16656,bda08962882048fea4331fcf96ad02789671700e@65.21.202.124:35656,dc0122e37c203dec43306430a1f1879650653479@37.27.97.16:26656,eee54c85c14748f7793738fadbc747ed1511efac@176.9.58.5:46656,059abed41c4d2b5a6f6ae5d07c637538fac39372@158.220.108.120:11656,23e071cf5684faf380a7d92585e9f4c85f1d1ca2@185.250.38.217:26656,4c5e23584c96cef5b5410aa71797917664afcb7f@213.199.61.1:26656,2f769486f886faafadcfee2d96a889728cf45a94@38.242.237.130:11256,cb37adcb4aa8ada67ea0d62ee54dc0c02d73b462@194.163.150.31:18656"
-sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.warden/config/config.toml
+sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"5000amf\"/;" ~/.junction/config/app.toml
 ```
 
 #### Config Pruning
 
 ```
-sed -i -e "s/^pruning *=.*/pruning = \"custom\"/" $HOME/.warden/config/app.toml
-sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"100\"/" $HOME/.warden/config/app.toml
-sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"50\"/" $HOME/.warden/config/app.toml
+pruning="custom" && \
+pruning_keep_recent="100" && \
+pruning_keep_every="0" && \
+pruning_interval="10" && \
+sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.junction/config/app.toml && \
+sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.junction/config/app.toml && \
+sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" $HOME/.junction/config/app.toml && \
+sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.junction/config/app.toml
 ```
 
-#### set minimum gas price, enable prometheus and disable indexing
+#### Set seeds and peers
 
 ```
-sed -i 's|minimum-gas-prices =.*|minimum-gas-prices = "0.0025uward"|g' $HOME/.warden/config/app.toml
-sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.warden/config/config.toml
-sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.warden/config/config.toml
-```
+PEERS=$(curl -sS https://junction-rpc.dymion.cloud/net_info | \
+jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip):\(.node_info.listen_addr)"' | \
+awk -F ':' '{printf "%s:%s%s", $1, $(NF), NR==NF?"":","}')
+echo "$PEERS"
 
-#### create service file
-
-```
-sudo tee /etc/systemd/system/wardend.service > /dev/null <<EOF
-[Unit]
-Description=Warden node
-After=network-online.target
-[Service]
-User=$USER
-WorkingDirectory=$HOME/.warden
-ExecStart=$(which wardend) start --home $HOME/.warden
-Restart=on-failure
-RestartSec=5
-LimitNOFILE=65535
-[Install]
-WantedBy=multi-user.target
-EOF
+sed -i 's|^persistent_peers *=.*|persistent_peers = "'$PEERS'"|' $HOME/.junction/config/config.toml
 ```
 
 #### Snapshot
 
 ```
-wardend tendermint unsafe-reset-all --home $HOME/.warden
-if curl -s --head curl https://testnet-files.itrocket.net/warden/snap_warden.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
-  curl https://testnet-files.itrocket.net/warden/snap_warden.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.warden
-    else
-  echo no have snap
-fi
+junctiond tendermint unsafe-reset-all --home ~/.junction/ --keep-addr-book
+curl https://files.dymion.cloud/junction/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.junction
+```
+
+#### create service file
+
+```
+sudo tee /etc/systemd/system/junctiond.service > /dev/null <<EOF
+[Unit]
+Description=junction
+After=network-online.target
+[Service]
+User=$USER
+ExecStart=$(which junctiond) start
+Restart=always
+RestartSec=3
+LimitNOFILE=65535
+[Install]
+WantedBy=multi-user.target
+EOF
+sudo systemctl daemon-reload
+sudo systemctl enable junctiond
 ```
 
 #### enable and start service
 
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable wardend
-sudo systemctl restart wardend && sudo journalctl -u wardend -f
+sudo systemctl enable junctiond
+sudo systemctl restart junctiond && sudo journalctl -u junctiond -f
 ```
+
+### Automatic Installation <a href="#auto-installation" id="auto-installation"></a>
+
+> Moniker yerine Validator isminizi yazıp enter basın.
+
+```
+wget -q -O Airchains.sh https://raw.githubusercontent.com/CoinHuntersTR/props/main/AutoInstall/Airchains.sh && chmod +x Airchains.sh && ./Airchains.sh
+```
+
+### Sync Node
+
+> Node ağ ile eşleşmiş olması gerekiyor. Bunun için `junctiond status 2>&1 | jq` komutunu çalıştırdığınızda `false` çıktısı vermesi gerekir.  `True` çıktı alırsanız aşağıdaki adımlara devam etmeyin.&#x20;
+
+### Run a Validator
+
+> İlk önce Pubkeyimizi alıyoruz.
+
+```
+junctiond comet show-validator
+```
+
+`{"@type":"/cosmos.crypto.ed25519.PubKey","key":"0LuMdRNJpWGiH+b+................"}` buna benzer bir çıktı alacaksınız.
+
+```
+cd $HOME
+```
+
+> Sonrasında validator json dosyası açıyoruz.
+
+```
+nano /root/validator.json
+```
+
+> Aşağıdaki dosyayı kendinize göre düzenlemeyi unutmayın. Validator ismi, site linkleri vs.
+
+```
+{
+	"pubkey": <validator-pub-key>,
+	"amount": "9900000amf",
+	"moniker": "<validator-name>",
+	"identity": "optional identity signature (ex. UPort or Keybase)",
+	"website": "validator's (optional) website",
+	"security": "validator's (optional) security contact email",
+	"details": "validator's (optional) details",
+	"commission-rate": "0.1",
+	"commission-max-rate": "0.2",
+	"commission-max-change-rate": "0.01",
+	"min-self-delegation": "1"
+}
+```
+
+> terminale yapıştırdıktan sonra, CTRL X Y enter ile çıkıyoruz.&#x20;
+>
+> Şimdi tekrardan node restart atalım
+
+```
+sudo systemctl restart junctiond
+```
+
+> Şimdi aşağıdaki komutu çalıştırıyoruz. `wallet` yerine kendi cüzdan isminizi yazmayı unutmayın. Terminale cüzdan kurmak için `Useful Commands` bölümüne bakabilirsiniz.&#x20;
+
+```
+junctiond tx staking create-validator $HOME/validator.json --from wallet--chain-id junction --fees 5000amf
+```
+
