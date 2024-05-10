@@ -6,9 +6,7 @@
 
 Ubuntu 22.04
 
-| CPU    | RAM      | SSD     |
-| ------ | -------- | ------- |
-| 4 vCPU | 8 GB RAM | 160 SSD |
+<table><thead><tr><th width="279">CPU</th><th>RAM</th><th>SSD</th></tr></thead><tbody><tr><td>4 vCPU</td><td>8 GB RAM</td><td>160 SSD</td></tr></tbody></table>
 
 #### Install dependencies <a href="#install-dependencies" id="install-dependencies"></a>
 
