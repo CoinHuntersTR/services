@@ -4,7 +4,7 @@
 
 #### Gerekli Sistem <a href="#install-dependencies" id="install-dependencies"></a>
 
-
+Ubuntu 22.04
 
 | CPU    | RAM      | SSD     |
 | ------ | -------- | ------- |
