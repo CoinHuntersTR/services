@@ -52,12 +52,12 @@ Please make sure you have adjusted **moniker**, **identity**, **details** and **
 cd $HOME
 # Create validator.json file
 echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(junctiond comet show-validator | grep -Po '\"key\":\s*\"\K[^"]*')\"},
-    \"amount\": \"1000000uward\",
+    \"amount\": \"1000000amf\",
     \"moniker\": \"test\",
     \"identity\": \"\",
     \"website\": \"\",
     \"security\": \"\",
-    \"details\": \"I love blockchain ❤️\",
+    \"details\": \"CoinHunters Community ❤️\",
     \"commission-rate\": \"0.1\",
     \"commission-max-rate\": \"0.2\",
     \"commission-max-change-rate\": \"0.01\",
