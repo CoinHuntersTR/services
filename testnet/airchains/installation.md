@@ -2,6 +2,14 @@
 
 ### Manual Installation <a href="#installation" id="installation"></a>
 
+#### Gerekli Sistem <a href="#install-dependencies" id="install-dependencies"></a>
+
+
+
+| CPU    | RAM      | SSD     |
+| ------ | -------- | ------- |
+| 4 vCPU | 8 GB RAM | 160 SSD |
+
 #### Install dependencies <a href="#install-dependencies" id="install-dependencies"></a>
 
 **UPDATE SYSTEM AND INSTALL BUILD TOOLS**
