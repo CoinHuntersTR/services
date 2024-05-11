@@ -185,6 +185,6 @@ sudo systemctl restart junctiond
 > Şimdi aşağıdaki komutu çalıştırıyoruz. `wallet` yerine kendi cüzdan isminizi yazmayı unutmayın. Terminale cüzdan kurmak için `Useful Commands` bölümüne bakabilirsiniz.&#x20;
 
 ```
-junctiond tx staking create-validator $HOME/validator.json --from wallet--chain-id junction --fees 5000amf
+junctiond tx staking create-validator $HOME/validator.json --from wallet --chain-id junction --fees 5000amf
 ```
 
