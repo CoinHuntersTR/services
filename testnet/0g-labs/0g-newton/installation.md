@@ -104,7 +104,7 @@ rm -rf $HOME/.0gchain/data && mkdir -p $HOME/.0gchain/data
 ```
 
 ```
-curl -L https://snap.vnbnode.com/0g/zgtendermint_16600-1_snapshot_latest.tar.lz4 | tar -I lz4 -xf - -C $HOME/.0gchain/data
+curl -L https://snapshots.coinhunterstr.com/zgtendermint_16600-1_snapshot_latest.tar.lz4 | tar -I lz4 -xf - -C $HOME/.0gchain/data
 ```
 
 ```
