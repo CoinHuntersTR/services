@@ -27,6 +27,7 @@
       * [Service](testnet/0g-labs/0g-newton/service.md)
       * [Installation](testnet/0g-labs/0g-newton/installation.md)
       * [Useful commands](testnet/0g-labs/0g-newton/useful-commands.md)
+      * [Snapshots](testnet/0g-labs/0g-newton/snapshots.md)
   * [Airchains](testnet/airchains/README.md)
     * [Service](testnet/airchains/service.md)
     * [Installation](testnet/airchains/installation.md)
