@@ -41,6 +41,7 @@
     * [Service](testnet/crossfi/service.md)
     * [Installation](testnet/crossfi/installation.md)
     * [Useful commands](testnet/crossfi/useful-commands.md)
+    * [Snapshots](testnet/crossfi/snapshots.md)
   * [Dymension](testnet/dymension/README.md)
     * [Service](testnet/dymension/service.md)
     * [Installation](testnet/dymension/installation.md)
