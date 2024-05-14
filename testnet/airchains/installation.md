@@ -130,7 +130,7 @@ rm -rf $HOME/.junction/data
 #### Download latest snapshot <a href="#download-latest-snapshot" id="download-latest-snapshot"></a>
 
 ```
-curl -L https://snapshots.coinhunterstr.com/data.tar.lz4| lz4 -dc - | tar -xf - -C $HOME/.mineplex-chain
+curl -L https://snapshots.coinhunterstr.com/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.mineplex-chain
 mv $HOME/.junction/priv_validator_state.json.backup $HOME/.junction/data/priv_validator_state.json
 ```
 

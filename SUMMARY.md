@@ -67,4 +67,5 @@
   * [Warden Protocol](testnet/warden-protocol/README.md)
     * [Service](testnet/warden-protocol/service.md)
     * [Installation](testnet/warden-protocol/installation.md)
+    * [Snapshots](testnet/warden-protocol/snapshots.md)
     * [Useful commands](testnet/warden-protocol/useful-commands.md)
