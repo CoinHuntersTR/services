@@ -108,21 +108,33 @@ WantedBy=multi-user.target
 EOF
 ```
 
-#### Snapshot
-
-```
-mantrachaind tendermint unsafe-reset-all --home $HOME/.mantrachain
-if curl -s --head curl https://testnet-files.itrocket.net/mantra/snap_mantra.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
-  curl https://testnet-files.itrocket.net/mantra/snap_mantra.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.mantrachain
-    else
-  echo no have snap
-fi
-```
-
 #### enable and start service
 
 ```
 sudo systemctl daemon-reload
 sudo systemctl enable mantrachaind
 sudo systemctl restart mantrachaind && sudo journalctl -u mantrachaind -f
+```
+
+#### Snapshot
+
+#### Stop the service and reset the data <a href="#stop-the-service-and-reset-the-data" id="stop-the-service-and-reset-the-data"></a>
+
+```
+sudo systemctl stop mantrachaind
+cp $HOME/.mantrachain/data/priv_validator_state.json $HOME/.mantrachain/priv_validator_state.json.backup
+rm -rf $HOME/.mantrachain/data
+```
+
+#### Download latest snapshot <a href="#download-latest-snapshot" id="download-latest-snapshot"></a>
+
+```
+curl -L https://snapshots.coinhunterstr.com/snap_mantra.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.mantrachain
+mv $HOME/.mantrachain/priv_validator_state.json.backup $HOME/.mantrachain/data/priv_validator_state.json
+```
+
+#### Restart the service and check the log <a href="#restart-the-service-and-check-the-log" id="restart-the-service-and-check-the-log"></a>
+
+```
+sudo systemctl restart mantrachaind && sudo journalctl -u mantrachaind-f --no-hostname -o cat
 ```

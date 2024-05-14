@@ -124,7 +124,7 @@ rm -rf $HOME/.warden/data
 #### Download latest snapshot <a href="#download-latest-snapshot" id="download-latest-snapshot"></a>
 
 ```
-curl -L https://snapshots.coinhunterstr.com/snap_warden.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.mineplex-chain
+curl -L https://snapshots.coinhunterstr.com/snap_warden.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.warden
 mv $HOME/.warden/priv_validator_state.json.backup $HOME/.warden/data/priv_validator_state.json
 ```
 

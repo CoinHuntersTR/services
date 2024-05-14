@@ -55,6 +55,7 @@
   * [Mantra Chain](testnet/mantra-chain/README.md)
     * [Service](testnet/mantra-chain/service.md)
     * [Installation](testnet/mantra-chain/installation.md)
+    * [Snapshots](testnet/mantra-chain/snapshots.md)
     * [Useful commands](testnet/mantra-chain/useful-commands.md)
   * [Side Protocol](testnet/side-protocol/README.md)
     * [Service](testnet/side-protocol/service.md)

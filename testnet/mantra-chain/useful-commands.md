@@ -280,7 +280,7 @@ sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.mantrachain/config/co
 **RESET CHAIN DATA**
 
 ```
-mantrachaind tendermint unsafe-reset-all --keep-addr-book --home $HOME/.mantrachain --keep-addr-book
+mantrachaind tendermint unsafe-reset-all --keep-addr-book --home $HOME/mantrachaind --keep-addr-book
 ```
 
 **REMOVE NODE**
