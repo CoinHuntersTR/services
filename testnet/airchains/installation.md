@@ -89,13 +89,6 @@ echo "$PEERS"
 sed -i 's|^persistent_peers *=.*|persistent_peers = "'$PEERS'"|' $HOME/.junction/config/config.toml
 ```
 
-#### Snapshot
-
-```
-junctiond tendermint unsafe-reset-all --home ~/.junction/ --keep-addr-book
-curl https://files.dymion.cloud/junction/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.junction
-```
-
 #### create service file
 
 ```
@@ -124,6 +117,29 @@ sudo systemctl enable junctiond
 sudo systemctl restart junctiond && sudo journalctl -u junctiond -f
 ```
 
+#### Snapshot
+
+#### Stop the service and reset the data <a href="#stop-the-service-and-reset-the-data" id="stop-the-service-and-reset-the-data"></a>
+
+```
+sudo systemctl stop junctiond
+cp $HOME/.junction/data/priv_validator_state.json $HOME/.junction/priv_validator_state.json.backup
+rm -rf $HOME/.junction/data
+```
+
+#### Download latest snapshot <a href="#download-latest-snapshot" id="download-latest-snapshot"></a>
+
+```
+curl -L https://snapshots.coinhunterstr.com/data.tar.lz4| lz4 -dc - | tar -xf - -C $HOME/.mineplex-chain
+mv $HOME/.junction/priv_validator_state.json.backup $HOME/.junction/data/priv_validator_state.json
+```
+
+#### Restart the service and check the log <a href="#restart-the-service-and-check-the-log" id="restart-the-service-and-check-the-log"></a>
+
+```
+sudo systemctl start junctiond && sudo journalctl -u junctiond -f --no-hostname -o cat
+```
+
 ### Automatic Installation <a href="#auto-installation" id="auto-installation"></a>
 
 > Moniker yerine Validator isminizi yazıp enter basın.
@@ -134,7 +150,7 @@ wget -q -O Airchains.sh https://raw.githubusercontent.com/CoinHuntersTR/props/ma
 
 ### Sync Node
 
-> Node ağ ile eşleşmiş olması gerekiyor. Bunun için `junctiond status 2>&1 | jq` komutunu çalıştırdığınızda `false` çıktısı vermesi gerekir.  `True` çıktı alırsanız aşağıdaki adımlara devam etmeyin.&#x20;
+> Node ağ ile eşleşmiş olması gerekiyor. Bunun için `junctiond status 2>&1 | jq` komutunu çalıştırdığınızda `false` çıktısı vermesi gerekir. `True` çıktı alırsanız aşağıdaki adımlara devam etmeyin.
 
 ### Run a Validator
 
@@ -174,7 +190,7 @@ nano /root/validator.json
 }
 ```
 
-> terminale yapıştırdıktan sonra, CTRL X Y enter ile çıkıyoruz.&#x20;
+> terminale yapıştırdıktan sonra, CTRL X Y enter ile çıkıyoruz.
 >
 > Şimdi tekrardan node restart atalım
 
@@ -182,9 +198,8 @@ nano /root/validator.json
 sudo systemctl restart junctiond
 ```
 
-> Şimdi aşağıdaki komutu çalıştırıyoruz. `wallet` yerine kendi cüzdan isminizi yazmayı unutmayın. Terminale cüzdan kurmak için `Useful Commands` bölümüne bakabilirsiniz.&#x20;
+> Şimdi aşağıdaki komutu çalıştırıyoruz. `wallet` yerine kendi cüzdan isminizi yazmayı unutmayın. Terminale cüzdan kurmak için `Useful Commands` bölümüne bakabilirsiniz.
 
 ```
 junctiond tx staking create-validator $HOME/validator.json --from wallet --chain-id junction --fees 5000amf
 ```
-

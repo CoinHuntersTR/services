@@ -31,6 +31,7 @@
   * [Airchains](testnet/airchains/README.md)
     * [Service](testnet/airchains/service.md)
     * [Installation](testnet/airchains/installation.md)
+    * [Snapshots](testnet/airchains/snapshots.md)
     * [Useful commands](testnet/airchains/useful-commands.md)
   * [AligendLayer](testnet/aligendlayer/README.md)
     * [Service](testnet/aligendlayer/service.md)
