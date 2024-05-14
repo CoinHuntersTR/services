@@ -75,3 +75,6 @@
     * [Installation](testnet/warden-protocol/installation.md)
     * [Snapshots](testnet/warden-protocol/snapshots.md)
     * [Useful commands](testnet/warden-protocol/useful-commands.md)
+  * [Babylon](testnet/babylon/README.md)
+    * [Installation](testnet/babylon/installation.md)
+    * [Useful commands](testnet/babylon/useful-commands.md)
