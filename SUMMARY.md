@@ -64,6 +64,7 @@
   * [Union](testnet/union/README.md)
     * [Service](testnet/union/service.md)
     * [Installation](testnet/union/installation.md)
+    * [Snapshots](testnet/union/snapshots.md)
     * [Useful commands](testnet/union/useful-commands.md)
   * [Warden Protocol](testnet/warden-protocol/README.md)
     * [Service](testnet/warden-protocol/service.md)
