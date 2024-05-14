@@ -78,3 +78,7 @@
     * [Installation](testnet/warden-protocol/installation.md)
     * [Snapshots](testnet/warden-protocol/snapshots.md)
     * [Useful commands](testnet/warden-protocol/useful-commands.md)
+  * [Initia](testnet/initia/README.md)
+    * [Service](testnet/initia/service.md)
+    * [Installation](testnet/initia/installation.md)
+    * [Useful commands](testnet/initia/useful-commands.md)
