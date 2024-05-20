@@ -2,13 +2,11 @@
 
 ### API
 
-
-
-{% embed url="https://initia-api.chainad.org/" %}
+{% embed url="https://initia-api.coinhunterstr.com/" %}
 
 ### RPC
 
-{% embed url="https://initia-rpc.chainad.org/" %}
+{% embed url="https://initia-rpc.coinhunterstr.com/" %}
 
 ### EXPLORER
 
