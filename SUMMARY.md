@@ -54,6 +54,7 @@
   * [Initia](testnet/initia/README.md)
     * [Service](testnet/initia/service.md)
     * [Installation](testnet/initia/installation.md)
+    * [Snapshots](testnet/initia/snapshots.md)
     * [Useful commands](testnet/initia/useful-commands.md)
   * [Lava Network](testnet/lava-network/README.md)
     * [Service](testnet/lava-network/service.md)
