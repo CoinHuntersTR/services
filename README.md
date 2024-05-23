@@ -20,7 +20,7 @@ layout:
 
 #### Who are we ? <a href="#who-are-we" id="who-are-we"></a>
 
-We're a community who like to share our work and educate people who don't know about how to do it but really interested in it.
+We are one of the leading mentors and content creators in Turkey's blockchain technology and cryptocurrency market. We are creating contents related to blockchain technology, defi, web3, testnets, pre-sales and all cryptocurrency analystics for the Turkish community. Beside content creation, they are active node runner on Dymension, Nibiru mainnets and testnets such as CrossFi, Warden, Avail etc. We also have an organization for VC investments and launchpad called HuntersArena. We invest in important projects and startups together with our community.
 
 **If you have any questions, please feel free to contact us**&#x20;
 
