@@ -13,6 +13,11 @@ artelad keys add wallet
 ```
 artelad keys add wallet --recover
 ```
+**WALLET EVM ADDRESS**
+
+```
+echo "0x$(artelad debug addr $(artelad keys show wallet -a) | grep hex | awk '{print $3}')"
+```
 
 **LIST ALL KEYS**
 
