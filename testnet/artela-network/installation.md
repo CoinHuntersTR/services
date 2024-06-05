@@ -158,6 +158,12 @@ wget -q -O artela.sh https://raw.githubusercontent.com/CoinHuntersTR/props/main/
 artelad keys add walletname
 ```
 
+Faucetten token istemek için size EVM adresi gerekli olacak bunun için oluşturduğunuz cüzdanın EVM adresini alalım. burada `wallet` yerine cüzdan adınızı yazmayı unutmayın. Artela discord'da faucet kanalından, token isteyelim.
+
+```bash
+echo "0x$(artelad debug addr $(artelad keys show wallet -a) | grep hex | awk '{print $3}')"
+```
+
 ```bash
 artelad tx staking create-validator \
 --amount 1000000uart \
@@ -175,8 +181,6 @@ artelad tx staking create-validator \
 --gas auto --gas-adjustment 1.5 \
 -y
 ```
-
-
 
 > `wallet` alanına cüzdan ismimizi yazıyoruz.&#x20;
 >
