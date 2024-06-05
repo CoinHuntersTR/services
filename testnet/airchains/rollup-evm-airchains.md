@@ -58,6 +58,10 @@ cd evm-station
 ```
 
 ```
+go mod tidy
+```
+
+```
 /bin/bash ./scripts/local-setup.sh
 ```
 
