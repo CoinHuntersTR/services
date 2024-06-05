@@ -84,3 +84,8 @@
     * [Installation](testnet/warden-protocol/installation.md)
     * [Snapshots](testnet/warden-protocol/snapshots.md)
     * [Useful commands](testnet/warden-protocol/useful-commands.md)
+  * [Artela Network](testnet/artela-network/README.md)
+    * [Service](testnet/artela-network/service.md)
+    * [Installation](testnet/artela-network/installation.md)
+    * [Snapshots](testnet/artela-network/snapshots.md)
+    * [Useful commands](testnet/artela-network/useful-commands.md)
