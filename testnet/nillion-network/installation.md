@@ -153,8 +153,8 @@ sudo systemctl start nillion.service && sudo journalctl -u nillion.service -f --
 
 > Moniker yerine Validator isminizi yazıp enter basın.
 
-```
-wget -q -O Airchains.sh https://raw.githubusercontent.com/CoinHuntersTR/props/main/AutoInstall/Airchains.sh && chmod +x Airchains.sh && ./Airchains.sh
+```bash
+wget -q -O nillion.sh https://raw.githubusercontent.com/CoinHuntersTR/props/main/AutoInstall/nillion.sh && chmod +x nillion.sh && ./nillion.sh
 ```
 
 ### Sync Node
