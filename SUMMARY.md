@@ -34,6 +34,7 @@
     * [Snapshots](testnet/airchains/snapshots.md)
     * [Useful commands](testnet/airchains/useful-commands.md)
     * [Rollup Evm Airchains](testnet/airchains/rollup-evm-airchains.md)
+    * [Auto TX Script](testnet/airchains/auto-tx-script.md)
   * [AligendLayer](testnet/aligendlayer/README.md)
     * [Service](testnet/aligendlayer/service.md)
     * [Installation](testnet/aligendlayer/installation.md)
