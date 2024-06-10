@@ -90,3 +90,8 @@
     * [Installation](testnet/warden-protocol/installation.md)
     * [Snapshots](testnet/warden-protocol/snapshots.md)
     * [Useful commands](testnet/warden-protocol/useful-commands.md)
+  * [Nillion Network](testnet/nillion-network/README.md)
+    * [Service](testnet/nillion-network/service.md)
+    * [Installation](testnet/nillion-network/installation.md)
+    * [Snapshots](testnet/nillion-network/snapshots.md)
+    * [Useful commands](testnet/nillion-network/useful-commands.md)
