@@ -36,7 +36,7 @@ eval $(echo 'export PATH=$PATH:$HOME/go/bin' | tee -a $HOME/.profile)
 ```
 # Download project binaries
 mkdir -p $HOME/.union/cosmovisor/genesis/bin
-wget -O $HOME/.union/cosmovisor/genesis/bin/uniond https://snapshots.kjnodes.com/union-testnet/uniond-v0.22.0-linux-amd64
+wget -O $HOME/.union/cosmovisor/genesis/bin/uniond https://snapshots.kjnodes.com/union-testnet/uniond-v0.24.0-linux-amd64
 chmod +x $HOME/.union/cosmovisor/genesis/bin/uniond
 
 # Create application symlinks
