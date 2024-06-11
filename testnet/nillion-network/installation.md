@@ -86,13 +86,6 @@ nilchaind config set client node tcp://localhost:18057
 nilchaind init Moniker --chain-id nillion-chain-testnet-1 --home=$HOME/.nillionapp
 ```
 
-#### Config init app
-
-```
-wardend init $MONIKER
-sed -i -e "s|^node *=.*|node = \"tcp://localhost:${WARDEN_PORT}657\"|" $HOME/.warden/config/client.toml
-```
-
 #### Download Genesis and Addrbook
 
 ```bash
