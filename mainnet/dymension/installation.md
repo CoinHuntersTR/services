@@ -8,7 +8,7 @@
 
 Replace **MONIKERNAME** with your validator name
 
-```
+```markup
 MONIKER="MONIKERNAME"
 ```
 
@@ -16,7 +16,7 @@ MONIKER="MONIKERNAME"
 
 **UPDATE SYSTEM AND INSTALL BUILD TOOLS**
 
-```
+```markup
 sudo apt -q update
 sudo apt -qy install curl git jq lz4 build-essential
 sudo apt -qy upgrade
@@ -24,7 +24,7 @@ sudo apt -qy upgrade
 
 **INSTALL GO**
 
-```
+```markup
 sudo rm -rf /usr/local/go
 curl -Ls https://go.dev/dl/go1.21.9.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
 eval $(echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee /etc/profile.d/golang.sh)
@@ -33,7 +33,7 @@ eval $(echo 'export PATH=$PATH:$HOME/go/bin' | tee -a $HOME/.profile)
 
 #### Download and build binaries <a href="#download-and-build-binaries" id="download-and-build-binaries"></a>
 
-```
+```markup
 # Clone project repository
 cd $HOME
 rm -rf dymension
@@ -56,7 +56,7 @@ sudo ln -s $HOME/.dymension/cosmovisor/current/bin/dymd /usr/local/bin/dymd -f
 
 #### Install Cosmovisor and create a service <a href="#install-cosmovisor-and-create-a-service" id="install-cosmovisor-and-create-a-service"></a>
 
-```
+```markup
 # Download and install Cosmovisor
 go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@v1.5.0
 
@@ -86,7 +86,7 @@ sudo systemctl enable dymension.service
 
 #### Initialize the node <a href="#initialize-the-node" id="initialize-the-node"></a>
 
-```
+```markup
 # Set node configuration
 dymd config chain-id dymension_1100-1
 dymd config keyring-backend file
@@ -96,11 +96,11 @@ dymd config node tcp://localhost:14657
 dymd init $MONIKER --chain-id dymension_1100-1
 
 # Download genesis and addrbook
-curl -Ls https://snapshots.kjnodes.com/dymension/genesis.json > $HOME/.dymension/config/genesis.json
-curl -Ls https://snapshots.kjnodes.com/dymension/addrbook.json > $HOME/.dymension/config/addrbook.json
+curl -Ls https://snapshots.coinhunterstr.com/dymension/genesis.json > $HOME/.dymension/config/genesis.json
+curl -Ls https://raw.githubusercontent.com/CoinHuntersTR/props/main/dymension/addrbook.json > $HOME/.dymension/config/addrbook.json
 
 # Add seeds
-sed -i -e "s|^seeds *=.*|seeds = \"400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc@dymension.rpc.kjnodes.com:14659\"|" $HOME/.dymension/config/config.toml
+sed -i -e "s|^seeds *=.*|seeds = \"45be427b2fc01810597991f5bacdc091a60e2fc4@167.235.192.220:14656\"|" $HOME/.dymension/config/config.toml
 
 # Set minimum gas price
 sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"20000000000adym\"|" $HOME/.dymension/config/app.toml
@@ -120,8 +120,8 @@ sed -i -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:14617\"
 
 #### Download latest chain snapshot <a href="#download-latest-chain-snapshot" id="download-latest-chain-snapshot"></a>
 
-```
-curl -L https://snapshots.kjnodes.com/dymension/snapshot_latest.tar.lz4 | tar -Ilz4 -xf - -C $HOME/.dymension
+```markup
+curl -L https://snapshots.coinhunterstr.com/dymension/snapshot_latest.tar.lz4 | tar -Ilz4 -xf - -C $HOME/.dymension
 [[ -f $HOME/.dymension/data/upgrade-info.json ]] && cp $HOME/.dymension/data/upgrade-info.json $HOME/.dymension/cosmovisor/genesis/upgrade-info.json
 ```
 

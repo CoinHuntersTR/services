@@ -9,6 +9,7 @@
   * [Dymension](mainnet/dymension/README.md)
     * [Service](mainnet/dymension/service.md)
     * [Installation](mainnet/dymension/installation.md)
+    * [Snapshots](mainnet/dymension/snapshots.md)
     * [Useful commands](mainnet/dymension/useful-commands.md)
   * [Nibiru](mainnet/nibiru/README.md)
     * [Service](mainnet/nibiru/service.md)
