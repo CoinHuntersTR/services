@@ -142,14 +142,6 @@ curl -L https://snapshots.coinhunterstr.com/nillion/snapshot_latest.tar.lz4 | ta
 sudo systemctl start nillion.service && sudo journalctl -u nillion.service -f --no-hostname -o cat
 ```
 
-### Automatic Installation <a href="#auto-installation" id="auto-installation"></a>
-
-> Moniker yerine Validator isminizi yazıp enter basın.
-
-```bash
-wget -q -O nillion.sh https://raw.githubusercontent.com/CoinHuntersTR/props/main/AutoInstall/nillion.sh && chmod +x nillion.sh && ./nillion.sh
-```
-
 ### Sync Node
 
 > Node ağ ile eşleşmiş olması gerekiyor. Bunun için `nilchaind status 2>&1 | jq` komutunu çalıştırdığınızda `false` çıktısı vermesi gerekir. `True` çıktı alırsanız aşağıdaki adımlara devam etmeyin.
@@ -203,5 +195,5 @@ sudo systemctl restart nillion.service
 > Şimdi aşağıdaki komutu çalıştırıyoruz. `wallet` yerine kendi cüzdan isminizi yazmayı unutmayın. Terminale cüzdan kurmak için `Useful Commands` bölümüne bakabilirsiniz.
 
 ```
-nilchaind tx staking create-validator $HOME/validator.json --from wallet--chain-id nillion-chain-testnet-1 --fees 0unil
+nilchaind tx staking create-validator $HOME/validator.json --from wallet --chain-id nillion-chain-testnet-1 --fees 0unil
 ```
