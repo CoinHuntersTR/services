@@ -96,3 +96,5 @@
     * [Installation](testnet/warden-protocol/installation.md)
     * [Snapshots](testnet/warden-protocol/snapshots.md)
     * [Useful commands](testnet/warden-protocol/useful-commands.md)
+  * [Nubit](testnet/nubit/README.md)
+    * [Light Node](testnet/nubit/installation.md)
