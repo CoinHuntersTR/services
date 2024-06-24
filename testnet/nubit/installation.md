@@ -40,10 +40,10 @@ nano $HOME/nubit-node/mnemonic.txt
 
 > Sizi Galxe yönlendirecek. orada twiiter, discord doğrulamalarını tamamlayın.
 
-Light node başlattıktan yaklaşık 15-20 dk sonrasında verify işlemi yapmayı unutmayın. Size verilen&#x20;
+Light node başlattıktan yaklaşık 15-20 dk sonrasında verify işlemi yapmayı unutmayın. Size verilen PUBKEY giriyoruz.
 
 ```
-nubit1....
+A+Tw8Rraes....
 ```
 
 başlayan adresimizi orada doğrulayacağız. Şimdilik işlemler bu kadar.
