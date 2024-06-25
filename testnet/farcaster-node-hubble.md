@@ -26,7 +26,7 @@ sudo apt install screen -y
 screen -S farcaster
 ```
 
-> screen ekranına daha sonradan ulaşmak için screen -r farcaster komutunu girerek ulaşabilirsiniz. İşiniz bittiğinde screenden CTRL A+D ile çıkabilirsiniz.&#x20;
+> screen ekranına daha sonradan ulaşmak için `screen -r farcaster` komutunu girerek ulaşabilirsiniz. İşiniz bittiğinde screenden CTRL A+D ile çıkabilirsiniz.&#x20;
 
 
 
