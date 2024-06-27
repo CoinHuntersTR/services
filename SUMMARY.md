@@ -98,4 +98,5 @@
     * [Useful commands](testnet/warden-protocol/useful-commands.md)
   * [Nubit](testnet/nubit/README.md)
     * [Light Node](testnet/nubit/installation.md)
+    * [Installation Validator](testnet/nubit/installation-1.md)
   * [Farcaster Node Hubble](testnet/farcaster-node-hubble.md)
