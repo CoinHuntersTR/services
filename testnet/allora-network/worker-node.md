@@ -77,6 +77,8 @@ allorad keys add WalletName
 
 > Cüzdanımıza Allora ağını eklemek için [BURADAN ](https://explorer.edgenet.allora.network/wallet/suggest)cüzdanımızı siteye bağlıyor ve ağı ekliyoruz. Ağı ekledikten sonra Keplr Wallet Manange Chain Visibility sekmesine basım tüm ağları kabul ederek, Allora ağına ulaşabilirsiniz.
 
+> [BURADAN](https://faucet.edgenet.allora.network/)  cüzdanımıza Allora token istiyoruz.
+
 > [BURADAN ](https://app.allora.network/?ref=eyJyZWZlcnJlcl9pZCI6IjA3YjViODQzLWUyOTItNDEwYy04NGVjLWNlZmQ0ZWU5MDA4ZiJ9)Allora Dashboard'a gidiyoruz ve Keplr wallet'ımız ile bağlanıyoruz.
 
 
