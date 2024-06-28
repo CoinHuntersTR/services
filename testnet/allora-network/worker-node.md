@@ -119,7 +119,7 @@ cat head-data/keys/identity
 
 <figure><img src="../../.gitbook/assets/Ekran görüntüsü 2024-06-28 150618.png" alt=""><figcaption></figcaption></figure>
 
-> Size buna benzer bir çıktı verirse, son bölümde root@Nodes başlayan kısmı almıyorsunuz. Yani, 12D.....b9 gibi bir değeri bir yere not edelim.
+> Size buna benzer bir çıktı verirse, son bölümde root@..... başlayan kısmı almıyorsunuz. Yani, 12D.....b9 gibi bir değeri olacak, onu bir yere not edelim.
 
 ```bash
 rm -rf docker-compose.yml
