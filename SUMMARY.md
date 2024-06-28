@@ -100,3 +100,5 @@
     * [Light Node](testnet/nubit/installation.md)
     * [Installation Validator](testnet/nubit/installation-1.md)
   * [Farcaster Node Hubble](testnet/farcaster-node-hubble.md)
+  * [Allora Network](testnet/allora-network/README.md)
+    * [Worker Node](testnet/allora-network/worker-node.md)
