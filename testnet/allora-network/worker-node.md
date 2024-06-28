@@ -69,7 +69,11 @@ Cüzdan açıyoruz.
 allorad keys add WalletName
 ```
 
+Kullandığınız cüzdanı içine aktarmak istersenizde aşağıdaki komutu kullanabilirsiniz. `WalletName` yerine istediğiniz bir isim girebilirsiniz.&#x20;
 
+```
+allorad keys add WalletName--recover
+```
 
 ### Allora Kayıt ve Cüzdan Aktarma
 
