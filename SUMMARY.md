@@ -102,3 +102,8 @@
   * [Farcaster Node Hubble](testnet/farcaster-node-hubble.md)
   * [Allora Network](testnet/allora-network/README.md)
     * [Worker Node](testnet/allora-network/worker-node.md)
+  * [Elys Network](testnet/airchains-1/README.md)
+    * [Service](testnet/airchains-1/service.md)
+    * [Installation](testnet/airchains-1/installation.md)
+    * [Snapshots](testnet/airchains-1/snapshots.md)
+    * [Useful commands](testnet/airchains-1/useful-commands.md)
