@@ -64,6 +64,7 @@ elysd tx staking create-validator \
 --chain-id elystestnet-1 \
 --gas auto --gas-adjustment 1.5 --fees 100uelys \
 -y
+```
 
 **UNJAIL VALIDATOR**
 
