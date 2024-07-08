@@ -109,3 +109,5 @@
   * [Farcaster Node Hubble](testnet/farcaster-node-hubble.md)
   * [PINGPONG](testnet/pingpong/README.md)
     * [Installation](testnet/pingpong/installation.md)
+    * [0G Storage Kurulumu](testnet/pingpong/0g-storage-kurulumu.md)
+    * [Grass Kurulumu](testnet/pingpong/grass-kurulumu.md)
