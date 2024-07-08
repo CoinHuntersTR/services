@@ -107,3 +107,5 @@
     * [Light Node](testnet/nubit/installation.md)
     * [Installation Validator](testnet/nubit/installation-1.md)
   * [Farcaster Node Hubble](testnet/farcaster-node-hubble.md)
+  * [PINGPONG](testnet/pingpong/README.md)
+    * [Installation](testnet/pingpong/installation.md)
