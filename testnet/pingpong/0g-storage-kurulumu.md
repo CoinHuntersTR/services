@@ -32,3 +32,5 @@ chmod +x ./PINGPONG && ./PINGPONG --key DEVICEKEY
 
 > PRIVATEKEY yazan yere test için kullandığınız cüzdanın private key ekliyoruz ve çalıştırıyoruz. Komutun sonunda successful  çıktısı sonrasında işlem tamamdır.
 
+> Bu adım sonrasında `screen -r pingpong` diyerek screen içine giriyoruz ve CTRL + C ile durdurup tekrardan `chmod +x ./PINGPONG && ./PINGPONG --key DEVICEKEY` komutu çalıştırıyoruz. Screen içinden çıkmak için CTRL A D kullanıyoruz.&#x20;
+
