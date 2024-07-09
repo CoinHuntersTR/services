@@ -111,3 +111,5 @@
     * [Installation](testnet/pingpong/installation.md)
     * [0G Storage Kurulumu](testnet/pingpong/0g-storage-kurulumu.md)
     * [Grass Kurulumu](testnet/pingpong/grass-kurulumu.md)
+  * [Rivalz](testnet/rivalz/README.md)
+    * [Linux Client](testnet/rivalz/linux-client.md)
