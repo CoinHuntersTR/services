@@ -88,17 +88,17 @@ curl -sSL https://download.thehubble.xyz/bootstrap.sh | bash
 
 > 1. olarak ETH Mainnet RPC'si 2. Olarak da Op Mainnet RPC'si bunları almak için infura sitesini kullanabilirsiniz. [BURADAN ](https://app.infura.io/dashboard)infura sitesine girip,&#x20;
 
-<figure><img src="../.gitbook/assets/Ekran görüntüsü 2024-06-25 144910.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Ekran görüntüsü 2024-06-25 144910.png" alt=""><figcaption></figcaption></figure>
 
 Hem ETH hem de OP için RPC alabilirsiniz.&#x20;
 
 > 3. olarak Farcaster ID yani FID isteyecek bunun için Profile sekmesinden sağ üste Edit Profile yanındaki 3 noktaya basıyoruz. About kısmına basınca hem cüzdan adresinizi hem de FID numaranızı görebilirsiniz.&#x20;
 
-<figure><img src="../.gitbook/assets/Ekran görüntüsü 2024-06-25 145019.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Ekran görüntüsü 2024-06-25 145019.png" alt=""><figcaption></figcaption></figure>
 
 Bunları girdikten sonra; Bir süre bekledikten sonra aşağıdaki gibi çıktı alıyorsanız. İşlem tamamlanmıştır.
 
-<figure><img src="../.gitbook/assets/Ekran görüntüsü 2024-06-25 142209.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Ekran görüntüsü 2024-06-25 142209.png" alt=""><figcaption></figcaption></figure>
 
 Doğru kurup kurmadığınızı kontrol etmek için;
 
@@ -131,4 +131,4 @@ http://sunucu-ip adresiniz:3000/
 
 Yukarıdaki linke kendi sunucu adresinizi yazarak tarayıcı da çalıştırdığınızda aşağıdaki gibi bir görsel alıyorsanız. İşlem tamamdır.
 
-<figure><img src="../.gitbook/assets/Ekran görüntüsü 2024-06-25 145823.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Ekran görüntüsü 2024-06-25 145823.png" alt=""><figcaption></figcaption></figure>
