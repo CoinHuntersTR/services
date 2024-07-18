@@ -2,7 +2,7 @@
 
 #### Başvuru
 
-[BURADAN](https://app.galxe.com/quest/n92t8xtegfVMAFUcXJor9E/GCVWntghfL) Galxe sitesine bağlanıyoruz ve testnet için kullanacağımız cüzdanı ve discordumuzla giriş yapıyoruz. Eğer seçim gerçekleşirse size 2500 DILL token gönderecek ve Andes validator kanalına erişebileceksiniz. Bu adımı tamamladıktan sonra diğer işlemlere geçebilirsiniz. &#x20;
+[BURADAN](https://app.galxe.com/quest/n92t8xtegfVMAFUcXJor9E/GCVWntghfL) Galxe sitesine bağlanıyoruz ve testnet için kullanacağımız cüzdan ile Discord hesabımızla giriş yapıyoruz. Eğer seçim gerçekleşirse, size 2500 DILL token gönderecek ve Andes validator kanalına erişebileceksiniz. Bu adımı tamamladıktan sonra diğer işlemlere geçebilirsiniz.
 
 #### Andes Network
 
