@@ -114,3 +114,5 @@
     * [Grass Kurulumu](testnet/pingpong/grass-kurulumu.md)
   * [Rivalz](testnet/rivalz/README.md)
     * [Linux Client](testnet/rivalz/linux-client.md)
+  * [Dill](testnet/dill/README.md)
+    * [Andes](testnet/dill/andes.md)
