@@ -14,7 +14,7 @@
   * [Lava Network](mainnet/lava-network/README.md)
     * [Service](mainnet/lava-network/service.md)
     * [Installion](mainnet/lava-network/installion.md)
-    * [Copy of Snapshots](mainnet/lava-network/snapshots.md)
+    * [Snapshots](mainnet/lava-network/snapshots.md)
     * [Useful commands](mainnet/lava-network/useful-commands.md)
   * [Nibiru](mainnet/nibiru/README.md)
     * [Service](mainnet/nibiru/service.md)
