@@ -52,7 +52,7 @@ Please make sure you have adjusted **moniker**, **identity**, **details** and **
 
 ```
 lavad tx staking create-validator \
---amount 1000000.000000001ulava \
+--amount 100000000ulava \
 --pubkey $(lavad tendermint show-validator) \
 --moniker "YOUR_MONIKER_NAME" \
 --identity "YOUR_KEYBASE_ID" \
@@ -134,31 +134,31 @@ lavad tx distribution withdraw-rewards $(lavad keys show wallet --bech val -a) -
 **DELEGATE TOKENS TO YOURSELF**
 
 ```
-lavad tx staking delegate $(lavad keys show wallet --bech val -a) 1000000.000000001ulava --from wallet --chain-id lava-mainnet-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.000000001ulava -y
+lavad tx staking delegate $(lavad keys show wallet --bech val -a) 100000000ulava --from wallet --chain-id lava-mainnet-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.000000001ulava -y
 ```
 
 **DELEGATE TOKENS TO VALIDATOR**
 
 ```
-lavad tx staking delegate <TO_VALOPER_ADDRESS> 1000000.000000001ulava --from wallet --chain-id lava-mainnet-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.000000001ulava -y
+lavad tx staking delegate <TO_VALOPER_ADDRESS> 100000000ulava --from wallet --chain-id lava-mainnet-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.000000001ulava -y
 ```
 
 **REDELEGATE TOKENS TO ANOTHER VALIDATOR**
 
 ```
-lavad tx staking redelegate $(lavad keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000.000000001ulava --from wallet --chain-id lava-mainnet-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.000000001ulava -y
+lavad tx staking redelegate $(lavad keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 100000000ulava --from wallet --chain-id lava-mainnet-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.000000001ulava -y
 ```
 
 **UNBOND TOKENS FROM YOUR VALIDATOR**
 
 ```
-lavad tx staking unbond $(lavad keys show wallet --bech val -a) 1000000.000000001ulava --from wallet --chain-id lava-mainnet-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.000000001ulava -y
+lavad tx staking unbond $(lavad keys show wallet --bech val -a) 100000000ulava --from wallet --chain-id lava-mainnet-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.000000001ulava -y
 ```
 
 **SEND TOKENS TO THE WALLET**
 
 ```
-lavad tx bank send wallet <TO_WALLET_ADDRESS> 1000000.000000001ulava --from wallet --chain-id lava-mainnet-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.000000001ulava -y
+lavad tx bank send wallet <TO_WALLET_ADDRESS> 100000000ulava --from wallet --chain-id lava-mainnet-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.000000001ulava -y
 ```
 
 ### 🗳 Governance <a href="#governance" id="governance"></a>
@@ -292,7 +292,7 @@ Please, before proceeding with the next step! All chain data will be lost! Make 
 cd $HOME
 sudo systemctl stop lavad
 sudo systemctl disable lavad
-sudo rm /etc/systemd/system/lava.service
+sudo rm /etc/systemd/system/lavad.service
 sudo systemctl daemon-reload
 rm -f $(which lavad)
 rm -rf $HOME/.lava
