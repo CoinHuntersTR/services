@@ -46,7 +46,7 @@ git checkout v2.2.0
 make install-all
 
 # config and init app
-lavad init $MonikerName --chain-id lava-mainnet-1
+lavad init MonikerName --chain-id lava-mainnet-1
 sed -i \
 -e 's/timeout_propose = .*/timeout_propose = "1s"/' \
 -e 's/timeout_propose_delta = .*/timeout_propose_delta = "500ms"/' \
