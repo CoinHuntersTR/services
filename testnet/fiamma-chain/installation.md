@@ -14,7 +14,8 @@ Ubuntu 22.04
 
 ```
 sudo apt update && sudo apt upgrade -y
-sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential git make lz4 unzip ncdu -y
+sudo apt install curl git wget htop tmux build-essential jq make lz4 gcc unzip -y
+sudo apt-get install -y libssl-dev
 ```
 
 **INSTALL GO**
@@ -133,12 +134,12 @@ sudo systemctl restart fiammad && sudo journalctl -u fiammad -f
 > Moniker yerine Validator isminizi yazıp enter basın.
 
 ```
-wget -q -O Airchains.sh https://raw.githubusercontent.com/CoinHuntersTR/props/main/AutoInstall/Airchains.sh && chmod +x Airchains.sh && ./Airchains.sh
+bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/main/AutoInstall/fiamma.sh)
 ```
 
 ### Sync Node
 
-> Node ağ ile eşleşmiş olması gerekiyor. Bunun için `junctiond status 2>&1 | jq` komutunu çalıştırdığınızda `false` çıktısı vermesi gerekir. `True` çıktı alırsanız aşağıdaki adımlara devam etmeyin.
+> Node ağ ile eşleşmiş olması gerekiyor. Bunun için `fiammad status 2>&1 | jq` komutunu çalıştırdığınızda `false` çıktısı vermesi gerekir. `True` çıktı alırsanız aşağıdaki adımlara devam etmeyin.
 
 ### Run a Validator
 
