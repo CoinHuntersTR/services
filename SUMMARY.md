@@ -121,3 +121,8 @@
     * [Linux Client](testnet/rivalz/linux-client.md)
   * [Dill](testnet/dill/README.md)
     * [Andes](testnet/dill/andes.md)
+  * [Fiamma Chain](testnet/fiamma-chain/README.md)
+    * [Service](testnet/fiamma-chain/service.md)
+    * [Installation](testnet/fiamma-chain/installation.md)
+    * [Snapshots](testnet/fiamma-chain/snapshots.md)
+    * [Useful commands](testnet/fiamma-chain/useful-commands.md)
