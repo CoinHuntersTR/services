@@ -126,3 +126,8 @@
     * [Installation](testnet/warden-protocol/installation.md)
     * [Snapshots](testnet/warden-protocol/snapshots.md)
     * [Useful commands](testnet/warden-protocol/useful-commands.md)
+  * [Empeiria](testnet/empeiria/README.md)
+    * [Service](testnet/empeiria/service.md)
+    * [Installation](testnet/empeiria/installation.md)
+    * [Snapshots](testnet/empeiria/snapshots.md)
+    * [Useful commands](testnet/empeiria/useful-commands.md)
