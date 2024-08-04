@@ -57,7 +57,7 @@ emped init Moniker --chain-id empe-testnet-2
 
 ```
 wget -O $HOME/.empe-chain/config/genesis.json https://raw.githubusercontent.com/CoinHuntersTR/props/main/empeiria/genesis.json
-wget -O $HOME/.empe-chain/config/addrbook.json  hhttps://raw.githubusercontent.com/CoinHuntersTR/props/main/empeiria/addrbook.json
+wget -O $HOME/.empe-chain/config/addrbook.json  https://raw.githubusercontent.com/CoinHuntersTR/props/main/empeiria/addrbook.json
 ```
 
 #### Config Pruning
