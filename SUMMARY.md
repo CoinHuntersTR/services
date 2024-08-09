@@ -2,7 +2,9 @@
 
 * [Introduction](README.md)
 * [Mainnet](mainnet/README.md)
-  * [CrossFi Mainnet](mainnet/crossfi-mainnet/README.md)
+  * [Avail](mainnet/avail/README.md)
+    * [Installation](mainnet/avail/installation.md)
+  * [CrossFi](mainnet/crossfi-mainnet/README.md)
     * [Service](mainnet/crossfi-mainnet/service.md)
     * [Installation](mainnet/crossfi-mainnet/installation.md)
     * [Useful commands](mainnet/crossfi-mainnet/useful-commands.md)
