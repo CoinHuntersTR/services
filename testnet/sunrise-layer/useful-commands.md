@@ -73,7 +73,7 @@ sunrised tx staking create-validator validator.json \
 **UNJAIL VALIDATOR**
 
 ```
-sunrised tx slashing unjail --from wallet chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
+sunrised tx slashing unjail --from wallet --chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
 ```
 
 **JAIL REASON**
@@ -105,43 +105,43 @@ sunrised q staking validator $(sunrised keys show wallet --bech val -a)
 **WITHDRAW REWARDS FROM ALL VALIDATORS**
 
 ```
-sunrised tx distribution withdraw-rewards $(sunrised keys show wallet --bech val -a) --commission --from wallet chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
+sunrised tx distribution withdraw-rewards $(sunrised keys show wallet --bech val -a) --commission --from wallet --chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
 ```
 
 **WITHDRAW COMMISSION AND REWARDS FROM YOUR VALIDATOR**
 
 ```
-sunrised tx distribution withdraw-rewards $(sunrised keys show wallet --bech val -a) --commission --from wallet chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
+sunrised tx distribution withdraw-rewards $(sunrised keys show wallet --bech val -a) --commission --from wallet --chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
 ```
 
 **DELEGATE TOKENS TO YOURSELF**
 
 ```
-sunrised tx staking delegate $(sunrised keys show wallet --bech val -a) 1000000000000uvrise --from wallet chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
+sunrised tx staking delegate $(sunrised keys show wallet --bech val -a) 1000000000000uvrise --from wallet --chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
 ```
 
 **DELEGATE TOKENS TO VALIDATOR**
 
 ```
-sunrised tx staking delegate <TO_VALOPER_ADDRESS> 1000000000000uvrise --from wallet chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
+sunrised tx staking delegate <TO_VALOPER_ADDRESS> 1000000000000uvrise --from wallet --chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
 ```
 
 **REDELEGATE TOKENS TO ANOTHER VALIDATOR**
 
 ```
-sunrised tx staking redelegate $(sunrised keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000000000uvrise --from wallet chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
+sunrised tx staking redelegate $(sunrised keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000000000uvrise --from wallet --chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
 ```
 
 **UNBOND TOKENS FROM YOUR VALIDATOR**
 
 ```
-sunrised tx staking unbond $(sunrised keys show wallet --bech val -a) 1000000000000uvrise --from wallet chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
+sunrised tx staking unbond $(sunrised keys show wallet --bech val -a) 1000000000000uvrise --from wallet --chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
 ```
 
 **SEND TOKENS TO THE WALLET**
 
 ```
-sunrised tx bank send wallet <TO_WALLET_ADDRESS> 1000000000000uvrise --from wallet chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
+sunrised tx bank send wallet <TO_WALLET_ADDRESS> 1000000000000uvrise --from wallet --chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
 ```
 
 ### 🗳 Governance <a href="#governance" id="governance"></a>
@@ -161,25 +161,25 @@ sunrised query gov proposal 1
 **VOTE ‘YES’**
 
 ```
-sunrised tx gov vote 1 yes --from wallet chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
+sunrised tx gov vote 1 yes --from wallet --chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
 ```
 
 **VOTE ‘NO’**
 
 ```
-sunrised tx gov vote 1 no --from wallet chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
+sunrised tx gov vote 1 no --from wallet --chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
 ```
 
 **VOTE ‘ABSTAIN’**
 
 ```
-sunrised tx gov vote 1 abstain --from wallet chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
+sunrised tx gov vote 1 abstain --from wallet --chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
 ```
 
 **VOTE ‘NOWITHVETO’**
 
 ```
-sunrised tx gov vote 1 NoWithVeto --from wallet chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
+sunrised tx gov vote 1 NoWithVeto --from wallet --chain-id sunrise-test-0.1 --gas-adjustment 1.5 --gas auto --gas-prices 0.0uvrise -y
 ```
 
 ### ⚡️ Utility <a href="#utility" id="utility"></a>

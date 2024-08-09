@@ -163,5 +163,5 @@ sudo systemctl restart sunrised && sudo journalctl -u sunrised -f
 > Şimdi aşağıdaki komutu çalıştırıyoruz. `wallet` yerine kendi cüzdan isminizi yazmayı unutmayın. Terminale cüzdan kurmak için `Useful Commands` bölümüne bakabilirsiniz.
 
 ```
-fiammad tx staking create-validator ~/.fiamma/config/validator.json --from wallet --chain-id fiamma-testnet-1 --fees 2ufia
+sunrised tx staking create-validator ~/.sunrise/config/validator.json --from wallet --chain-id sunrise-test-0.1 --fees 0.0uvrise
 ```
