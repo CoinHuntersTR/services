@@ -111,37 +111,37 @@ fiammad tx distribution withdraw-rewards $(fiammad keys show wallet --bech val -
 **WITHDRAW COMMISSION AND REWARDS FROM YOUR VALIDATOR**
 
 ```
-fiammad tx distribution withdraw-rewards $(fiammad keys show wallet --bech val -a) --commission --from wallet chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
+fiammad tx distribution withdraw-rewards $(fiammad keys show wallet --bech val -a) --commission --from wallet --chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
 ```
 
 **DELEGATE TOKENS TO YOURSELF**
 
 ```
-fiammad tx staking delegate $(fiammad keys show wallet --bech val -a) 1000000ufia --from wallet chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
+fiammad tx staking delegate $(fiammad keys show wallet --bech val -a) 1000000ufia --from wallet --chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
 ```
 
 **DELEGATE TOKENS TO VALIDATOR**
 
 ```
-fiammad tx staking delegate <TO_VALOPER_ADDRESS> 1000000ufia --from wallet chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
+fiammad tx staking delegate <TO_VALOPER_ADDRESS> 1000000ufia --from wallet --chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
 ```
 
 **REDELEGATE TOKENS TO ANOTHER VALIDATOR**
 
 ```
-fiammad tx staking redelegate $(fiammad keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000ufia --from wallet chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
+fiammad tx staking redelegate $(fiammad keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000ufia --from wallet --chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
 ```
 
 **UNBOND TOKENS FROM YOUR VALIDATOR**
 
 ```
-fiammad tx staking unbond $(fiammad keys show wallet --bech val -a) 1000000ufia --from wallet chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
+fiammad tx staking unbond $(fiammad keys show wallet --bech val -a) 1000000ufia --from wallet --chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
 ```
 
 **SEND TOKENS TO THE WALLET**
 
 ```
-fiammad tx bank send wallet <TO_WALLET_ADDRESS> 1000000ufia --from wallet chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
+fiammad tx bank send wallet <TO_WALLET_ADDRESS> 1000000ufia --from wallet --chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
 ```
 
 ### 🗳 Governance <a href="#governance" id="governance"></a>
@@ -161,25 +161,25 @@ fiammad query gov proposal 1
 **VOTE ‘YES’**
 
 ```
-fiammad tx gov vote 1 yes --from wallet chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
+fiammad tx gov vote 1 yes --from wallet --chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
 ```
 
 **VOTE ‘NO’**
 
 ```
-fiammad tx gov vote 1 no --from wallet chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
+fiammad tx gov vote 1 no --from wallet --chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
 ```
 
 **VOTE ‘ABSTAIN’**
 
 ```
-fiammad tx gov vote 1 abstain --from wallet chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
+fiammad tx gov vote 1 abstain --from wallet --chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
 ```
 
 **VOTE ‘NOWITHVETO’**
 
 ```
-fiammad tx gov vote 1 NoWithVeto --from wallet chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
+fiammad tx gov vote 1 NoWithVeto --from wallet --chain-id fiamma-testnet-1 --gas-adjustment 1.5 --gas auto --gas-prices 2ufia -y
 ```
 
 ### ⚡️ Utility <a href="#utility" id="utility"></a>
