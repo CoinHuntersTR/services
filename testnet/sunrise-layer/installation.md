@@ -37,7 +37,7 @@ source $HOME/.bash_profile
 
 ```
 cd $HOME
-wget -O sunrised wget https://github.com/sunriselayer/sunrise/releases/download/v0.1.2/sunrised
+wget -O sunrised wget https://github.com/sunriselayer/sunrise/releases/download/v0.1.4/sunrised
 chmod +x $HOME/sunrised
 mv $HOME/sunrised $HOME/go/bin/sunrised
 ```
@@ -47,10 +47,10 @@ mv $HOME/sunrised $HOME/go/bin/sunrised
 > `Moniker` yerine validator adınızı ekliyoruz.
 
 ```
-sunrised init $MONIKER --chain-id sunrise-test-0.1
+sunrised init $MONIKER --chain-id sunrise-test-0.2
 sed -i -e "s|^node *=.*|node = \"tcp://localhost:26657\"|" $HOME/.sunrise/config/client.toml
 sed -i -e "s|^keyring-backend *=.*|keyring-backend = \"os\"|" $HOME/.sunrise/config/client.toml
-sed -i -e "s|^chain-id *=.*|chain-id = \"sunrise-test-0.1\"|" $HOME/.sunrise/config/client.toml
+sed -i -e "s|^chain-id *=.*|chain-id = \"sunrise-test-0.2\"|" $HOME/.sunrise/config/client.toml
 ```
 
 #### Download Genesis and Addrbook
@@ -65,13 +65,13 @@ wget -O $HOME/.sunrise/config/genesis.json https://raw.githubusercontent.com/Coi
 sed -i -e "s/^pruning *=.*/pruning = \"custom\"/" $HOME/.sunrise/config/app.toml
 sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"100\"/" $HOME/.sunrise/config/app.toml
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"50\"/" $HOME/.sunrise/config/app.toml
-sed -i 's|minimum-gas-prices =.*|minimum-gas-prices = "0.0uvrise"|g' $HOME/.sunrise/config/app.toml
+sed -i 's|minimum-gas-prices =.*|minimum-gas-prices = "0.002urise"|g' $HOME/.sunrise/config/app.toml
 ```
 
 #### Set seeds and peers
 
 ```
-SEEDS="27d92a62f64585b995a6a99882cdd3a1a441336d@a.sunrise-test-1.cauchye.net:26656,9cb96bd137c6fab41446f5fa36e17b1f8896b05c@b.sunrise-test-1.cauchye.net:26656,db223ecc4fba0e7135ba782c0fd710580c5213a6@a-node.sunrise-test-1.cauchye.net:26656"
+SEEDS="0c0e0cf617c1c58297f53f3a82cea86a7c860396@a.sunrise-test-1.cauchye.net:26656,db223ecc4fba0e7135ba782c0fd710580c5213a6@a-node.sunrise-test-1.cauchye.net:26656,82bc2fdbfc735b1406b9da4181036ab9c44b63be@b-node.sunrise-test-1.cauchye.net:26656"
 PEERS="edf6ccc9678e4614295cb4479c2dae1b83e06500@37.27.31.124:26656"
 sed -i -e "/^\[p2p\]/,/^\[/{s/^[[:space:]]*seeds *=.*/seeds = \"$SEEDS\"/}" \
        -e "/^\[p2p\]/,/^\[/{s/^[[:space:]]*persistent_peers *=.*/persistent_peers = \"$PEERS\"/}" $HOME/.fiamma/config/config.toml
