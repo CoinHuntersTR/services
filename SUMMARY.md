@@ -136,4 +136,5 @@
   * [Sunrise Layer](testnet/sunrise-layer/README.md)
     * [Service](testnet/sunrise-layer/service.md)
     * [Installation](testnet/sunrise-layer/installation.md)
+    * [Snapshots](testnet/sunrise-layer/snapshots.md)
     * [Useful commands](testnet/sunrise-layer/useful-commands.md)
