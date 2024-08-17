@@ -138,3 +138,5 @@
     * [Installation](testnet/sunrise-layer/installation.md)
     * [Snapshots](testnet/sunrise-layer/snapshots.md)
     * [Useful commands](testnet/sunrise-layer/useful-commands.md)
+  * [Ethernity Chain](testnet/ethernity-chain/README.md)
+    * [Deploy a Smart Contract and Verify](testnet/ethernity-chain/deploy-a-smart-contract-and-verify.md)
