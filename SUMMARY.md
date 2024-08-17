@@ -140,3 +140,4 @@
     * [Useful commands](testnet/sunrise-layer/useful-commands.md)
   * [Ethernity Chain](testnet/ethernity-chain/README.md)
     * [Deploy a Smart Contract and Verify](testnet/ethernity-chain/deploy-a-smart-contract-and-verify.md)
+    * [Create an ERC-20 token and Verify](testnet/ethernity-chain/create-an-erc-20-token-and-verify.md)
