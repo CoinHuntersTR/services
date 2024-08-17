@@ -13,6 +13,8 @@ npm init -y
 ```
 
 ```
+npm install --save-dev hardhat ts-node typescript @nomicfoundation/hardhat-toolbox ethers@^6.1.0 dotenv
+npm install --save-dev @nomicfoundation/hardhat-verify
 npm install --save-dev hardhat ts-node typescript @nomicfoundation/hardhat-toolbox ethers @openzeppelin/contracts dotenv
 ```
 
@@ -126,7 +128,7 @@ nano scripts/deploy.ts
 import { ethers } from "hardhat";
 
 async function main() {
-    const initialSupply = ethers.utils.parseUnits("1000000", 18); // 1,000,000 TOK
+    const initialSupply = ethers.parseUnits("1000000", 18); // 1,000,000 TOK
     const Token = await ethers.getContractFactory("Token");
     const token = await Token.deploy(initialSupply);
     await token.waitForDeployment();
