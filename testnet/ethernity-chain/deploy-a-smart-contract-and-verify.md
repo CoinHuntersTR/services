@@ -1,8 +1,8 @@
 # Deploy a Smart Contract and Verify
 
-Aşağıdaki tüm adımları yapmadan önce Cüzdanınızda Sepolia ETH ağında biraz test ETH olması gerekiyor. Oradaki ETH'ları [BURADAN ](https://testnetbridge.ethernitychain.io/)Ethernity test ağına geçirmeyi unutmayın. Yoksa işlemleriniz onaylanmaz.&#x20;
+Aşağıdaki tüm adımları yapmadan önce Cüzdanınızda Sepolia ETH ağında biraz test ETH olması gerekiyor. Oradaki ETH'ları [BURADAN ](https://testnetbridge.ethernitychain.io/)Ethernity test ağına geçirmeyi unutmayın. Yoksa işlemleriniz onaylanmaz.
 
-Herhangi bir VPS Ubuntu 22.04 sunucu içerisinde çalıştırabilirsiniz. veya [BURADAN ](https://github.com/codespaces)github codespace üzerinden tüm adımları yapabilirsiniz. Size kalmış.
+Herhangi bir VPS Ubuntu 22.04 sunucu içerisinde çalıştırabilirsiniz.[BURADAN ](https://github.com/codespaces) github codespace üzerinden tüm adımları yapabilirsiniz. Size kalmış.
 
 ### Gereksinimleri Yükleyelim..
 
@@ -21,7 +21,7 @@ mkdir hello && cd hello
 npm init -y
 ```
 
-> Aşağıdakine benzer bir çıktı alırsanız işlem tamamdır.&#x20;
+> Aşağıdakine benzer bir çıktı alırsanız işlem tamamdır.
 
 <figure><img src="../../.gitbook/assets/Ekran görüntüsü 2024-08-18 012626.png" alt=""><figcaption></figcaption></figure>
 
@@ -103,7 +103,7 @@ nano hardhat.config.ts
    export default config;
 ```
 
-> Metamask cüzdanımızın private key'ini ekleyeceğiz.&#x20;
+> Metamask cüzdanımızın private key'ini ekleyeceğiz
 
 ```
 nano .env
@@ -161,7 +161,7 @@ npx hardhat run scripts/deploy.ts --network ernscan
 npx hardhat verify --network ernscan <deployed_contract_address>
 ```
 
-> Bir önceki komutta aldığınız kontrat adresiniz <> dahil silip oraya yazdığınızda, ağda yayınlamış olduğunuz kontratı verify yapmış olursunuz.&#x20;
+> Bir önceki komutta aldığınız kontrat adresiniz <> dahil silip oraya yazdığınızda, ağda yayınlamış olduğunuz kontratı verify yapmış olursunuz.
 
-[https://testnet.ernscan.io/](https://testnet.ernscan.io/) adresinden kontrat adresinizi kontrol edebilirsiniz.&#x20;
+[https://testnet.ernscan.io/](https://testnet.ernscan.io/) adresinden kontrat adresinizi kontrol edebilirsiniz.
 
