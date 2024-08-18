@@ -1,6 +1,6 @@
 # Create an ERC-20 token and Verify
 
-Akıllı kontrat yayınladığınız yerden devam edebilirsiniz.&#x20;
+Deploy a smart contract yayınladığınız yerden devam edebilirsiniz.
 
 ```
 mkdir token && cd token
@@ -30,7 +30,7 @@ rm Lock.sol
 nano Token.sol
 ```
 
-> Aşağıdaki Token. Sol içindeki My Token ve TOK simgelerini kendinize göre değiştirebilirisiniz. Size kalmış.
+> Aşağıdaki Token. Sol içindeki "My Token" ve "TOK" simgelerini kendinize göre değiştirebilirisiniz. Size kalmış.
 
 ```
 // SPDX-License-Identifier: MIT
