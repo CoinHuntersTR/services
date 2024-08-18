@@ -1,6 +1,6 @@
 # Create an NFT Collection and Verify
 
-İlk iki adımda kullandığımız yerde işlemlere devam edebiliriz.&#x20;
+İlk iki adımda kullandığımız yerde işlemlere devam edebiliriz.
 
 ```
 mkdir nft && cd nft
@@ -10,10 +10,10 @@ mkdir nft && cd nft
 npm init -y
 ```
 
-<pre><code>npm install --save-dev hardhat ts-node typescript @nomicfoundation/hardhat-toolbox ethers@^6.1.0 dotenv
+npm install --save-dev hardhat ts-node typescript @nomicfoundation/hardhat-toolbox ethers@^6.1.0 dotenv
 npm install --save-dev @nomicfoundation/hardhat-verify
-<strong>npm install --save-dev hardhat ts-node typescript @nomicfoundation/hardhat-toolbox ethers @openzeppelin/contracts dotenv
-</strong></code></pre>
+npm install --save-dev hardhat ts-node typescript @nomicfoundation/hardhat-toolbox ethers @openzeppelin/contracts dotenv
+
 
 ```
 npx hardhat
@@ -21,7 +21,9 @@ npx hardhat
 
 İstendiğinde, "Create a TypeScript project" seçeneğini seçin ve .gitignore ve bağımlılıklar için "Yes" yanıtını verin.
 
-### Yükleyeceğimiz resmi hazırlıyoruz.&#x20;
+### Yükleyeceğimiz resmi hazırlıyoruz.
+
+Bu adımları kendi bilgisayarımızda yapıyoruz.
 
 Bunun için [https://www.pinata.cloud/](https://www.pinata.cloud/) adresine ücretsiz kayıt olup oraya bir görsel yükleyebilirisiniz. yükledikten sonra size, CID ile bir numara verecek aşağıdaki komutta CID yazan yerlere o verdiği karakterleri ekleyebilirsiniz.
 
@@ -154,7 +156,7 @@ npx hardhat compile
 mkdir scripts
 nano scripts/deploy.ts
 ```
-
+> Aşağıdaki Metadata temel URI'deki yere, biraz önce yüklediğimiz json dosyası CID numarasını ekliyoruz. Geri kalan komutlara dokunmanıza gerek yok. 
 ```
 import { ethers } from "hardhat";
 
