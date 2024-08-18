@@ -141,3 +141,4 @@
   * [Ethernity Chain](testnet/ethernity-chain/README.md)
     * [Deploy a Smart Contract and Verify](testnet/ethernity-chain/deploy-a-smart-contract-and-verify.md)
     * [Create an ERC-20 token and Verify](testnet/ethernity-chain/create-an-erc-20-token-and-verify.md)
+    * [Create an NFT Collection and Verify](testnet/ethernity-chain/create-an-nft-collection-and-verify.md)
