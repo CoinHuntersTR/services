@@ -10,10 +10,9 @@ mkdir nft && cd nft
 npm init -y
 ```
 
-npm install --save-dev hardhat ts-node typescript @nomicfoundation/hardhat-toolbox ethers@^6.1.0 dotenv
-npm install --save-dev @nomicfoundation/hardhat-verify
-npm install --save-dev hardhat ts-node typescript @nomicfoundation/hardhat-toolbox ethers @openzeppelin/contracts dotenv
-
+```
+npm install --save-dev hardhat ts-node typescript @nomicfoundation/hardhat-toolbox ethers@^6.1.0 dotenv @nomicfoundation/hardhat-verify hardhat ts-node typescript @nomicfoundation/hardhat-toolbox ethers @openzeppelin/contracts dotenv
+```
 
 ```
 npx hardhat
@@ -156,7 +155,9 @@ npx hardhat compile
 mkdir scripts
 nano scripts/deploy.ts
 ```
-> Aşağıdaki Metadata temel URI'deki yere, biraz önce yüklediğimiz json dosyası CID numarasını ekliyoruz. Geri kalan komutlara dokunmanıza gerek yok. 
+
+> Aşağıdaki Metadata temel URI'deki yere, biraz önce yüklediğimiz json dosyası CID numarasını ekliyoruz. Geri kalan komutlara dokunmanıza gerek yok.
+
 ```
 import { ethers } from "hardhat";
 
@@ -190,4 +191,4 @@ npx hardhat verify --network ethernity-testnet <deployed_contract_address> "Ethe
 
 en son kayıt ettiğimiz CID kodunu buraya yapıştırıp verify işlemini yapıyoruz.
 
-[https://testnet.ernscan.io/](https://testnet.ernscan.io/) adresine gidiyoruz ve  Write Contract bölümüne gidip, Bu işlemler için kullandığımız Metamask cüzdanı bağlayıp, Mint fonksiyonu yerine kendi cüzdan adresimizi yazıp NFT mintliyoruz.&#x20;
+[https://testnet.ernscan.io/](https://testnet.ernscan.io/) adresine gidiyoruz ve Write Contract bölümüne gidip, Bu işlemler için kullandığımız Metamask cüzdanı bağlayıp, Mint fonksiyonu yerine kendi cüzdan adresimizi yazıp NFT mintliyoruz.

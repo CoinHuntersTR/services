@@ -13,9 +13,7 @@ npm init -y
 ```
 
 ```
-npm install --save-dev hardhat ts-node typescript @nomicfoundation/hardhat-toolbox ethers@^6.1.0 dotenv
-npm install --save-dev @nomicfoundation/hardhat-verify
-npm install --save-dev hardhat ts-node typescript @nomicfoundation/hardhat-toolbox ethers @openzeppelin/contracts dotenv
+npm install --save-dev hardhat ts-node typescript @nomicfoundation/hardhat-toolbox ethers@^6.1.0 dotenv @nomicfoundation/hardhat-verify hardhat ts-node typescript @nomicfoundation/hardhat-toolbox ethers @openzeppelin/contracts dotenv
 ```
 
 ```
@@ -147,10 +145,10 @@ main()
 npx hardhat run scripts/deploy.ts --network ethernity-testnet
 ```
 
-Şimdi de tokenimizi verify yapıyoruz. Bunun için bir üstteki komutta size verilen kontrat adresini yazmanız yeterlidir.&#x20;
+Şimdi de tokenimizi verify yapıyoruz. Bunun için bir üstteki komutta size verilen kontrat adresini yazmanız yeterlidir.
 
 ```
 npx hardhat verify --network ethernity-testnet <deployed_contract_address> 1000000000000000000000000
 ```
 
-[https://testnet.ernscan.io/ ](https://testnet.ernscan.io/) adresten gidip hem tokeninizi hem de Verify olup olmadığını kontrol edebilirsiniz.&#x20;
+[https://testnet.ernscan.io/ ](https://testnet.ernscan.io/)adresten gidip hem tokeninizi hem de Verify olup olmadığını kontrol edebilirsiniz.
