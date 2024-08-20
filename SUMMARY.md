@@ -143,3 +143,5 @@
     * [Installation](testnet/sunrise-layer/installation.md)
     * [Snapshots](testnet/sunrise-layer/snapshots.md)
     * [Useful commands](testnet/sunrise-layer/useful-commands.md)
+  * [Zero Network](testnet/zero-network/README.md)
+    * [Deploy a Smart Contract](testnet/zero-network/deploy-a-smart-contract.md)
