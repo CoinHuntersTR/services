@@ -1,147 +1,261 @@
 # Installation
 
-### 1. Install GOLANG:[​](https://services.staketab.org/docs/aligned-testnet/auto/#1-install-golang) <a href="#id-1-install-golang" id="id-1-install-golang"></a>
+### Minimum Gereksinimler <a href="#hardware-requirements" id="hardware-requirements"></a>
 
-Install custom version of Golang #GO.\
-Or you can install GO from [official website](https://golang.org/doc/install).
+| Component     | Specification     |
+| ------------- | ----------------- |
+| **CPU**       | 16 cores          |
+| **Memory**    | 32 GB RAM         |
+| **Bandwidth** | 1 Gbps            |
+| **Storage**   | 256 GB disk space |
 
-Specify version and GO path in this line `./go.sh -v GO_VERSION -p GO_PATH`\
-Example `./go.sh -v 1.19.4 -p /root/go`
+Orjinal dokümanda bu değerler belirtilmiştir. Fakat, 4CPU, 8GB RAM 160 SSD disk içine de rahatlıkla kurabilirsiniz.
 
-#### You can use all the variables or not use them at all and then the GO\_VERSION and GO\_PATH will be used by default as (-v 1.19.4 -p /usr/local/go)[​](https://services.staketab.org/docs/aligned-testnet/auto/#you-can-use-all-the-variables-or-not-use-them-at-all-and-then-the-go\_version-and-go\_path-will-be-used-by-default-as--v-1194--p-usrlocalgo) <a href="#you-can-use-all-the-variables-or-not-use-them-at-all-and-then-the-go_version-and-go_path-will-be-use" id="you-can-use-all-the-variables-or-not-use-them-at-all-and-then-the-go_version-and-go_path-will-be-use"></a>
+Aligend Layer kurabilmek için ilk olarak EigenLayer AVS kurmamı gerekiyor.&#x20;
 
-```
-wget https://raw.githubusercontent.com/Staketab/node-tools/main/components/golang/go.sh
-chmod +x go.sh && ./go.sh -v 1.22.0
-rm -rf go.sh
-```
-
-Now apply the changes with the command below or reboot your terminal.
+### EigenLayer CLI Kurulumu
 
 ```
-. /etc/profile && . $HOME/.bashrc
+sudo apt-get update -y && sudo apt-get upgrade -y
 ```
 
-### 2. Run Node setup:[​](https://services.staketab.org/docs/aligned-testnet/auto/#2-run-node-setup) <a href="#id-2-run-node-setup" id="id-2-run-node-setup"></a>
-
-The run command should look like this:
+#### Docker kuruyoruz..
 
 ```
-wget https://raw.githubusercontent.com/Staketab/cosmos-tools/main/node-installer/install.sh
-chmod +x install.sh
-./install.sh -g yetanotherco -f aligned_layer_tendermint -b alignedlayerd -c .alignedlayer -v v0.0.3
-rm -rf install.sh && . $HOME/.profile
+for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
 ```
 
-### 3. Data for start the chain.[​](https://services.staketab.org/docs/aligned-testnet/auto/#3-data-for-start-the-chain) <a href="#id-3-data-for-start-the-chain" id="id-3-data-for-start-the-chain"></a>
-
-* Binary link:
-
 ```
-https://services.staketab.org/aligned-testnet/alignedlayerd
+sudo apt-get update
 ```
 
-* Chain-id:
-
 ```
-alignedlayer
+sudo apt-get install ca-certificates curl gnupg
 ```
 
-* Genesis file:
-
 ```
-https://services.staketab.org/aligned-testnet/genesis.json
+sudo install -m 0755 -d /etc/apt/keyrings
 ```
 
-* Peers:
-
 ```
-81138177a67195791bbe782fe1ed49f25e582bac@91.107.239.79:26656,c5d0498e345725365c1016795eecff4a67e4c4c9@88.99.174.203:26656,14af04afc663427604e8dd53f4023f7963a255cb@116.203.81.174:26656,9c89e77d51561c8b23957eee85a81ccc99fa7d6b@128.140.3.188:26656
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 ```
 
-*   Seed:
-
-    `None`
-* minimum-gas-prices:
-
 ```
-0stake
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
 ```
 
-### 4. Service commands.[​](https://services.staketab.org/docs/aligned-testnet/auto/#4-service-commands) <a href="#id-4-service-commands" id="id-4-service-commands"></a>
-
-* Restart service
-
 ```
-sudo systemctl restart alignedlayerd.service
-```
-
-* Service logs
-
-```
-sudo journalctl -u alignedlayerd.service -f
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
-* Stop service
+#### Docker Güncelleme ve Çalıştırma
 
 ```
-sudo systemctl stop alignedlayerd.service
+sudo apt update -y && sudo apt upgrade -y
 ```
 
-* Reload configuration change
-
 ```
-systemctl daemon-reload
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-### 5. SnapShot
-
-#### Stop the service:[​](https://services.staketab.org/docs/aligned-testnet/snapshot/#stop-the-service) <a href="#stop-the-service" id="stop-the-service"></a>
-
-Replace the service to your service name.
-
 ```
-sudo systemctl stop alignedlayerd.service
+sudo docker run hello-world
 ```
 
-#### Backup priv\_validator\_state.json and remove old data:[​](https://services.staketab.org/docs/aligned-testnet/snapshot/#backup-priv\_validator\_statejson-and-remove-old-data) <a href="#backup-priv_validator_statejson-and-remove-old-data" id="backup-priv_validator_statejson-and-remove-old-data"></a>
-
-To prevent double-signing a block and tombstone your validator:
-
-* Backup priv\_validator\_state.json:
+#### Go Kurulumu
 
 ```
-cp $HOME/.alignedlayer/data/priv_validator_state.json $HOME/priv_validator_state.json
+cd $HOME
+ver="1.21.0"
+wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz"
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz"
+rm "go$ver.linux-amd64.tar.gz"
+echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile
+source $HOME/.bash_profile
+go version
 ```
 
-* Delete the data:
+> Yukarıdaki gereksinimlerin kurulumunu hallettikten sonra EigenLayer adımlarına geçebiliriz.
 
 ```
-alignedlayerd tendermint unsafe-reset-all --home $HOME/.alignedlayer
+git clone https://github.com/Layr-Labs/eigenlayer-cli.git
+cd eigenlayer-cli
 ```
 
-#### Snap:
-
 ```
-wget $(curl -s https://services.staketab.org/backend/aligned-testnet/ | jq -r .snap_link)
-tar -xf $(curl -s https://services.staketab.org/backend/aligned-testnet/ | jq -r .snap_filename) -C $HOME/.alignedlayer/data/
+mkdir -p build
 ```
 
-#### Addrbook:
-
 ```
-wget -O $HOME/.alignedlayer/config/addrbook.json $(curl -s https://services.staketab.org/backend/aligned-testnet/ | jq -r .addrbook_link)
+go build -o build/eigenlayer cmd/eigenlayer/main.go
 ```
 
-#### Return your priv\_validator\_state.json <a href="#return-your-priv_validator_statejson" id="return-your-priv_validator_statejson"></a>
+```
+cd
+sudo cp eigenlayer-cli/build/eigenlayer /usr/local/bin/
+```
+
+> Şimdi operatör keylerimizi oluşturuyoruz. Bunun için `<key-adı>` silip  (<> dahil siliyoruz.) istediğiniz bir ismi girebilirsiniz.&#x20;
 
 ```
-mv $HOME/priv_validator_state.json $HOME/.alignedlayer/data/priv_validator_state.json
+eigenlayer operator keys create --key-type ecdsa <key-adı>
 ```
 
-#### Start the service and check logs: <a href="#start-the-service-and-check-logs" id="start-the-service-and-check-logs"></a>
+> Bu adımı girdikten sonra size private key'inizi verecek. Bunu bir yere not etmeyi unutmayın. Daha sonra verdiği private key'i ETH stake etme ve ağı çalıştırma da kullanacağız.&#x20;
+
+Şimdi operatör  bls keylerimizi oluşturuyoruz. Bunun için `<key-adı>` silip  (<> dahil siliyoruz.) istediğiniz bir ismi girebilirsiniz. (Yukarıda verdiğiniz isimi ile aynı ismi verebilirsiniz.)
 
 ```
-sudo systemctl start alignedlayerd.service
-sudo journalctl -u alignedlayerd.service -f --line 100
+eigenlayer operator keys create --key-type bls <key-adı>
 ```
+
+> Her iki komuttan sonra da sizden şifre oluşturmanızı isteyecek, bu şifre Karmaşık bir şifre olmalıdır. içinde özel karakterler rakam ve harflerin olduğu bir kombinasyon tercih edebilirsiniz. Verdiğiniz şifreyi unutmayın.
+
+> ecdsa ve bls için hem private key hem de public key'ler alacaksınız, ayrıca ecdsa ve bls için size dosyanın uzantısı verilecek bunların hepsini not etmeyi unutmayın.
+
+```
+eigenlayer operator keys list
+```
+
+> Dosya yolları ve public key için yukarıdaki komutu yazıp tekrar çıktı alabilirsiniz.&#x20;
+
+#### Operatör Kaydı
+
+> Yukarıdaki adımları düzgün şekilde yaptıysak aşağıdaki adımları takip ediyoruz.
+
+```
+eigenlayer operator config create
+```
+
+
+
+{% hint style="danger" %}
+Aşağıdaki adımları yapmadan önce size Private key verilmiş olan EVM adresine ETH Holesky ağında test ETH göndermeyi unutmayın. EigenLayer AVS çalıştırmak için ortalama 1-1,5 test ETH'ına ihtiyacınız olacak.
+{% endhint %}
+
+* Burada ilk olarak sizden Operatör adresini isteyecek.  ecdsa operator keys için oluşturduğumuz EVM adresini giriyoruz.
+* Earning için adres istediğinde aynı EVM adresini verebilirsiniz.&#x20;
+* Sizden RPC url isteyecek. Bunu infura yada alchemy'den alabilirsiniz. ETH Holesky ağını seçtiğinizde size özel RPC adresi alabilirsiniz.&#x20;
+* Şimdi de sizde ecdsa ve bls key'lerinizin yolunu isteyecek. Bunu da not etmiş olmalısınız oraya o yolu giriyoruz.&#x20;
+
+> Bu adımları yaptıktan  sonra size bir metadata.json ve operator.yaml dosyası oluşturacak, buradaki düzenlemeleri yapıyoruz.
+
+```
+nano metadata.json
+```
+
+* Burayı açtığınızda size aşağıdaki gibi boş json dosyası çıkartacak. Bunu bir yere kopyalayıp kendi bilgilerinizi düzenleyin.
+
+```
+{
+  "name": "",
+  "website": "",
+  "description": "",
+  "logo": "",
+  "twitter": ""
+}
+```
+
+* Düzenlemeyi bitirdikten sonra metadata.json dosyasının içindekileri CTRL K ile silip hazırladığınızı içine yazın ve CTRL X Y enter ile kayıt edin.
+
+{% hint style="danger" %}
+metadata.json dosyasını dışarıdan da ulaşılabilecek şekilde kayıt etmemiz gerekiyor. Bunun için github kullanabilirsiniz. [BURADAN](https://github.com/CoinHuntersTR/Mangata-AVS?tab=readme-ov-file#metadata-i%CC%87%C5%9Flemleri) nasıl yapılabileceğini bulabilirsiniz. &#x20;
+{% endhint %}
+
+```
+nano operator.yaml
+```
+
+* Dosyasını açıyoruz ve aldığımız metada url adresini oraya yazıyoruz. Sonrasında kayıt edip çıkıyoruz.
+
+```
+eigenlayer operator register operator.yaml
+```
+
+* Komutunu çalıştırıyoruz. Tüm adımları doğru şekilde yaptıysanız.&#x20;
+
+<figure><img src="../../.gitbook/assets/303568504-94f5b712-2163-4989-a295-d1c4f36d3b44.png" alt=""><figcaption></figcaption></figure>
+
+Bu şekilde çıktı alıyorsunuz. Sonrasında [BURADAN ](https://holesky.eigenlayer.xyz/operator/)kendi operatörünüzü kontrol edebilirsiniz. AVS aktif edebilmek içinde orada WETH ve LIDO stake gibi alanlara ETH eklemeyi unutmayın.
+
+<figure><img src="../../.gitbook/assets/Ekran görüntüsü 2024-08-21 140425.png" alt=""><figcaption></figcaption></figure>
+
+### Building AligenLayer Operator
+
+Bu adımdan sonra sıra geldi Aligend Layer Operatör kurulum adımlarına.
+
+* İlk olarak bu adımları yapabilmek için Whitelist'e girmeniz gerekiyor. Onun için [BURADAN ](https://docs.google.com/forms/d/e/1FAIpQLSdH9sgfTz4v33lAvwj6BvYJGAeIshQia3FXz36PFfF-WQAWEQ/viewform)formu doldurup başvurunuzu tamamlayabilirsiniz.&#x20;
+
+```
+git clone https://github.com/yetanotherco/aligned_layer.git --branch v0.4.0
+cd aligned_layer
+```
+
+#### Şimdi gereksinimleri kuralım.
+
+```
+sudo apt install ca-certificates zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev curl git wget make jq build-essential pkg-config lsb-release libssl-dev libreadline-dev libffi-dev gcc screen unzip lz4 -y
+```
+
+```
+sudo apt install -y curl git jq lz4 build-essential cmake perl automake autoconf libtool wget libssl-dev
+```
+
+#### Rust kuruyoruz.
+
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+> size seçenek sorduğunda 1 yazıp enter basın, kurulum bittikten sonra ise aşağıdaki komut ile devam ediyoruz.&#x20;
+
+```
+source "$HOME/.cargo/env.fish"
+```
+
+#### Foundury kurulumunu yapalım.
+
+```
+sudo apt install make
+```
+
+```
+make install_foundry
+foundryup
+```
+
+```
+make build_operator
+```
+
+> bu komuttan sonra birkaç dakika bekliyoruz.&#x20;
+
+```
+./operator/build/aligned-operator --version
+```
+
+Aligned Operator [v0.4.0](https://github.com/yetanotherco/aligned\_layer/releases/tag/v0.4.0) çıktısı almamız gerekiyor.
+
+```
+nano ./config-files/config-operator.yaml
+```
+
+> dosyasını açıyoruz. Aşağıdaki sıralyacağım parametreleri değiştirip kayıt ediyoruz.
+
+* `ECDSA Configurations` bölümündeki  `private_key_store_path` bölümüne ecdsa key'inizi dosya yolunu yazıyoruz. `private_key_store_password` kısmına da dosyaya verdiğiniz şifreyiz yazıyoruz.
+* `BLS Configurations` bölümüne `private_key_store_path` başlığıa BLS private key dosya yolunu yazıyoruz. `private_key_store_password` kısmına da şifremizi yazıyoruz.&#x20;
+* `Operator Configurations` bölümünde `address` ve `earnings_receiver_address` bölümlerine EigenLayer Operatör adresimizi veriyoruz.&#x20;
+
+> Bu işlemleri yaptıktan sonra dosyayı kayıt edip çıkıyoruz.
+
+#### Operatörü Başlatalım.
+
+```
+./operator/build/aligned-operator start --config ./config-files/config-operator.yaml
+```
+
