@@ -7,7 +7,7 @@
 ```
 sudo systemctl stop sunrised
 cp $HOME/.sunrise/data/priv_validator_state.json $HOME/.sunrise/priv_validator_state.json.backup
-rm -rf $HOME/.sunrise/data $HOME/.fiamma/wasm
+rm -rf $HOME/.sunrise/data $HOME/.sunrise/wasm
 ```
 
 #### Download latest snapshot <a href="#download-latest-snapshot" id="download-latest-snapshot"></a>
