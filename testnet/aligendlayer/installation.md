@@ -118,6 +118,19 @@ eigenlayer operator keys create --key-type bls <key-adı>
 
 > ecdsa ve bls için hem private key hem de public key'ler alacaksınız, ayrıca ecdsa ve bls için size dosyanın uzantısı verilecek bunların hepsini not etmeyi unutmayın.
 
+
+
+{% hint style="success" %}
+#### Daha önce oluşturulmuş EigenLayer Operatörü Çalıştırmak için
+
+* Aşağıdaki komutları girip önceki EVM adresimizi giriyoruz ve aşağıdaki adımları tekrar yapıyoruz.
+
+```
+eigenlayer operator keys import --key-type bls <key-adı> <ecdsa private key>
+eigenlayer operator keys import--key-type bls <key-adı> <bls private key> 
+```
+{% endhint %}
+
 ```
 eigenlayer operator keys list
 ```
