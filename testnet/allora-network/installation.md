@@ -154,7 +154,7 @@ cd $HOME
 > Aşağıdaki dosyayı kendinize göre düzenlemeyi unutmayın. Validator ismi, site linkleri vs.
 
 ```
-cat << EOF > ~/.sunrise/config/validator.json
+cat << EOF > ~/.allorad/config/validator.json
 {
 	"pubkey": {"@type":"/cosmos.crypto.ed25519.PubKey","key":"m0nifXztPm9lMpTSUNz6HaUXK26oJLRAdVqhUZJY/QU="},
 	"amount": "100000000000uallo",
