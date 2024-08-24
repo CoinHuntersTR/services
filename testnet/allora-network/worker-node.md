@@ -218,4 +218,37 @@ CTRL X Y enter yapıp kayıt edip çıkıyoruz.
 
 Öncelikle Coingecko'dan bir tane hesapl oluşturuyoruz. Yoksa aşağıdaki linkten girip hesap oluşturabilirsiniz.&#x20;
 
-BURADAN coingecko sitesine gidiyoruz.&#x20;
+[BURADAN](https://www.coingecko.com/en/developers/dashboard) coingecko sitesine gidiyoruz. Kayıt adımlarınıa hallettikten sonra,
+
+Demo account diyoruz ve kendimize bir API oluşturuyoruz.&#x20;
+
+```
+nano app.py
+```
+
+<figure><img src="../../.gitbook/assets/Ekran görüntüsü 2024-08-25 013029.png" alt=""><figcaption></figcaption></figure>
+
+Bu işaretlediğim yeri buluyoruz ve coingeckodan aldığımız API key bu bölüme girip, CTRL X Y enter yapıp kayıt ediyoruz.
+
+#### Worker başlatalım&#x20;
+
+```
+chmod +x init.config
+./init.config
+```
+
+```
+docker compose up --build -d
+```
+
+#### Log kontrolü yapalım
+
+```
+docker logs -f container id yazıyoruz. 
+```
+
+> Örnek :  docker logs -f 14ce1bc8fe26 gibi sizde container başındaki id'leri alıp logları kontrol edebilirsiniz.&#x20;
+
+<figure><img src="../../.gitbook/assets/Ekran görüntüsü 2024-08-25 013441.png" alt=""><figcaption></figcaption></figure>
+
+Yukarıdaki görsel gibi çıktı alırsanız. işlem tamamdır. Puan kazanmaya başlayabilirsiniz.&#x20;
