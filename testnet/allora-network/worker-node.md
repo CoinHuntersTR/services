@@ -91,215 +91,131 @@ allorad keys add WalletName--recover
 
 ```bash
 cd $HOME
-git clone https://github.com/allora-network/basic-coin-prediction-node
-
-cd basic-coin-prediction-node
+git clone https://github.com/allora-network/allora-huggingface-walkthrough
+cd allora-huggingface-walkthrough
 ```
 
 Dosyalarımızı oluşturalım
 
 ```bash
-mkdir worker-data
-mkdir head-data
-sudo chmod -R 777 worker-data
-sudo chmod -R 777 head-data
+mkdir -p worker-data
+chmod -R 777 worker-data
 ```
 
-Head key oluşturma
-
-```bash
-sudo docker run -it --entrypoint=bash -v ./head-data:/data alloranetwork/allora-inference-base:latest -c "mkdir -p /data/keys && (cd /data/keys && allora-keys)"
-```
-
-Word key oluşturma
-
-```bash
-sudo docker run -it --entrypoint=bash -v ./worker-data:/data alloranetwork/allora-inference-base:latest -c "mkdir -p /data/keys && (cd /data/keys && allora-keys)"
-```
-
-Head keyi alma
-
-```bash
-cat head-data/keys/identity
-```
-
-<figure><img src="../../.gitbook/assets/Ekran görüntüsü 2024-06-28 150618.png" alt=""><figcaption></figcaption></figure>
-
-> Size buna benzer bir çıktı verirse, son bölümde root@..... başlayan kısmı almıyorsunuz. Yani, 12D.....b9 gibi bir değeri olacak, onu bir yere not edelim.
-
-```bash
-rm -rf docker-compose.yml
-```
-
-Öncelikle aşağıdaki dosyayı düzenliyoruz. Bunun içinde;
-
-`HEAD-ID-BURAYA YAZ` ve `GIZLI KELİMELERİNİ BURAYA YAZ` bölümlerini bulup, yukarıda aldığımız cüzdanımızın gizli kelimeleri ile head-id'imizi komutun içine ekleyip ondan sonrasında işlemlere devam ediyoruz.
-
-````bash
-```yaml
-version: '3'
-
-services:
-  inference:
-    container_name: inference-basic-eth-pred
-    build:
-      context: .
-    command: python -u /app/app.py
-    ports:
-      - "8000:8000"
-    networks:
-      eth-model-local:
-        aliases:
-          - inference
-        ipv4_address: 172.22.0.4
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/inference/ETH"]
-      interval: 10s
-      timeout: 5s
-      retries: 12
-    volumes:
-      - ./inference-data:/app/data
-
-  updater:
-    container_name: updater-basic-eth-pred
-    build: .
-    environment:
-      - INFERENCE_API_ADDRESS=http://inference:8000
-    command: >
-      sh -c "
-      while true; do
-        python -u /app/update_app.py;
-        sleep 24h;
-      done
-      "
-    depends_on:
-      inference:
-        condition: service_healthy
-    networks:
-      eth-model-local:
-        aliases:
-          - updater
-        ipv4_address: 172.22.0.5
-
-  worker:
-    container_name: worker-basic-eth-pred
-    environment:
-      - INFERENCE_API_ADDRESS=http://inference:8000
-      - HOME=/data
-    build:
-      context: .
-      dockerfile: Dockerfile_b7s
-    entrypoint:
-      - "/bin/bash"
-      - "-c"
-      - |
-        if [ ! -f /data/keys/priv.bin ]; then
-          echo "Generating new private keys..."
-          mkdir -p /data/keys
-          cd /data/keys
-          allora-keys
-        fi
-        # Change boot-nodes below to the key advertised by your head
-        allora-node --role=worker --peer-db=/data/peerdb --function-db=/data/function-db \
-          --runtime-path=/app/runtime --runtime-cli=bls-runtime --workspace=/data/workspace \
-          --private-key=/data/keys/priv.bin --log-level=debug --port=9011 \
-          --boot-nodes=/ip4/172.22.0.100/tcp/9010/p2p/HEAD-ID-BURAYA YAZ \
-          --topic=1 \
-          --allora-chain-key-name=testkey \
-          --allora-chain-restore-mnemonic='GIZLI KELİMELERİNİ BURAYA YAZ' \
-          --allora-node-rpc-address=https://allora-rpc.edgenet.allora.network/ \
-          --allora-chain-topic-id=1
-    volumes:
-      - ./worker-data:/data
-    working_dir: /data
-    depends_on:
-      - inference
-      - head
-    networks:
-      eth-model-local:
-        aliases:
-          - worker
-        ipv4_address: 172.22.0.10
-
-  head:
-    container_name: head-basic-eth-pred
-    image: alloranetwork/allora-inference-base-head:latest
-    environment:
-      - HOME=/data
-    entrypoint:
-      - "/bin/bash"
-      - "-c"
-      - |
-        if [ ! -f /data/keys/priv.bin ]; then
-          echo "Generating new private keys..."
-          mkdir -p /data/keys
-          cd /data/keys
-          allora-keys
-        fi
-        allora-node --role=head --peer-db=/data/peerdb --function-db=/data/function-db  \
-          --runtime-path=/app/runtime --runtime-cli=bls-runtime --workspace=/data/workspace \
-          --private-key=/data/keys/priv.bin --log-level=debug --port=9010 --rest-api=:6000
-    ports:
-      - "6000:6000"
-    volumes:
-      - ./head-data:/data
-    working_dir: /data
-    networks:
-      eth-model-local:
-        aliases:
-          - head
-        ipv4_address: 172.22.0.100
-
-
-networks:
-  eth-model-local:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.22.0.0/24
-
-volumes:
-  inference-data:
-  worker-data:
-  head-data:
-```
-````
-
-Bu komutu başlatıyoruz.&#x20;
-
-```bash
-nano docker-compose.yml
-```
-
-Yukarıda düzenlediğimiz dosyayı kopyalayıp içine yapıştıralım. Sonrasında CRTL X+Y enter ile kayıt edelim.
-
-#### Worker Başlatalım
+#### Nano congif dosyasını düzenleyelim.
 
 ```
-docker compose build
-docker compose up -d
+nano config.json
 ```
 
-> Container ID bulmak için;
+> Aşağıdaki dosyada değişecek parametreleri yazıyorum. "cüzdanadı" bölümüne cüzdanınızı oluştururken hangi ismi yazdıysan onu yazıyorsun.&#x20;
 
-<pre><code><strong>docker ps 
-</strong></code></pre>
-
-komutunu çalıştırıyoruz. Size gerekli olan Container ID'nin görselini ekliyorum. Açıklama kısmında worker olanı ID numarasını alın.
-
-<figure><img src="../../.gitbook/assets/Ekran görüntüsü 2024-06-28 151631.png" alt=""><figcaption></figcaption></figure>
-
-Orada yazan `77bade3f9244` benzer ID bir yere not edelim.
+> Cüzdan Kelimeleri bölümüne ise, cüzdanı oluşturduğunda sana verilen gizli kelimeleri yazıyorsun. Diğer bölümlere dokunmana gerek yok.
 
 ```
-docker logs -f container_id
-# Örnek 
-docker logs -f 77bade3f9244
+{
+    "wallet": {
+        "addressKeyName": "cüzdanadı",
+        "addressRestoreMnemonic": "Cüzdan kelimeleri",
+        "alloraHomeDir": "/root/.allorad",
+        "gas": "1000000",
+        "gasAdjustment": 1.0,
+        "nodeRpc": "https://allora-rpc.testnet-1.testnet.allora.network/",
+        "maxRetries": 1,
+        "delay": 1,
+        "submitTx": false
+    },
+    "worker": [
+        {
+            "topicId": 1,
+            "inferenceEntrypointName": "api-worker-reputer",
+            "loopSeconds": 1,
+            "parameters": {
+                "InferenceEndpoint": "http://inference:8000/inference/{Token}",
+                "Token": "ETH"
+            }
+        },
+        {
+            "topicId": 2,
+            "inferenceEntrypointName": "api-worker-reputer",
+            "loopSeconds": 3,
+            "parameters": {
+                "InferenceEndpoint": "http://inference:8000/inference/{Token}",
+                "Token": "ETH"
+            }
+        },
+        {
+            "topicId": 3,
+            "inferenceEntrypointName": "api-worker-reputer",
+            "loopSeconds": 5,
+            "parameters": {
+                "InferenceEndpoint": "http://inference:8000/inference/{Token}",
+                "Token": "BTC"
+            }
+        },
+        {
+            "topicId": 4,
+            "inferenceEntrypointName": "api-worker-reputer",
+            "loopSeconds": 2,
+            "parameters": {
+                "InferenceEndpoint": "http://inference:8000/inference/{Token}",
+                "Token": "BTC"
+            }
+        },
+        {
+            "topicId": 5,
+            "inferenceEntrypointName": "api-worker-reputer",
+            "loopSeconds": 4,
+            "parameters": {
+                "InferenceEndpoint": "http://inference:8000/inference/{Token}",
+                "Token": "SOL"
+            }
+        },
+        {
+            "topicId": 6,
+            "inferenceEntrypointName": "api-worker-reputer",
+            "loopSeconds": 5,
+            "parameters": {
+                "InferenceEndpoint": "http://inference:8000/inference/{Token}",
+                "Token": "SOL"
+            }
+        },
+        {
+            "topicId": 7,
+            "inferenceEntrypointName": "api-worker-reputer",
+            "loopSeconds": 2,
+            "parameters": {
+                "InferenceEndpoint": "http://inference:8000/inference/{Token}",
+                "Token": "ETH"
+            }
+        },
+        {
+            "topicId": 8,
+            "inferenceEntrypointName": "api-worker-reputer",
+            "loopSeconds": 3,
+            "parameters": {
+                "InferenceEndpoint": "http://inference:8000/inference/{Token}",
+                "Token": "BNB"
+            }
+        },
+        {
+            "topicId": 9,
+            "inferenceEntrypointName": "api-worker-reputer",
+            "loopSeconds": 5,
+            "parameters": {
+                "InferenceEndpoint": "http://inference:8000/inference/{Token}",
+                "Token": "ARB"
+            }
+        }
+        
+    ]
+}
 ```
 
-Komutunu çalıştırınca
+CTRL X Y enter yapıp kayıt edip çıkıyoruz.
 
-<figure><img src="../../.gitbook/assets/Ekran görüntüsü 2024-06-28 144933.png" alt=""><figcaption></figcaption></figure>
+#### Coingecko API Key
 
-Görseldeki gibi bir çıktı alıyorsanız. İşlem tamamdır. Belli süreler sonrasında puanınız artmaya başlayacaktır.
+Öncelikle Coingecko'dan bir tane hesapl oluşturuyoruz. Yoksa aşağıdaki linkten girip hesap oluşturabilirsiniz.&#x20;
 
+BURADAN coingecko sitesine gidiyoruz.&#x20;
