@@ -244,6 +244,10 @@ docker compose up --build -d
 #### Log kontrolü yapalım
 
 ```
+docker ps -a
+```
+
+```
 docker logs -f container id yazıyoruz. 
 ```
 
