@@ -113,6 +113,7 @@
     * [Installation](testnet/nillion-network/installation.md)
     * [Snapshots](testnet/nillion-network/snapshots.md)
     * [Useful commands](testnet/nillion-network/useful-commands.md)
+    * [Verifier Program](testnet/nillion-network/verifier-program.md)
   * [Nubit](testnet/nubit/README.md)
     * [Light Node](testnet/nubit/installation.md)
     * [Installation Validator](testnet/nubit/installation-1.md)
