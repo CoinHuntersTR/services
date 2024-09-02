@@ -136,6 +136,7 @@
     * [Installation](testnet/sunrise-layer/installation.md)
     * [Snapshots](testnet/sunrise-layer/snapshots.md)
     * [Useful commands](testnet/sunrise-layer/useful-commands.md)
+    * [Manual upgrade](testnet/sunrise-layer/manual-upgrade.md)
   * [Union](testnet/union/README.md)
     * [Service](testnet/union/service.md)
     * [Installation](testnet/union/installation.md)
