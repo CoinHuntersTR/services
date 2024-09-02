@@ -37,7 +37,7 @@ source $HOME/.bash_profile
 
 ```
 cd $HOME
-wget -O sunrised wget https://github.com/sunriselayer/sunrise/releases/download/v0.1.4/sunrised
+wget -O sunrised wget https://github.com/sunriselayer/sunrise/releases/download/v0.2.0/sunrised
 chmod +x $HOME/sunrised
 mv $HOME/sunrised $HOME/go/bin/sunrised
 ```
