@@ -69,6 +69,7 @@
     * [Snapshots](testnet/crossfi/snapshots.md)
   * [Dill](testnet/dill/README.md)
     * [Andes](testnet/dill/andes.md)
+    * [Alps](testnet/dill/andes-1.md)
   * [Dymension](testnet/dymension/README.md)
     * [Service](testnet/dymension/service.md)
     * [Installation](testnet/dymension/installation.md)
