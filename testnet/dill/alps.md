@@ -33,8 +33,8 @@ Bu parametreleri Metamask cüzdanımıza ekliyoruz.
 
 Copy
 
-```
-sudo apt update && sudo apt upgrade -y && sudo apt install curl tar -y
+```bash
+sudo apt update && sudo apt upgrade -y && sudo apt install curl tar jq -y
 ```
 
 Sonrasında altaki komutu çalıştırıyoruz.
@@ -108,3 +108,19 @@ Validator Public Key'inizi sunucunuzdaki Succes çıktısı içinde görebilirsi
 Yada test ağında Stake ederken yaptığınız TX içinde bulabilirsiniz.
 
 <figure><img src="../../.gitbook/assets/Ekran görüntüsü 2024-09-16 122959.png" alt=""><figcaption></figcaption></figure>
+
+Sonrasında ağı kontrol etmek için aşağıdaki komutları kullanabilirsiniz.
+
+```bash
+cd dill
+./health_check.sh -v
+```
+
+```bash
+curl -s localhost:3500/eth/v1/beacon/headers | jq
+```
+
+```bash
+curl -s localhost:3500/eth/v1/node/syncing
+```
+
