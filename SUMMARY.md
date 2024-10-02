@@ -150,3 +150,4 @@
     * [Useful commands](testnet/warden-protocol/useful-commands.md)
   * [Zero Network](testnet/zero-network/README.md)
     * [Deploy a Smart Contract](testnet/zero-network/deploy-a-smart-contract.md)
+  * [Story Protocol](testnet/story-protocol.md)
