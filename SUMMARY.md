@@ -152,3 +152,4 @@
     * [Deploy a Smart Contract](testnet/zero-network/deploy-a-smart-contract.md)
   * [Story Protocol](testnet/story-protocol/README.md)
     * [Installation](testnet/story-protocol/installation.md)
+    * [Snapshots](testnet/story-protocol/snapshots.md)
