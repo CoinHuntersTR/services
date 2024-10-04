@@ -1,5 +1,5 @@
 ---
-description: updated every 4h.
+description: updated every 6h.
 ---
 
 # Snapshots
