@@ -1,5 +1,7 @@
 # Installation
 
+### Manual Installation <a href="#installation" id="installation"></a>
+
 | Chain ID           | Latest Version Tag | Custom Port |
 | ------------------ | ------------------ | ----------- |
 | mineplex-mainnet-1 | v0.3.0             | 26          |
@@ -31,7 +33,7 @@ source $HOME/.bash_profile
 
 ```
 
-### Set Vars
+#### Set Vars
 
 WALLET yerine istediğiniz bir ismi, MONIKER yerine bir validator adı yazmayı unutmayın.&#x20;
 
@@ -130,4 +132,10 @@ fi
 sudo systemctl daemon-reload
 sudo systemctl enable crossfid
 sudo systemctl restart crossfid && sudo journalctl -u crossfid -f
+```
+
+## Automatic Installation <a href="#auto-installation" id="auto-installation"></a>
+
+```
+bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/refs/heads/main/AutoInstall/crossfi.sh)
 ```
