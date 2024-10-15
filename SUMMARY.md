@@ -153,3 +153,4 @@
   * [Story Protocol](testnet/story-protocol/README.md)
     * [Installation](testnet/story-protocol/installation.md)
     * [Snapshots](testnet/story-protocol/snapshots.md)
+    * [Upgrade](testnet/story-protocol/upgrade.md)
