@@ -154,3 +154,4 @@
     * [Installation](testnet/story-protocol/installation.md)
     * [Snapshots](testnet/story-protocol/snapshots.md)
     * [Upgrade](testnet/story-protocol/upgrade.md)
+  * [Hemi Network](testnet/hemi-network.md)
