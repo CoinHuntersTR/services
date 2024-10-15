@@ -2,9 +2,9 @@
 
 ### Manual Installation <a href="#installation" id="installation"></a>
 
-| Chain ID           | Latest Version Tag | Custom Port |
-| ------------------ | ------------------ | ----------- |
-| mineplex-mainnet-1 | v0.3.0             | 26          |
+| Chain ID          | Latest Version Tag | Custom Port |
+| ----------------- | ------------------ | ----------- |
+| crossfi-mainnet-1 | v0.3.0             | 26          |
 
 #### Install dependencies <a href="#install-dependencies" id="install-dependencies"></a>
 
