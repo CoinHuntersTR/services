@@ -141,13 +141,13 @@ sudo systemctl restart mantrachaind && sudo journalctl -fu mantrachaind -o cat
 ```
 sudo systemctl stop mantrachaind
 cp $HOME/.mantrachain/data/priv_validator_state.json $HOME/.mantrachain/priv_validator_state.json.backup
-rm -rf $HOME/.mantrachain/data/*
+rm -rf $HOME/.mantrachain/data
 ```
 
 #### Download latest snapshot <a href="#download-latest-snapshot" id="download-latest-snapshot"></a>
 
 ```
-curl -L https://snapshots.coinhunterstr.com/snap_mantra.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.mantrachain/data
+curl -L https://snapshots.coinhunterstr.com/snap_mantra.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.mantrachain
 mv $HOME/.mantrachain/priv_validator_state.json.backup $HOME/.mantrachain/data/priv_validator_state.json
 ```
 
