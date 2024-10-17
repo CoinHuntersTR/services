@@ -68,9 +68,14 @@ wget -O $HOME/.mantrachain/config/addrbook.json https://raw.githubusercontent.co
 #### Set seeds and peers
 
 ```
-SEEDS="a9a71700397ce950a9396421877196ac19e7cde0@mantra-testnet-seed.itrocket.net:22656"
-PEERS="1a46b1db53d1ff3dbec56ec93269f6a0d15faeb4@mantra-testnet-peer.itrocket.net:22656,ccd9c19b78e4a4075bd228b6d6d534f8c4fd54da@167.235.14.117:26656,df5362cb44533cb3f65c67075db214ccf154c568@37.60.225.54:11656,6414bdede0cfe6c8d6d522db8ec2ff062b066e94@213.199.48.74:23656,33cf22311a510b01552fb1e323add74c641f01c5@65.109.62.39:18656,a209274985b1babe4eabaeb7d1dce17d233e9878@116.202.162.188:17656,2a1aec89ce97fe3c9481e2183987dc899278af31@65.109.92.241:19656,ec6dc74e24168ce92b935d1c2fbc0c9cc4a1ece0@207.180.206.3:23656,e61da86554ee901069b4f5ef07d6996e7dd420f0@84.247.160.249:23656,28dcca0ba822cc7a99ec5390da81d2f1bc9746a8@81.31.197.120:16656,0fd1df61898634c63dfec58cbd310a9b4246958f@138.201.51.154:21104,ad87a59bf9796980c3f78ffc60120c13dd8cfb83@66.45.251.114:13656,30235fa097d100a14d2b534fdbf67e34e8d5f6cf@139.45.205.60:21656,4ccf2fb06244e8b39e3cb28a04602f1c4c593344@37.60.245.125:16656,e430e2c8402f48fb50f8854861c44ae7e2011fe6@217.76.51.182:13656,355ce8ff02bf75ae7418e24d7a60a7f97eeb204f@142.132.180.35:23656,ec579fd3a9563aae863e9bfef783e41fefdaf97b@158.220.112.78:23656,2118a36f67e5c83ca7e4271830073eb3b63342f6@15.235.212.150:56266"
-sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.mantrachain/config/config.toml
+# set seeds and peers
+URL="https://mantra.rpc.t.stavr.tech/net_info"
+response=$(curl -s $URL)
+PEERS=$(echo $response | jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip):" + (.node_info.listen_addr | capture("(?<ip>.+):(?<port>[0-9]+)$").port)' | paste -sd "," -)
+echo "PEERS=\"$PEERS\""
+
+# Update the persistent_peers in the config.toml file
+sed -i -e "s|^seeds *=.*|seeds = \"$SEEDS\"|; s|^persistent_peers *=.*|persistent_peers = \"$PEERS\"|" $HOME/.mantrachain/config/config.toml
 ```
 
 #### Config Pruning
