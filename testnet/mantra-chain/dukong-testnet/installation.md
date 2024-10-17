@@ -70,7 +70,7 @@ wget -O $HOME/.mantrachain/config/addrbook.json https://raw.githubusercontent.co
 
 ```
 # set seeds and peers
-URL="https://mantra.rpc.t.stavr.tech/net_info"
+URL="https://mantra-dukong-rpc.chainad.org/net_info"
 response=$(curl -s $URL)
 PEERS=$(echo $response | jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip):" + (.node_info.listen_addr | capture("(?<ip>.+):(?<port>[0-9]+)$").port)' | paste -sd "," -)
 echo "PEERS=\"$PEERS\""
