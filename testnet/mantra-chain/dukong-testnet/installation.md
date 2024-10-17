@@ -1,5 +1,6 @@
 # Installation
 
+## Manual Installation
 #### Install dependencies <a href="#install-dependencies" id="install-dependencies"></a>
 
 **UPDATE SYSTEM AND INSTALL BUILD TOOLS**
@@ -153,5 +154,10 @@ mv $HOME/.mantrachain/priv_validator_state.json.backup $HOME/.mantrachain/data/p
 #### Restart the service and check the log <a href="#restart-the-service-and-check-the-log" id="restart-the-service-and-check-the-log"></a>
 
 ```
-sudo systemctl restart mantrachaind && sudo journalctl -u mantrachaind-f --no-hostname -o cat
+sudo systemctl restart mantrachaind && sudo journalctl -u mantrachaind -f --no-hostname -o cat
+```
+## Auto Installation
+
+```
+bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/main/AutoInstall/mantrachain.sh)
 ```
