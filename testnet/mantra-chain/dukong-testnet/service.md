@@ -16,6 +16,6 @@
 
 
 
-{% embed url="https://explorer.coinhunterstr.com/mantra" %}
+{% embed url="https://explorer.coinhunterstr.com/Mantra-Dukong-Testnet" %}
 
 
