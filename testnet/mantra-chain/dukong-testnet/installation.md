@@ -161,3 +161,57 @@ sudo systemctl restart mantrachaind && sudo journalctl -u mantrachaind -f --no-h
 ```
 bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/main/AutoInstall/mantrachain.sh)
 ```
+
+### Sync Node
+
+> Node ağ ile eşleşmiş olması gerekiyor. Bunun için `mantrachaind status 2>&1 | jq` komutunu çalıştırdığınızda `false` çıktısı vermesi gerekir. `True` çıktı alırsanız aşağıdaki adımlara devam etmeyin.
+
+### Run a Validator
+
+```
+cd $HOME
+```
+
+> İlk önce Pubkeyimizi alıyoruz.
+
+```
+mantrachaind comet show-validator
+```
+
+`{"@type":"/cosmos.crypto.ed25519.PubKey","key":"0LuMdRNJpWGiH+b+................"}` buna benzer bir çıktı alacaksınız.
+
+> Sonrasında validator json dosyası açıyoruz.
+
+> Aşağıdaki dosyayı kendinize göre düzenlemeyi unutmayın. Validator ismi, site linkleri vs.
+
+```
+cat << EOF > ~/validator.json
+{   
+    "pubkey":{"@type":"/cosmos.crypto.ed25519.PubKey","key":"BVTxen+wn6ZgBPUqsgdFDonZ3cr2r+eoYRfF8sTx6kQ="},
+    "amount": "10000uom",
+    "moniker": "",
+    "identity": "",
+    "website": "",
+    "security": "",
+    "details": " Coin Hunters Community ",
+    "commission-rate": "0.1",
+    "commission-max-rate": "0.2",
+    "commission-max-change-rate": "0.01",
+    "min-self-delegation": "1"
+}
+EOF
+```
+
+> terminale yapıştırdıktan sonra, CTRL X Y enter ile çıkıyoruz.
+>
+> Şimdi tekrardan node restart atalım
+
+```
+sudo systemctl restart mantrachaind && sudo journalctl -u mantrachaind -f
+```
+
+> Şimdi aşağıdaki komutu çalıştırıyoruz. `wallet` yerine kendi cüzdan isminizi yazmayı unutmayın. Terminale cüzdan kurmak için `Useful Commands` bölümüne bakabilirsiniz.
+
+```
+mantrachaind tx staking create-validator ~/validator.json --from wallet --chain-id mantra-dukong-1 --gas-adjustment 1.5 --gas auto --gas-prices  2000uom -y
+```
