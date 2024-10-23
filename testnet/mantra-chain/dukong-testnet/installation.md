@@ -1,6 +1,7 @@
 # Installation
 
 ## Manual Installation
+
 #### Install dependencies <a href="#install-dependencies" id="install-dependencies"></a>
 
 **UPDATE SYSTEM AND INSTALL BUILD TOOLS**
@@ -25,11 +26,9 @@ source $HOME/.bash_profile
 [ ! -d ~/go/bin ] && mkdir -p ~/go/bin
 ```
 
-
-
 ### Set Vars
 
-WALLET yerine istediğiniz bir ismi, MONIKER yerine bir validator adı yazmayı unutmayın.&#x20;
+WALLET yerine istediğiniz bir ismi, MONIKER yerine bir validator adı yazmayı unutmayın.
 
 ```
 echo "export WALLET="wallet"" >> $HOME/.bash_profile
@@ -156,6 +155,7 @@ mv $HOME/.mantrachain/priv_validator_state.json.backup $HOME/.mantrachain/data/p
 ```
 sudo systemctl restart mantrachaind && sudo journalctl -u mantrachaind -f --no-hostname -o cat
 ```
+
 ## Auto Installation
 
 ```
@@ -213,5 +213,5 @@ sudo systemctl restart mantrachaind && sudo journalctl -u mantrachaind -f
 > Şimdi aşağıdaki komutu çalıştırıyoruz. `wallet` yerine kendi cüzdan isminizi yazmayı unutmayın. Terminale cüzdan kurmak için `Useful Commands` bölümüne bakabilirsiniz.
 
 ```
-mantrachaind tx staking create-validator ~/validator.json --from wallet --chain-id mantra-dukong-1 --gas-adjustment 1.5 --gas auto --gas-prices  2000uom -y
+mantrachaind tx staking create-validator ~/validator.json --from wallet --chain-id mantra-dukong-1 --gas="auto" --gas-adjustment 2 --gas-prices="0.01uom"
 ```
