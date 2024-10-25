@@ -149,6 +149,10 @@ sudo systemctl restart wardend && sudo journalctl -u wardend -f
 bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/main/AutoInstall/warden.sh)
 ```
 
+### Faucet
+
+Warden Protocol [Faucet](https://faucet.chiado.wardenprotocol.org/)
+
 ### Sync Node
 
 > Node ağ ile eşleşmiş olması gerekiyor. Bunun için `mantrachaind status 2>&1 | jq` komutunu çalıştırdığınızda `false` çıktısı vermesi gerekir. `True` çıktı alırsanız aşağıdaki adımlara devam etmeyin.
