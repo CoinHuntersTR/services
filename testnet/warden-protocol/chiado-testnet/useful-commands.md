@@ -52,7 +52,7 @@ Please make sure you have adjusted **moniker**, **identity**, **details** and **
 cd $HOME
 # Create validator.json file
 echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(wardend comet show-validator | grep -Po '\"key\":\s*\"\K[^"]*')\"},
-    \"amount\": \"1000000uward\",
+    \"amount\": \"1000000000000000000award\",
     \"moniker\": \"test\",
     \"identity\": \"\",
     \"website\": \"\",
@@ -66,14 +66,14 @@ echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(warde
 # Create a validator using the JSON configuration
 wardend tx staking create-validator validator.json \
     --from wallet \
-    --chain-id buenavista-1 \
-	--gas auto --gas-adjustment 1.5 --fees 600uward \
+    --chain-id chiado_10010-1 \
+	--gas auto --gas-adjustment 1.5 --fees 25000000award \
 ```
 
 **UNJAIL VALIDATOR**
 
 ```
-wardend tx slashing unjail --from wallet --chain-id buenavista-1 --gas-adjustment 1.5 --gas auto --gas-prices 600uward -y
+wardend tx slashing unjail --from wallet --chain-id chiado_10010-1 --gas-adjustment 1.5 --gas auto --gas-prices 25000000award -y
 ```
 
 **JAIL REASON**
@@ -105,43 +105,43 @@ wardend q staking validator $(wardend keys show wallet --bech val -a)
 **WITHDRAW REWARDS FROM ALL VALIDATORS**
 
 ```
-wardend tx distribution withdraw-rewards $(wardend keys show wallet --bech val -a) --commission --from wallet --chain-id buenavista-1 --gas-adjustment 1.5 --gas auto --gas-prices 600uward -y
+wardend tx distribution withdraw-rewards $(wardend keys show wallet --bech val -a) --commission --from wallet --chain-id chiado_10010-1 --gas-adjustment 1.5 --gas auto --gas-prices 25000000award -y
 ```
 
 **WITHDRAW COMMISSION AND REWARDS FROM YOUR VALIDATOR**
 
 ```
-wardend tx distribution withdraw-rewards $(wardend keys show wallet --bech val -a) --commission --from wallet --chain-id buenavista-1 --gas-adjustment 1.5 --gas auto --gas-prices 600uward -y
+wardend tx distribution withdraw-rewards $(wardend keys show wallet --bech val -a) --commission --from wallet --chain-id chiado_10010-1 --gas-adjustment 1.5 --gas auto --gas-prices 25000000award -y
 ```
 
 **DELEGATE TOKENS TO YOURSELF**
 
 ```
-wardend tx staking delegate $(wardend keys show wallet --bech val -a) 90000uward --from wallet --chain-id buenavista-1 --gas-adjustment 1.5 --gas auto --gas-prices 600uward -y
+wardend tx staking delegate $(wardend keys show wallet --bech val -a) 1000000000000000000award --from wallet --chain-id chiado_10010-1 --gas-adjustment 1.5 --gas auto --gas-prices 25000000award -y
 ```
 
 **DELEGATE TOKENS TO VALIDATOR**
 
 ```
-wardend tx staking delegate <TO_VALOPER_ADDRESS> 90000uward --from wallet --chain-id buenavista-1 --gas-adjustment 1.5 --gas auto --gas-prices 600uward -y
+wardend tx staking delegate <TO_VALOPER_ADDRESS> 1000000000000000000award --from wallet --chain-id chiado_10010-1 --gas-adjustment 1.5 --gas auto --gas-prices 25000000award -y
 ```
 
 **REDELEGATE TOKENS TO ANOTHER VALIDATOR**
 
 ```
-wardend tx staking redelegate $(wardend keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 90000uward --from wallet --chain-id buenavista-1 --gas-adjustment 1.5 --gas auto --gas-prices 600uward -y
+wardend tx staking redelegate $(wardend keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000000000000000award --from wallet --chain-id chiado_10010-1 --gas-adjustment 1.5 --gas auto --gas-prices 25000000award -y
 ```
 
 **UNBOND TOKENS FROM YOUR VALIDATOR**
 
 ```
-wardend tx staking unbond $(wardend keys show wallet --bech val -a) 90000uward --from wallet --chain-id buenavista-1 --gas-adjustment 1.5 --gas auto --gas-prices 600uward -y
+wardend tx staking unbond $(wardend keys show wallet --bech val -a) 1000000000000000000award --from wallet --chain-id chiado_10010-1 --gas-adjustment 1.5 --gas auto --gas-prices 25000000award -y
 ```
 
 **SEND TOKENS TO THE WALLET**
 
 ```
-wardend tx bank send wallet <TO_WALLET_ADDRESS> 90000uward --from wallet --chain-id buenavista-1 --gas-adjustment 1.5 --gas auto --gas-prices 600uward -y
+wardend tx bank send wallet <TO_WALLET_ADDRESS> 1000000000000000000award --from wallet --chain-id chiado_10010-1 --gas-adjustment 1.5 --gas auto --gas-prices 25000000award -y
 ```
 
 ### 🗳 Governance <a href="#governance" id="governance"></a>
@@ -161,25 +161,25 @@ wardend query gov proposal 1
 **VOTE ‘YES’**
 
 ```
-wardend tx gov vote 1 yes --from wallet --chain-id buenavista-1 --gas-adjustment 1.5 --gas auto --gas-prices 600uward -y
+wardend tx gov vote 1 yes --from wallet --chain-id chiado_10010-1 --gas-adjustment 1.5 --gas auto --gas-prices 25000000award -y
 ```
 
 **VOTE ‘NO’**
 
 ```
-wardend tx gov vote 1 no --from wallet --chain-id buenavista-1 --gas-adjustment 1.5 --gas auto --gas-prices 600uward -y
+wardend tx gov vote 1 no --from wallet --chain-id chiado_10010-1 --gas-adjustment 1.5 --gas auto --gas-prices 25000000award -y
 ```
 
 **VOTE ‘ABSTAIN’**
 
 ```
-wardend tx gov vote 1 abstain --from wallet --chain-id buenavista-1 --gas-adjustment 1.5 --gas auto --gas-prices 600uward -y
+wardend tx gov vote 1 abstain --from wallet --chain-id chiado_10010-1 --gas-adjustment 1.5 --gas auto --gas-prices 25000000award -y
 ```
 
 **VOTE ‘NOWITHVETO’**
 
 ```
-wardend tx gov vote 1 NoWithVeto --from wallet --chain-id buenavista-1 --gas-adjustment 1.5 --gas auto --gas-prices 600uward -y
+wardend tx gov vote 1 NoWithVeto --from wallet --chain-id chiado_10010-1 --gas-adjustment 1.5 --gas auto --gas-prices 25000000award -y
 ```
 
 ### ⚡️ Utility <a href="#utility" id="utility"></a>
@@ -253,7 +253,7 @@ curl -sS http://localhost:14657/net_info | jq -r '.result.peers[] | "\(.node_inf
 **SET MINIMUM GAS PRICE**
 
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"600uward\"/" $HOME/.warden/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"25000000award\"/" $HOME/.warden/config/app.toml
 ```
 
 **ENABLE PROMETHEUS**
