@@ -4,11 +4,7 @@
 
 
 
-| Hardware | Minimum Requirement |
-| -------- | ------------------- |
-| CPU      | 4 Cores             |
-| RAM      |  8 GB               |
-| DISK     | 200 SSD             |
+<table><thead><tr><th width="210">Hardware</th><th>Minimum Requirement</th></tr></thead><tbody><tr><td>CPU</td><td>4 Cores</td></tr><tr><td>RAM</td><td> 8 GB</td></tr><tr><td>DISK</td><td>500 SSD</td></tr></tbody></table>
 
 #### Auto Install
 
@@ -17,8 +13,6 @@ While setting up Story Protocol, you will be asked for your **Moniker** name and
 ```bash
 bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/refs/heads/main/AutoInstall/story.sh)
 ```
-
-
 
 #### Check Logs for story-geth and story
 
@@ -54,6 +48,5 @@ Faucet : [ https://faucet.story.foundation/](https://faucet.story.foundation/)
 #### Register validator
 
 ```
-story validator create --stake 1000000000000000000 --private-key $(cat $HOME/.story/story/config/private_key.txt | grep "PRIVATE_KEY" | awk -F'=' '{print $2}')
+story validator create --stake 1000000000000000000 --private-key $(cat $HOME/.story/story/config/private_
 ```
-

@@ -1,0 +1,2 @@
+# odyssey testnet
+
