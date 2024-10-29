@@ -205,7 +205,7 @@ Bu adımdan sonra sıra geldi Aligend Layer Operatör kurulum adımlarına.
 * İlk olarak bu adımları yapabilmek için Whitelist'e girmeniz gerekiyor. Onun için [BURADAN ](https://docs.google.com/forms/d/e/1FAIpQLSdH9sgfTz4v33lAvwj6BvYJGAeIshQia3FXz36PFfF-WQAWEQ/viewform)formu doldurup başvurunuzu tamamlayabilirsiniz.&#x20;
 
 ```
-git clone https://github.com/yetanotherco/aligned_layer.git --branch v0.4.0
+git clone https://github.com/yetanotherco/aligned_layer.git --branch v0.10.2
 cd aligned_layer
 ```
 
@@ -228,7 +228,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 > size seçenek sorduğunda 1 yazıp enter basın, kurulum bittikten sonra ise aşağıdaki komut ile devam ediyoruz.&#x20;
 
 ```
-source "$HOME/.cargo/env.fish"
+. "$HOME/.cargo/env"
 ```
 
 #### Foundury kurulumunu yapalım.
@@ -239,6 +239,7 @@ sudo apt install make
 
 ```
 make install_foundry
+export PATH="$HOME/.foundry/bin:$PATH
 foundryup
 ```
 
@@ -252,7 +253,7 @@ make build_operator
 ./operator/build/aligned-operator --version
 ```
 
-Aligned Operator [v0.4.0](https://github.com/yetanotherco/aligned\_layer/releases/tag/v0.4.0) çıktısı almamız gerekiyor.
+Aligned Operator v0.10.2 çıktısı almamız gerekiyor.
 
 ```
 nano ./config-files/config-operator.yaml
