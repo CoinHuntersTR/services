@@ -1,5 +1,9 @@
 # Snapshot
 
+#### &#x20;<a href="#stop-the-service-and-reset-the-data" id="stop-the-service-and-reset-the-data"></a>
+
+{% embed url="https://gist.github.com/CoinHuntersTR/58ee2c28bbdc3721face7cba7cc63aa4" %}
+
 #### Stop the service and reset the data <a href="#stop-the-service-and-reset-the-data" id="stop-the-service-and-reset-the-data"></a>
 
 ```
