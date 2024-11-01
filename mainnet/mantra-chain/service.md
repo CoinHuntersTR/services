@@ -2,11 +2,11 @@
 
 ### API
 
-{% embed url="https://mantra-dukong-api.chainad.org/" %}
+{% embed url="https://mantramainnet-api.chainad.org/" %}
 
 ### RPC
 
-{% embed url="https://mantra-dukong-rpc.chainad.org/" %}
+{% embed url="https://mantramainnet-rpc.chainad.org/" %}
 
 ### EXPLORER
 
