@@ -10,4 +10,4 @@
 
 ### EXPLORER
 
-{% embed url="https://explorer.coinhunterstr.com/Mantra-Dukong-Testnet" %}
+{% embed url="https://explorer.coinhunterstr.com/Mantra" %}
