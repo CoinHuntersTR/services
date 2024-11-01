@@ -63,7 +63,7 @@ mantrachaind tx staking create-validator \
 --identity "" \
 --website "" \
 --details "I love blockchain ❤️" \
---chain-id mantra-dukong-1 \
+--chain-id mantra-1 \
 --gas auto --gas-adjustment 1.5 --gas-prices  50uom \
 -y
 ```
@@ -76,7 +76,7 @@ mantrachaind tx staking edit-validator \
 --identity "YOUR_KEYBASE_ID" \
 --details "YOUR_DETAILS" \
 --website "YOUR_WEBSITE_URL" \
---chain-id mantra-dukong-1 \
+--chain-id mantra-1 \
 --commission-rate 0.05 \
 --from wallet \
 --gas-adjustment 1.5 \
@@ -88,7 +88,7 @@ mantrachaind tx staking edit-validator \
 **UNJAIL VALIDATOR**
 
 ```
-mantrachaind tx slashing unjail --from wallet --chain-id mantra-dukong-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
+mantrachaind tx slashing unjail --from wallet --chain-id mantra-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
 ```
 
 **JAIL REASON**
@@ -120,43 +120,43 @@ mantrachaind q staking validator $(mantrachaind keys show wallet --bech val -a)
 **WITHDRAW REWARDS FROM ALL VALIDATORS**
 
 ```
-mantrachaind tx distribution withdraw-all-rewards --from wallet --chain-id mantra-dukong-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
+mantrachaind tx distribution withdraw-all-rewards --from wallet --chain-id mantra-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
 ```
 
 **WITHDRAW COMMISSION AND REWARDS FROM YOUR VALIDATOR**
 
 ```
-mantrachaind tx distribution withdraw-rewards $(mantrachaind keys show wallet --bech val -a) --commission --from wallet --chain-id mantra-dukong-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
+mantrachaind tx distribution withdraw-rewards $(mantrachaind keys show wallet --bech val -a) --commission --from wallet --chain-id mantra-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
 ```
 
 **DELEGATE TOKENS TO YOURSELF**
 
 ```
-mantrachaind tx staking delegate $(mantrachaind keys show wallet --bech val -a) 1000000uom --from wallet --chain-id mantra-dukong-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
+mantrachaind tx staking delegate $(mantrachaind keys show wallet --bech val -a) 1000000uom --from wallet --chain-id mantra-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
 ```
 
 **DELEGATE TOKENS TO VALIDATOR**
 
 ```
-mantrachaind tx staking delegate <TO_VALOPER_ADDRESS> 1000000uom --from wallet --chain-id mantra-dukong-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
+mantrachaind tx staking delegate <TO_VALOPER_ADDRESS> 1000000uom --from wallet --chain-id mantra-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
 ```
 
 **REDELEGATE TOKENS TO ANOTHER VALIDATOR**
 
 ```
-mantrachaind tx staking redelegate $(mantrachaind keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000uom --from wallet --chain-id mantra-dukong-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
+mantrachaind tx staking redelegate $(mantrachaind keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000uom --from wallet --chain-id mantra-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
 ```
 
 **UNBOND TOKENS FROM YOUR VALIDATOR**
 
 ```
-mantrachaind tx staking unbond $(mantrachaind keys show wallet --bech val -a) 1000000uom --from wallet --chain-id mantra-dukong-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
+mantrachaind tx staking unbond $(mantrachaind keys show wallet --bech val -a) 1000000uom --from wallet --chain-id mantra-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
 ```
 
 **SEND TOKENS TO THE WALLET**
 
 ```
-mantrachaind tx bank send wallet <TO_WALLET_ADDRESS> 1000000uom --from wallet --chain-id mantra-dukong-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
+mantrachaind tx bank send wallet <TO_WALLET_ADDRESS> 1000000uom --from wallet --chain-id mantra-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
 ```
 
 ### 🗳 Governance <a href="#governance" id="governance"></a>
@@ -176,25 +176,25 @@ mantrachaind query gov proposal 1
 **VOTE ‘YES’**
 
 ```
-mantrachaind tx gov vote 1 yes --from wallet --chain-id mantra-dukong-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
+mantrachaind tx gov vote 1 yes --from wallet --chain-id mantra-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
 ```
 
 **VOTE ‘NO’**
 
 ```
-mantrachaind tx gov vote 1 no --from wallet --chain-id mantra-dukong-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
+mantrachaind tx gov vote 1 no --from wallet --chain-id mantra-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
 ```
 
 **VOTE ‘ABSTAIN’**
 
 ```
-mantrachaind tx gov vote 1 abstain --from wallet --chain-id mantra-dukong-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
+mantrachaind tx gov vote 1 abstain --from wallet --chain-id mantra-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
 ```
 
 **VOTE ‘NOWITHVETO’**
 
 ```
-mantrachaind tx gov vote 1 NoWithVeto --from wallet --chain-id mantra-dukong-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
+mantrachaind tx gov vote 1 NoWithVeto --from wallet --chain-id mantra-1 --gas-adjustment 1.5 --gas auto --gas-prices  50uom -y
 ```
 
 ### ⚡️ Utility <a href="#utility" id="utility"></a>
@@ -268,7 +268,7 @@ curl -sS http://localhost:14657/net_info | jq -r '.result.peers[] | "\(.node_inf
 **SET MINIMUM GAS PRICE**
 
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"10000000000000mpx\"/" $HOME/.mantrachain/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.01uom\"/" $HOME/.mantrachain/config/app.toml
 ```
 
 **ENABLE PROMETHEUS**
