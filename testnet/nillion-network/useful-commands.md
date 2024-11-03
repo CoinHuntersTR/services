@@ -274,8 +274,8 @@ Please, before proceeding with the next step! All chain data will be lost! Make 
 
 ```
 cd $HOME
-sudo systemctl stop nillion.service
-sudo systemctl disable nillion.service
+sudo systemctl stop nillion-testnet.service
+sudo systemctl disable nillion-testnet.service
 sudo rm /etc/systemd/system/nilchaind
 sudo systemctl daemon-reload
 rm -f $(which nilchaind)
@@ -294,7 +294,7 @@ sudo systemctl daemon-reload
 **ENABLE SERVICE**
 
 ```
-sudo systemctl enable nillion.service
+sudo systemctl enable nillion-testnet.service
 ```
 
 **DISABLE SERVICE**
@@ -306,29 +306,29 @@ sudo systemctl disable nilchaind
 **START SERVICE**
 
 ```
-sudo systemctl start nillion.service
+sudo systemctl start nillion-testnet.service
 ```
 
 **STOP SERVICE**
 
 ```
-sudo systemctl stop nillion.service
+sudo systemctl stop nillion-testnet.service
 ```
 
 **RESTART SERVICE**
 
 ```
-sudo systemctl restart nillion.service
+sudo systemctl restart nillion-testnet.service
 ```
 
 **CHECK SERVICE STATUS**
 
 ```
-sudo systemctl status nillion.service
+sudo systemctl status nillion-testnet.service
 ```
 
 **CHECK SERVICE LOGS**
 
 ```
-sudo journalctl -u nillion.service -f --no-hostname -o cat
+sudo journalctl -u nillion-testnet.service -f --no-hostname -o cat
 ```
