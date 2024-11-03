@@ -31,7 +31,7 @@ eval $(echo 'export PATH=$PATH:$HOME/go/bin' | tee -a $HOME/.profile)
 
 ```bash
 mkdir -p $HOME/.nillionapp/cosmovisor/genesis/bin
-wget -O $HOME/.nillionapp/cosmovisor/genesis/bin/nilchaind https://snapshots.kjnodes.com/nillion-testnet/nilchaind-v0.2.1-linux-amd64
+wget -O $HOME/.nillionapp/cosmovisor/genesis/bin/nilchaind https://snapshots.kjnodes.com/nillion-testnet/nilchaind-v0.2.2-linux-amd64
 chmod +x $HOME/.nillionapp/cosmovisor/genesis/bin/nilchaind
 
 # Create application symlinks
@@ -147,7 +147,7 @@ sudo systemctl start nillion.service && sudo journalctl -u nillion.service -f --
 > cüzdan adınızı ve Validator adınızı girip, istediğiniz bir port numarası ekleyerek otomatik kurulum yapabilirsiniz. (hiçbir değişiklik istemiyorsanız port nuumarası olarak 26 yazabilirsiniz.)
 
 ```
-wget -q -O nillion.sh https://raw.githubusercontent.com/CoinHuntersTR/props/main/AutoInstall/nillion.sh && chmod +x nillion.sh && ./nillion.sh
+bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/main/AutoInstall/nibiru.sh)
 ```
 
 ### Sync Node
