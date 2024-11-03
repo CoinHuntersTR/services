@@ -54,7 +54,7 @@ go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@v1.5.0
 # Create service
 sudo tee /etc/systemd/system/nillion.service > /dev/null << EOF
 [Unit]
-Description=nillion node service
+Description=nillion-testnet.service service
 After=network-online.target
 
 [Service]
@@ -139,7 +139,7 @@ curl -L https://snapshots.coinhunterstr.com/nillion/snapshot_latest.tar.lz4 | ta
 #### Restart the service and check the log <a href="#restart-the-service-and-check-the-log" id="restart-the-service-and-check-the-log"></a>
 
 ```
-sudo systemctl start nillion.service && sudo journalctl -u nillion.service -f --no-hostname -o cat
+sudo systemctl start nillion-testnet.service && sudo journalctl -u nillion-testnet.service -f --no-hostname -o cat
 ```
 
 ### Automatic Installation <a href="#auto-installation" id="auto-installation"></a>
@@ -197,7 +197,7 @@ nano /root/validator.json
 > Şimdi tekrardan node restart atalım
 
 ```bash
-sudo systemctl restart nillion.service
+sudo systemctl restart nillion-testnet.service && sudo journalctl -u nillion-testnet.service -f
 ```
 
 > Şimdi aşağıdaki komutu çalıştırıyoruz. `wallet` yerine kendi cüzdan isminizi yazmayı unutmayın. Terminale cüzdan kurmak için `Useful Commands` bölümüne bakabilirsiniz.
