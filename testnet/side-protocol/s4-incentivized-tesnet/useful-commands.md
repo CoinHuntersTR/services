@@ -5,13 +5,13 @@
 **ADD NEW KEY**
 
 ```
-sided keys add wallet
+sided keys add wallet --key-type="segwit"
 ```
 
 **RECOVER EXISTING KEY**
 
 ```
-sided keys add wallet --recover
+sided keys add wallet --recover --key-type="segwit"
 ```
 
 **LIST ALL KEYS**
@@ -58,7 +58,7 @@ sided tx staking create-validator \
 --identity "YOUR_KEYBASE_ID" \
 --details "YOUR_DETAILS" \
 --website "YOUR_WEBSITE_URL" \
---chain-id side-testnet-3 \
+--chain-id side-testnet-4 \
 --commission-rate 0.05 \
 --commission-max-rate 0.20 \
 --commission-max-change-rate 0.05 \
@@ -78,7 +78,7 @@ sided tx staking edit-validator \
 --identity "YOUR_KEYBASE_ID" \
 --details "YOUR_DETAILS" \
 --website "YOUR_WEBSITE_URL" \
---chain-id side-testnet-3 \
+--chain-id side-testnet-4 \
 --commission-rate 0.05 \
 --from wallet \
 --gas-adjustment 1.4 \
@@ -90,7 +90,7 @@ sided tx staking edit-validator \
 **UNJAIL VALIDATOR**
 
 ```
-sided tx slashing unjail --from wallet --chain-id side-testnet-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
+sided tx slashing unjail --from wallet --chain-id side-testnet-4 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
 ```
 
 **JAIL REASON**
@@ -122,43 +122,43 @@ sided q staking validator $(sided keys show wallet --bech val -a)
 **WITHDRAW REWARDS FROM ALL VALIDATORS**
 
 ```
-sided tx distribution withdraw-all-rewards --from wallet --chain-id side-testnet-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
+sided tx distribution withdraw-all-rewards --from wallet --chain-id side-testnet-4 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
 ```
 
 **WITHDRAW COMMISSION AND REWARDS FROM YOUR VALIDATOR**
 
 ```
-sided tx distribution withdraw-rewards $(sided keys show wallet --bech val -a) --commission --from wallet --chain-id side-testnet-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
+sided tx distribution withdraw-rewards $(sided keys show wallet --bech val -a) --commission --from wallet --chain-id side-testnet-4 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
 ```
 
 **DELEGATE TOKENS TO YOURSELF**
 
 ```
-sided tx staking delegate $(sided keys show wallet --bech val -a) 1000000uside --from wallet --chain-id side-testnet-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
+sided tx staking delegate $(sided keys show wallet --bech val -a) 1000000uside --from wallet --chain-id side-testnet-4 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
 ```
 
 **DELEGATE TOKENS TO VALIDATOR**
 
 ```
-sided tx staking delegate <TO_VALOPER_ADDRESS> 1000000uside --from wallet --chain-id side-testnet-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
+sided tx staking delegate <TO_VALOPER_ADDRESS> 1000000uside --from wallet --chain-id side-testnet-4 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
 ```
 
 **REDELEGATE TOKENS TO ANOTHER VALIDATOR**
 
 ```
-sided tx staking redelegate $(sided keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000uside --from wallet --chain-id side-testnet-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
+sided tx staking redelegate $(sided keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000uside --from wallet --chain-id side-testnet-4 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
 ```
 
 **UNBOND TOKENS FROM YOUR VALIDATOR**
 
 ```
-sided tx staking unbond $(sided keys show wallet --bech val -a) 1000000uside --from wallet --chain-id side-testnet-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
+sided tx staking unbond $(sided keys show wallet --bech val -a) 1000000uside --from wallet --chain-id side-testnet-4 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
 ```
 
 **SEND TOKENS TO THE WALLET**
 
 ```
-sided tx bank send wallet <TO_WALLET_ADDRESS> 1000000uside --from wallet --chain-id side-testnet-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
+sided tx bank send wallet <TO_WALLET_ADDRESS> 1000000uside --from wallet --chain-id side-testnet-4 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
 ```
 
 ### 🗳 Governance <a href="#governance" id="governance"></a>
@@ -178,25 +178,25 @@ sided query gov proposal 1
 **VOTE ‘YES’**
 
 ```
-sided tx gov vote 1 yes --from wallet --chain-id side-testnet-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
+sided tx gov vote 1 yes --from wallet --chain-id side-testnet-4 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
 ```
 
 **VOTE ‘NO’**
 
 ```
-sided tx gov vote 1 no --from wallet --chain-id side-testnet-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
+sided tx gov vote 1 no --from wallet --chain-id side-testnet-4 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
 ```
 
 **VOTE ‘ABSTAIN’**
 
 ```
-sided tx gov vote 1 abstain --from wallet --chain-id side-testnet-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
+sided tx gov vote 1 abstain --from wallet --chain-id side-testnet-4 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
 ```
 
 **VOTE ‘NOWITHVETO’**
 
 ```
-sided tx gov vote 1 NoWithVeto --from wallet --chain-id side-testnet-3 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
+sided tx gov vote 1 NoWithVeto --from wallet --chain-id side-testnet-4 --gas-adjustment 1.4 --gas auto --gas-prices 0.005uside -y
 ```
 
 ### ⚡️ Utility <a href="#utility" id="utility"></a>
@@ -310,41 +310,41 @@ sudo systemctl daemon-reload
 **ENABLE SERVICE**
 
 ```
-sudo systemctl enable side.service
+sudo systemctl enable sided
 ```
 
 **DISABLE SERVICE**
 
 ```
-sudo systemctl disable side.service
+sudo systemctl disable sided
 ```
 
 **START SERVICE**
 
 ```
-sudo systemctl start side.service
+sudo systemctl start sided
 ```
 
 **STOP SERVICE**
 
 ```
-sudo systemctl stop side.service
+sudo systemctl stop sided
 ```
 
 **RESTART SERVICE**
 
 ```
-sudo systemctl restart side.service
+sudo systemctl restart sided
 ```
 
 **CHECK SERVICE STATUS**
 
 ```
-sudo systemctl status side.service
+sudo systemctl status sided
 ```
 
 **CHECK SERVICE LOGS**
 
 ```
-sudo journalctl -u side.service -f --no-hostname -o cat
+sudo journalctl -u sided -f --no-hostname -o cat
 ```
