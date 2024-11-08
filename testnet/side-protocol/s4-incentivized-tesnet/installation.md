@@ -1,5 +1,7 @@
 # Installation
 
+## Manuel Installation
+
 | Chain ID       | Latest Version Tag | Custom Port |
 | -------------- | ------------------ | ----------- |
 | side-testnet-3 | v0.7.0             | 174         |
@@ -129,4 +131,36 @@ curl -L https://snapshots.coinhunterstr.com/testnet/side/snapshot_latest.tar.lz4
 
 ```
 sudo systemctl start sided && sudo journalctl -u sided -f --no-hostname -o cat
+```
+
+
+
+## Auto Installation
+
+```
+bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/refs/heads/main/AutoInstall/side.sh)
+```
+
+### Sync Node
+
+> Node ağ ile eşleşmiş olması gerekiyor. Bunun için `mantrachaind status 2>&1 | jq` komutunu çalıştırdığınızda `false` çıktısı vermesi gerekir. `True` çıktı alırsanız aşağıdaki adımlara devam etmeyin.
+
+### Run a Validator
+
+```
+sided tx staking create-validator \
+--amount 1000000uside \
+--from wallet \
+--commission-rate 0.1 \
+--commission-max-rate 0.2 \
+--commission-max-change-rate 0.01 \
+--min-self-delegation 1 \
+--pubkey $(sided tendermint show-validator) \
+--moniker "" \
+--identity "" \
+--website "" \
+--details "" \
+--chain-id sidechain-testnet-4 \
+--gas auto --gas-adjustment 1.5 --fees 1500uside \
+-y
 ```
