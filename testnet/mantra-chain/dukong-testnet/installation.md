@@ -42,9 +42,9 @@ source $HOME/.bash_profile
 
 ```
 cd $HOME
-wget -O mantrachaind-1.0.0-rc2-linux-amd64.tar.gz https://github.com/MANTRA-Chain/mantrachain/releases/download/v1.0.0-rc2/mantrachaind-1.0.0-rc2-linux-amd64.tar.gz
-tar -xzf mantrachaind-1.0.0-rc2-linux-amd64.tar.gz
-rm $HOME/mantrachaind-1.0.0-rc2-linux-amd64.tar.gz
+wget -O mantrachaind-1.0.2-linux-amd64.tar.gz https://github.com/MANTRA-Chain/mantrachain/releases/download/v1.0.2/mantrachaind-1.0.2-linux-amd64.tar.gz
+tar -xzf mantrachaind-1.0.2-linux-amd64.tar.gz
+rm $HOME/mantrachaind-1.0.2-linux-amd64.tar.gz
 chmod +x $HOME/mantrachaind
 sudo mv $HOME/mantrachaind $HOME/go/bin/mantrachaind
 ```
