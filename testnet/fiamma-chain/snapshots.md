@@ -13,7 +13,7 @@ rm -rf $HOME/.fiamma/data $HOME/.fiamma/wasm
 #### Download latest snapshot <a href="#download-latest-snapshot" id="download-latest-snapshot"></a>
 
 ```
-curl https://snapshots.coinhunterstr.com/fiamma/snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.fiamma
+curl https://snapshots.coinhunterstr.com/testnet/fiamma/snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.fiamma
 mv $HOME/.fiamma/priv_validator_state.json.backup $HOME/.fiamma/data/priv_validator_state.json
 ```
 
