@@ -41,7 +41,7 @@ source $HOME/.bash_profile
 
 ```
 cd $HOME
-wget https://github.com/zeta-chain/node/releases/download/v14.0.1/zetacored-linux-amd64
+wget -O $HOME/zetacored https://github.com/zeta-chain/node/releases/download/v20.0.2/zetacored-linux-amd64
 chmod +x $HOME/zetacored-linux-amd64
 mv $HOME/zetacored-linux-amd64 $HOME/go/bin/zetacored
 ```
