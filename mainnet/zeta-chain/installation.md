@@ -110,8 +110,8 @@ EOF
 
 ```
 zetacored tendermint unsafe-reset-all --home $HOME/.zetacored
-if curl -s --head curl https://mainnet-files.itrocket.net/zetachain/snap_zetachain.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
-  curl https://mainnet-files.itrocket.net/zetachain/snap_zetachain.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.zetacored
+if curl -s --head curl https://snapshots.coinhunterstr.com/mainnet/zetachain/snapshot_latest.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
+  curl https://snapshots.coinhunterstr.com/mainnet/zetachain/snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.zetacored
     else
   echo no have snap
 fi
