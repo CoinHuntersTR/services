@@ -2,13 +2,13 @@
 
 ### API
 
-{% embed url="https://zetachain-api.chainad.org/" %}
+{% embed url="https://zetachain-api.coinhunterstr.com/" %}
 
 ### RPC
 
-{% embed url="https://zetachain-rpc.chainad.org/" %}
+{% embed url="https://zetachain-rpc.coinhunterstr.com/" %}
 
 ### EXPLORER
 
-{% embed url="https://explorer.coinhunterstr.com/Zetachain-Mainnet" %}
+{% embed url="https://explorer.coinhunterstr.com/Zetachain" %}
 
