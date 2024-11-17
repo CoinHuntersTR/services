@@ -11,8 +11,8 @@ rm -rf $HOME/.dymension/data
 #### Download latest snapshot <a href="#download-latest-snapshot" id="download-latest-snapshot"></a>
 
 ```markdown
-curl -o - -L https://snapshots.coinhunterstr.com/dymension/snapshot_latest.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.artelad
-mv $HOME/.artelad/priv_validator_state.json.backup $HOME/.artelad/data/priv_validator_state.json
+curl -o - -L https://snapshots.coinhunterstr.com/mainnet/dymension/snapshot_latest.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.dymension
+mv $HOME/.dymension/priv_validator_state.json.backup $HOME/.dymension/data/priv_validator_state.json
 ```
 
 #### Restart the service and check the log <a href="#restart-the-service-and-check-the-log" id="restart-the-service-and-check-the-log"></a>
