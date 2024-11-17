@@ -1,4 +1,4 @@
-# Copy of Snapshots
+# Snapshots
 
 #### Stop the service and reset the data <a href="#stop-the-service-and-reset-the-data" id="stop-the-service-and-reset-the-data"></a>
 
@@ -11,7 +11,7 @@ rm -rf $HOME/.lava/data
 #### Download latest snapshot <a href="#download-latest-snapshot" id="download-latest-snapshot"></a>
 
 ```markdown
-curl -L https://snapshots.coinhunterstr.com/lava/snapshot_latest.tar.lz4 | tar -Ilz4 -xf - -C $HOME/.lava
+curl -L https://snapshots.coinhunterstr.com/mainnet/lava/snapshot_latest.tar.lz4 | tar -Ilz4 -xf - -C $HOME/.lava
 mv $HOME/.lava/priv_validator_state.json.backup $HOME/.lava/data/priv_validator_state.json
 ```
 
