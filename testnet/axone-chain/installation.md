@@ -21,7 +21,7 @@ sudo apt-get install -y libssl-dev
 **INSTALL GO**
 
 ```
-ver="1.22.3" 
+ver="1.22.8" 
 cd $HOME 
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" 
 
@@ -37,11 +37,10 @@ source $HOME/.bash_profile
 
 ```
 cd $HOME
-rm -rf fiamma
-git clone https://github.com/fiamma-chain/fiamma
-cd fiamma
-git checkout v1.0.0
-make install
+rm -rf axoned
+git clone https://github.com/axone-protocol/axoned.git
+cd axoned
+git checkout v10.0.0
 ```
 
 #### Set Vars
@@ -50,50 +49,51 @@ make install
 
 ```
 fiammad init $MONIKER --chain-id fiamma-testnet-1
-sed -i -e "s|^node *=.*|node = \"tcp://localhost:26657\"|" $HOME/.fiamma/config/client.toml
-sed -i -e "s|^keyring-backend *=.*|keyring-backend = \"os\"|" $HOME/.fiamma/config/client.toml
-sed -i -e "s|^chain-id *=.*|chain-id = \"fiamma-testnet-1\"|" $HOME/.fiamma/config/client.toml
+sed -i -e "s|^node *=.*|node = \"tcp://localhost:26657\"|" $HOME/.axoned/config/client.toml
+sed -i -e "s|^keyring-backend *=.*|keyring-backend = \"test\"|" $HOME/.axoned/config/client.toml
+sed -i -e "s|^chain-id *=.*|chain-id = \"axone-dentrite-1\"|" $HOME/.axoned/config/client.toml
 ```
 
 #### Download Genesis and Addrbook
 
 ```
-wget -O $HOME/.fiamma/config/genesis.json https://raw.githubusercontent.com/CoinHuntersTR/props/main/fiamma/genesis.json
-wget -O $HOME/.fiamma/config/addrbook.json  https://raw.githubusercontent.com/CoinHuntersTR/props/main/fiamma/addrbook.json
+wget -O $HOME/.fiamma/config/genesis.json  https://raw.githubusercontent.com/CoinHuntersTR/props/refs/heads/main/axone/genesis.json
+wget -O $HOME/.fiamma/config/addrbook.json  https://raw.githubusercontent.com/CoinHuntersTR/props/refs/heads/main/axone/addrbook.json
 ```
 
 #### Config Pruning
 
 ```
-sed -i -e "s/^pruning *=.*/pruning = \"custom\"/" $HOME/.fiamma/config/app.toml
-sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"100\"/" $HOME/.fiamma/config/app.toml
-sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"50\"/" $HOME/.fiamma/config/app.toml
-sed -i 's|minimum-gas-prices =.*|minimum-gas-prices = "0.0001ufia"|g' $HOME/.fiamma/config/app.toml
+sed -i -e "s/^pruning *=.*/pruning = \"custom\"/" $HOME/.axoned/config/app.toml
+sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"100\"/" $HOME/.axoned/config/app.toml
+sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"0\"/" $HOME/.axoned/config/app.toml
+sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"19\"/" $HOME/.axoned/config/app.toml
+sed -i 's|minimum-gas-prices =.*|minimum-gas-prices = "0uaxone"|g' $HOME/.axoned/config/app.toml
 ```
 
 #### Set seeds and peers
 
 ```
-URL="https://fiamma-testnet-rpc.itrocket.net/net_info"
+URL="https://axone-testnet-rpc.polkachu.com/net_info"
 response=$(curl -s $URL)
 PEERS=$(echo $response | jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip):" + (.node_info.listen_addr | capture("(?<ip>.+):(?<port>[0-9]+)$").port)' | paste -sd "," -)
 echo "PEERS=\"$PEERS\""
 
 # Update the persistent_peers in the config.toml file
-sed -i -e "s|^seeds *=.*|seeds = \"$SEEDS\"|; s|^persistent_peers *=.*|persistent_peers = \"$PEERS\"|" $HOME/.fiamma/config/config.toml
+sed -i -e "s|^seeds *=.*|seeds = \"$SEEDS\"|; s|^persistent_peers *=.*|persistent_peers = \"$PEERS\"|" $HOME/.axoned/config/config.toml
 ```
 
 #### create service file
 
 ```
-sudo tee /etc/systemd/system/fiammad.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/axoned.service > /dev/null <<EOF
 [Unit]
-Description=Fiamma node
+Description=axone node
 After=network-online.target
 [Service]
 User=$USER
-WorkingDirectory=$HOME/.fiamma
-ExecStart=$(which fiammad) start --home $HOME/.fiamma
+WorkingDirectory=$HOME/.axoned
+ExecStart=$(which axoned) start --home $HOME/.axoned
 Restart=on-failure
 RestartSec=5
 LimitNOFILE=65535
@@ -106,8 +106,8 @@ EOF
 
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable fiammad
-sudo systemctl restart fiammad && sudo journalctl -u fiammad -f
+sudo systemctl enable axoned
+sudo systemctl restart axoned && sudo journalctl -u axoned -f
 ```
 
 #### Snapshot
@@ -115,22 +115,22 @@ sudo systemctl restart fiammad && sudo journalctl -u fiammad -f
 #### Stop the service and reset the data <a href="#stop-the-service-and-reset-the-data" id="stop-the-service-and-reset-the-data"></a>
 
 ```
-sudo systemctl stop fiammad
-cp $HOME/.fiamma/data/priv_validator_state.json $HOME/.fiamma/priv_validator_state.json.backup
-rm -rf $HOME/.fiamma/data $HOME/.fiamma/wasm
+sudo systemctl stop axoned
+cp $HOME/.axoned/data/priv_validator_state.json $HOME/.axoned/priv_validator_state.json.backup
+rm -rf $HOME/.axoned/data
 ```
 
 #### Download latest snapshot <a href="#download-latest-snapshot" id="download-latest-snapshot"></a>
 
 ```
-curl https://snapshots.coinhunterstr.com/testnet/fiamma/snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.fiamma
-mv $HOME/.fiamma/priv_validator_state.json.backup $HOME/.fiamma/data/priv_validator_state.json
+curl https://snapshots.coinhunterstr.com/testnet/axone/snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.axoned
+mv $HOME/.axoned/priv_validator_state.json.backup $HOME/.axoned/data/priv_validator_state.json
 ```
 
 #### Restart the service and check the log <a href="#restart-the-service-and-check-the-log" id="restart-the-service-and-check-the-log"></a>
 
 ```
-sudo systemctl restart fiammad && sudo journalctl -u fiammad -f
+sudo systemctl restart axoned && sudo journalctl -u axoned -f
 ```
 
 ### Automatic Installation <a href="#auto-installation" id="auto-installation"></a>
