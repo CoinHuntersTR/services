@@ -2,12 +2,12 @@
 
 ### API
 
-{% embed url="https://fiamma-api.chainad.org" %}
+{% embed url="https://axone-api.chainad.org" %}
 
 ### RPC
 
-{% embed url="https://fiamma-rpc.chainad.org" %}
+{% embed url="https://axone-rpc.chainad.org" %}
 
 ### EXPLORER
 
-{% embed url="https://explorer.coinhunterstr.com/Fiamma-Testnet" %}
+{% embed url="https://explorer.coinhunterstr.com/Axone-Testnet" %}
