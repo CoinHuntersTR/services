@@ -183,3 +183,5 @@
     * [Installation](testnet/axone-chain/installation.md)
     * [Snapshots](testnet/axone-chain/snapshots.md)
     * [Useful commands](testnet/axone-chain/useful-commands.md)
+  * [Glacier Network](testnet/glacier-network/README.md)
+    * [Installation](testnet/glacier-network/installation.md)
