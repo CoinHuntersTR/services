@@ -22,6 +22,7 @@
     * [Service](mainnet/nibiru/service.md)
     * [Installation](mainnet/nibiru/installation.md)
     * [Useful commands](mainnet/nibiru/useful-commands.md)
+    * [Snapshot](mainnet/nibiru/snapshot.md)
   * [Zeta Chain](mainnet/zeta-chain/README.md)
     * [Service](mainnet/zeta-chain/service.md)
     * [Installation](mainnet/zeta-chain/installation.md)
