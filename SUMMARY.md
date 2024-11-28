@@ -32,6 +32,8 @@
     * [Service](mainnet/mantra-chain/service.md)
     * [Useful commands](mainnet/mantra-chain/useful-commands.md)
     * [Snapshot](mainnet/mantra-chain/snapshot.md)
+  * [Rivalz](mainnet/rivalz/README.md)
+    * [zNode](mainnet/rivalz/znode.md)
 * [Testnet](testnet/README.md)
   * [0G Labs](testnet/0g-labs/README.md)
     * [Service](testnet/0g-labs/service.md)
