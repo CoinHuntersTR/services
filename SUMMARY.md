@@ -188,3 +188,5 @@
     * [Useful commands](testnet/axone-chain/useful-commands.md)
   * [Glacier Network](testnet/glacier-network/README.md)
     * [Installation](testnet/glacier-network/installation.md)
+  * [Pipe Network](testnet/pipe-network/README.md)
+    * [Installation](testnet/pipe-network/installation.md)

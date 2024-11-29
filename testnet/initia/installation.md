@@ -135,7 +135,7 @@ wget -q -O initia.sh https://raw.githubusercontent.com/CoinHuntersTR/props/main/
 
 ### Run Validator
 
-> &#x20;**Burdaki moniker, identity, details, website gibi kısımları değiştirip cüzdan adınızı girip düzenledikten sonra çalıştırmanız yeterli (**1000000uinit = 1 INIT)
+> &#x20;**Burdaki moniker, identity, details, website gibi kısımları değiştirip cüzdan adınızı girip düzenledikten sonra çalıştırmanız yeterli (**&#x31;000000uinit = 1 INIT)
 
 ```
 initiad tx mstaking create-validator \
