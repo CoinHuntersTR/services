@@ -17,8 +17,11 @@ sudo apt install ca-certificates zlib1g-dev libncurses5-dev libgdbm-dev libnss3-
 ```
 
 ```
-tar xvf heminetwork_v0.4.5_linux_amd64.tar.gz && cd heminetwork_v0.4.5_linux_amd64
+wget https://github.com/hemilabs/heminetwork/releases/download/v0.7.0/heminetwork_v0.7.0_linux_amd64.tar.gz 
 ```
+
+<pre><code><strong>tar xvf heminetwork_v0.7.0_linux_amd64.tar.gz  &#x26;&#x26; cd heminetwork_v0.7.0_linux_amd64
+</strong></code></pre>
 
 ### Şimdi testnet için cüzdan oluşturuyoruz.
 
