@@ -13,5 +13,5 @@ wget https://github.com/availproject/avail/releases/download/v2.2.5.1/x86_64-ubu
 tar -xf x86_64-ubuntu-2204-avail-node.tar.gz
 
 # screen -r avail ile screen içinde node tekrar başlatıyoruz. 
-./avail-node --chain turing --name <nodename> --validator -d ./node-data
+./avail-node --chain mainnet --name <nodename> --validator -d ./node-data
 ```
