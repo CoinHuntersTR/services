@@ -4,6 +4,7 @@
 * [Mainnet](mainnet/README.md)
   * [Avail](mainnet/avail/README.md)
     * [Installation](mainnet/avail/installation.md)
+    * [Upgrade](mainnet/avail/upgrade.md)
   * [CrossFi](mainnet/crossfi-mainnet/README.md)
     * [Service](mainnet/crossfi-mainnet/service.md)
     * [Installation](mainnet/crossfi-mainnet/installation.md)
