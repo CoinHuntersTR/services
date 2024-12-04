@@ -67,7 +67,7 @@
     * [Useful commands](testnet/artela-network/useful-commands.md)
   * [Avail](testnet/avail/README.md)
     * [Installation](testnet/avail/installation.md)
-    * [Update v2.2.0](testnet/avail/update-v2.2.0.md)
+    * [Update v2.2.1](testnet/avail/update-v2.2.0.md)
   * [Babylon](testnet/babylon/README.md)
     * [Installation](testnet/babylon/installation.md)
     * [Useful commands](testnet/babylon/useful-commands.md)

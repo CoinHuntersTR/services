@@ -1,9 +1,9 @@
-# Update v2.2.0
+# Update v2.2.1
 
 **Release Information:**
 
-* **Binary Version:** v2.2.5.0-rc1
-* **Node Version:** v2.2.0
+* **Binary Version:** v2.2.5.1
+* **Node Version:** v2.2.1
 
 ```
 cd avail
@@ -12,7 +12,7 @@ cd avail
 ### Dosyaları çekiyoruz
 
 ```
-wget https://github.com/availproject/avail/releases/download/v2.2.5.0-rc1/x86_64-ubuntu-2204-avail-node.tar.gz
+wget https://github.com/availproject/avail/releases/download/v2.2.5.1/x86_64-ubuntu-2204-avail-node.tar.gz
 ```
 
 ```
