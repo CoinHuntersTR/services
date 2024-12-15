@@ -191,3 +191,8 @@
     * [Installation](testnet/glacier-network/installation.md)
   * [Pipe Network](testnet/pipe-network/README.md)
     * [Installation](testnet/pipe-network/installation.md)
+  * [Pell](testnet/pell/README.md)
+    * [Service](testnet/pell/service.md)
+    * [Installation](testnet/pell/installation.md)
+    * [Snapshots](testnet/pell/snapshots.md)
+    * [Useful commands](testnet/pell/useful-commands.md)
