@@ -178,7 +178,7 @@
       * [Installation](testnet/story-protocol/illiad-testnet/installation.md)
       * [Snapshots](testnet/story-protocol/illiad-testnet/snapshots.md)
       * [Upgrade](testnet/story-protocol/illiad-testnet/upgrade.md)
-    * [odyssey testnet](testnet/story-protocol/odyssey-testnet/README.md)
+    * [Odyssey testnet](testnet/story-protocol/odyssey-testnet/README.md)
       * [Service](testnet/story-protocol/odyssey-testnet/service.md)
       * [Installation](testnet/story-protocol/odyssey-testnet/installation.md)
       * [Snapshots](testnet/story-protocol/odyssey-testnet/snapshots.md)
