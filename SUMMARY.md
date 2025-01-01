@@ -14,6 +14,7 @@
     * [Installation](mainnet/dymension/installation.md)
     * [Snapshots](mainnet/dymension/snapshots.md)
     * [Useful commands](mainnet/dymension/useful-commands.md)
+    * [Upgrade](mainnet/dymension/upgrade.md)
   * [Lava Network](mainnet/lava-network/README.md)
     * [Service](mainnet/lava-network/service.md)
     * [Installion](mainnet/lava-network/installion.md)
