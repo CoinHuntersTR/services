@@ -18,5 +18,5 @@ mv $HOME/.kopid/priv_validator_state.json.backup $HOME/.kopid/data/priv_validato
 #### Restart the service and check the log <a href="#restart-the-service-and-check-the-log" id="restart-the-service-and-check-the-log"></a>
 
 ```
-sudo systemctl restart mantrachaind && sudo journalctl -u mantrachaind -f --no-hostname -o cat
+sudo systemctl restart kopid.service && sudo journalctl -fu kopid.service -o cat
 ```
