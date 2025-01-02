@@ -3,9 +3,9 @@
 #### Stop the service and reset the data <a href="#stop-the-service-and-reset-the-data" id="stop-the-service-and-reset-the-data"></a>
 
 ```
-sudo systemctl stop mantrachaind
-cp $HOME/.mantrachain/data/priv_validator_state.json $HOME/.mantrachain/priv_validator_state.json.backup
-rm -rf $HOME/.mantrachain/data
+sudo systemctl stop kopid.service
+cp $HOME/.kopid/data/priv_validator_state.json $HOME/.kopid/priv_validator_state.json.backup
+rm -rf $HOME/.kopid/data
 ```
 
 #### Download latest snapshot <a href="#download-latest-snapshot" id="download-latest-snapshot"></a>
