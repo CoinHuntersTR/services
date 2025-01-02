@@ -10,4 +10,4 @@
 
 ### EXPLORER
 
-{% embed url="https://explorer.coinhunterstr.com/Kopi-Testnet" %}
+{% embed url="https://explorer.coinhunterstr.com/Kopi-Money" %}
