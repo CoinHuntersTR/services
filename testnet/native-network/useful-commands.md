@@ -5,43 +5,43 @@
 **ADD NEW KEY**
 
 ```
-pellcored keys add wallet
+gonative keys add wallet
 ```
 
 **RECOVER EXISTING KEY**
 
 ```
-pellcored keys add wallet --recover
+gonative keys add wallet --recover
 ```
 
 **LIST ALL KEYS**
 
 ```
-pellcored keys list
+gonative keys list
 ```
 
 **DELETE KEY**
 
 ```
-pellcored keys delete wallet
+gonative keys delete wallet
 ```
 
 **EXPORT KEY TO A FILE**
 
 ```
-pellcored keys export wallet
+gonative keys export wallet
 ```
 
 **IMPORT KEY FROM A FILE**
 
 ```
-pellcored keys import wallet wallet.backup
+gonative keys import wallet wallet.backup
 ```
 
 **QUERY WALLET BALANCE**
 
 ```
-pellcored q bank balances $(pellcored keys show wallet -a)
+gonative q bank balances $(gonative keys show wallet -a)
 ```
 
 ### 👷 Validator management <a href="#validator-management" id="validator-management"></a>
@@ -49,55 +49,50 @@ pellcored q bank balances $(pellcored keys show wallet -a)
 Please make sure you have adjusted **moniker**, **identity**, **details** and **website** to match your values.
 
 ```
-cd $HOME
-# Create validator.json file
-echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(pellcored comet show-validator | grep -Po '\"key\":\s*\"\K[^"]*')\"},
-    \"amount\": \"1000000000000000000apell\",
-    \"moniker\": \"\",
-    \"identity\": \"\",
-    \"website\": \"\",
-    \"security\": \"\",
-    \"details\": \"CoinHunters Community ❤️\",
-    \"commission-rate\": \"0.1\",
-    \"commission-max-rate\": \"0.2\",
-    \"commission-max-change-rate\": \"0.01\",
-    \"min-self-delegation\": \"1\"
-}" > validator.json
-# Create a validator using the JSON configuration
-pellcored tx staking create-validator validator.json \
-    --from wallet \
-    chain-id ignite_186-1 \
-	--gas auto --gas-adjustment 1.5 --fees 30apell \
+gonative tx staking create-validator \
+--amount=1000000untiv \
+--pubkey=$(gonative comet show-validator) \
+--moniker="<Your moniker>" \
+--identity=<Your identity> \
+--details="<Your details>" \
+--chain-id=native-t1 \
+--commission-rate=0.05 \
+--commission-max-rate=0.20 \
+--commission-max-change-rate=0.1 \
+--min-self-delegation=1 \
+--from=<YOUR_WALLET> \
+--fees=20000untiv \
+-y
 ```
 
 **UNJAIL VALIDATOR**
 
 ```
-pellcored tx slashing unjail --from wallet --chain-id ignite_186-1 --gas-adjustment 1.5 --gas auto --gas-prices 30apell -y
+gonative tx slashing unjail --from wallet --chain-id native-t1 --gas-adjustment 1.5 --gas auto --gas-prices 20000untiv -y
 ```
 
 **JAIL REASON**
 
 ```
-pellcored query slashing signing-info $(pellcored tendermint show-validator)
+gonative query slashing signing-info $(gonative tendermint show-validator)
 ```
 
 **LIST ALL ACTIVE VALIDATORS**
 
 ```
-pellcored q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_BONDED")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl
+gonative q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_BONDED")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl
 ```
 
 **LIST ALL INACTIVE VALIDATORS**
 
 ```
-pellcored q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_UNBONDED")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl
+gonative q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_UNBONDED")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl
 ```
 
 **VIEW VALIDATOR DETAILS**
 
 ```
-pellcored q staking validator $(pellcored keys show wallet --bech val -a)
+gonative q staking validator $(gonative keys show wallet --bech val -a)
 ```
 
 ### 💲 Token management <a href="#token-management" id="token-management"></a>
@@ -105,43 +100,43 @@ pellcored q staking validator $(pellcored keys show wallet --bech val -a)
 **WITHDRAW REWARDS FROM ALL VALIDATORS**
 
 ```
-pellcored tx distribution withdraw-rewards $(pellcored keys show wallet --bech val -a) --commission --from wallet --chain-id ignite_186-1 --gas-adjustment 1.5 --gas auto --gas-prices 30apell -y
+gonative tx distribution withdraw-rewards $(gonative keys show wallet --bech val -a) --commission --from wallet --chain-id native-t1 --gas-adjustment 1.5 --gas auto --gas-prices 20000untiv -y
 ```
 
 **WITHDRAW COMMISSION AND REWARDS FROM YOUR VALIDATOR**
 
 ```
-pellcored tx distribution withdraw-rewards $(pellcored keys show wallet --bech val -a) --commission --from wallet --chain-id ignite_186-1 --gas-adjustment 1.5 --gas auto --gas-prices 30apell -y
+gonative tx distribution withdraw-rewards $(gonative keys show wallet --bech val -a) --commission --from wallet --chain-id native-t1 --gas-adjustment 1.5 --gas auto --gas-prices 20000untiv -y
 ```
 
 **DELEGATE TOKENS TO YOURSELF**
 
 ```
-pellcored tx staking delegate $(pellcored keys show wallet --bech val -a) 1000000000000000000apell --from wallet --chain-id ignite_186-1 --gas-adjustment 1.5 --gas auto --gas-prices 30apell -y
+gonative tx staking delegate $(gonative keys show wallet --bech val -a) 1000000untiv --from wallet --chain-id native-t1 --gas-adjustment 1.5 --gas auto --gas-prices 20000untiv -y
 ```
 
 **DELEGATE TOKENS TO VALIDATOR**
 
 ```
-pellcored tx staking delegate <TO_VALOPER_ADDRESS> 1000000000000000000apell --from wallet --chain-id ignite_186-1 --gas-adjustment 1.5 --gas auto --gas-prices 30apell -y
+gonative tx staking delegate <TO_VALOPER_ADDRESS> 1000000untiv --from wallet --chain-id native-t1 --gas-adjustment 1.5 --gas auto --gas-prices 20000untiv -y
 ```
 
 **REDELEGATE TOKENS TO ANOTHER VALIDATOR**
 
 ```
-pellcored tx staking redelegate $(pellcored keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000000000000000apell --from wallet --chain-id ignite_186-1 --gas-adjustment 1.5 --gas auto --gas-prices 30apell -y
+gonative tx staking redelegate $(gonative keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000untiv --from wallet --chain-id native-t1 --gas-adjustment 1.5 --gas auto --gas-prices 20000untiv -y
 ```
 
 **UNBOND TOKENS FROM YOUR VALIDATOR**
 
 ```
-pellcored tx staking unbond $(pellcored keys show wallet --bech val -a) 1000000000000000000apell --from wallet --chain-id ignite_186-1 --gas-adjustment 1.5 --gas auto --gas-prices 30apell -y
+gonative tx staking unbond $(gonative keys show wallet --bech val -a) 1000000untiv --from wallet --chain-id native-t1 --gas-adjustment 1.5 --gas auto --gas-prices 20000untiv -y
 ```
 
 **SEND TOKENS TO THE WALLET**
 
 ```
-pellcored tx bank send wallet <TO_WALLET_ADDRESS> 1000000000000000000apell --from wallet --chain-id ignite_186-1 --gas-adjustment 1.5 --gas auto --gas-prices 30apell -y
+gonative tx bank send wallet <TO_WALLET_ADDRESS> 1000000untiv --from wallet --chain-id native-t1 --gas-adjustment 1.5 --gas auto --gas-prices 20000untiv -y
 ```
 
 ### 🗳 Governance <a href="#governance" id="governance"></a>
@@ -149,37 +144,37 @@ pellcored tx bank send wallet <TO_WALLET_ADDRESS> 1000000000000000000apell --fro
 **LIST ALL PROPOSALS**
 
 ```
-pellcored query gov proposals
+gonative query gov proposals
 ```
 
 **VIEW PROPOSAL BY ID**
 
 ```
-pellcored query gov proposal 1
+gonative query gov proposal 1
 ```
 
 **VOTE ‘YES’**
 
 ```
-pellcored tx gov vote 1 yes --from wallet --chain-id ignite_186-1 --gas-adjustment 1.5 --gas auto --gas-prices 30apell -y
+gonative tx gov vote 1 yes --from wallet --chain-id native-t1 --gas-adjustment 1.5 --gas auto --gas-prices 20000untiv -y
 ```
 
 **VOTE ‘NO’**
 
 ```
-pellcored tx gov vote 1 no --from wallet --chain-id ignite_186-1 --gas-adjustment 1.5 --gas auto --gas-prices 30apell -y
+gonative tx gov vote 1 no --from wallet --chain-id native-t1 --gas-adjustment 1.5 --gas auto --gas-prices 20000untiv -y
 ```
 
 **VOTE ‘ABSTAIN’**
 
 ```
-pellcored tx gov vote 1 abstain --from wallet --chain-id ignite_186-1 --gas-adjustment 1.5 --gas auto --gas-prices 30apell -y
+gonative tx gov vote 1 abstain --from wallet --chain-id native-t1 --gas-adjustment 1.5 --gas auto --gas-prices 20000untiv -y
 ```
 
 **VOTE ‘NOWITHVETO’**
 
 ```
-pellcored tx gov vote 1 NoWithVeto --from wallet --chain-id ignite_186-1 --gas-adjustment 1.5 --gas auto --gas-prices 30apell -y
+gonative tx gov vote 1 NoWithVeto --from wallet --chain-id native-t1 --gas-adjustment 1.5 --gas auto --gas-prices 20000untiv -y
 ```
 
 ### ⚡️ Utility <a href="#utility" id="utility"></a>
@@ -189,8 +184,8 @@ pellcored tx gov vote 1 NoWithVeto --from wallet --chain-id ignite_186-1 --gas-a
 ```
 UPDATE PORTS
 CUSTOM_PORT=110
-sed -i -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${CUSTOM_PORT}58\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${CUSTOM_PORT}57\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${CUSTOM_PORT}60\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${CUSTOM_PORT}56\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${CUSTOM_PORT}66\"%" $HOME/.pellcored/config/config.toml
-sed -i -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${CUSTOM_PORT}17\"%; s%^address = \":8080\"%address = \":${CUSTOM_PORT}80\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${CUSTOM_PORT}90\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${CUSTOM_PORT}91\"%" $HOME/.pellcored/config/app.toml
+sed -i -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${CUSTOM_PORT}58\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${CUSTOM_PORT}57\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${CUSTOM_PORT}60\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${CUSTOM_PORT}56\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${CUSTOM_PORT}66\"%" $HOME/.gonative/config/config.toml
+sed -i -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${CUSTOM_PORT}17\"%; s%^address = \":8080\"%address = \":${CUSTOM_PORT}80\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${CUSTOM_PORT}90\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${CUSTOM_PORT}91\"%" $HOME/.gonative/config/app.toml
 ```
 
 **UPDATE INDEXER**
@@ -198,13 +193,13 @@ sed -i -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${CUSTO
 **Disable indexer**
 
 ```
-sed -i -e 's|^indexer *=.*|indexer = "null"|' $HOME/.pellcored/config/config.toml
+sed -i -e 's|^indexer *=.*|indexer = "null"|' $HOME/.gonative/config/config.toml
 ```
 
 **Enable indexer**
 
 ```
-sed -i -e 's|^indexer *=.*|indexer = "kv"|' $HOME/.pellcored/config/config.toml
+sed -i -e 's|^indexer *=.*|indexer = "kv"|' $HOME/.gonative/config/config.toml
 ```
 
 **UPDATE PRUNING**
@@ -215,7 +210,7 @@ sed -i \
   -e 's|^pruning-keep-recent *=.*|pruning-keep-recent = "100"|' \
   -e 's|^pruning-keep-every *=.*|pruning-keep-every = "0"|' \
   -e 's|^pruning-interval *=.*|pruning-interval = "19"|' \
-  $HOME/.pellcored/config/app.toml
+  $HOME/.gonative/config/app.toml
 ```
 
 ### 🚨 Maintenance <a href="#maintenance" id="maintenance"></a>
@@ -223,25 +218,25 @@ sed -i \
 **GET VALIDATOR INFO**
 
 ```
-pellcored status 2>&1 | jq .ValidatorInfo
+gonative status 2>&1 | jq .ValidatorInfo
 ```
 
 **GET SYNC INFO**
 
 ```
-pellcored status 2>&1 | jq
+gonative status 2>&1 | jq
 ```
 
 **GET NODE PEER**
 
 ```
-echo $(pellcored tendermint show-node-id)'@'$(curl -s ifconfig.me)':'$(cat $HOME/.pellcored/config/config.toml | sed -n '/Address to listen for incoming connection/{n;p;}' | sed 's/.*://; s/".*//')
+echo $(gonative tendermint show-node-id)'@'$(curl -s ifconfig.me)':'$(cat $HOME/.gonative/config/config.toml | sed -n '/Address to listen for incoming connection/{n;p;}' | sed 's/.*://; s/".*//')
 ```
 
 **CHECK IF VALIDATOR KEY IS CORRECT**
 
 ```
-[[ $(pellcored q staking validator $(pellcored keys show wallet --bech val -a) -oj | jq -r .consensus_pubkey.key) = $(pellcored status | jq -r .ValidatorInfo.PubKey.value) ]] && echo -e "\n\e[1m\e[32mTrue\e[0m\n" || echo -e "\n\e[1m\e[31mFalse\e[0m\n"
+[[ $(gonative q staking validator $(gonative keys show wallet --bech val -a) -oj | jq -r .consensus_pubkey.key) = $(gonative status | jq -r .ValidatorInfo.PubKey.value) ]] && echo -e "\n\e[1m\e[32mTrue\e[0m\n" || echo -e "\n\e[1m\e[31mFalse\e[0m\n"
 ```
 
 **GET LIVE PEERS**
@@ -253,19 +248,19 @@ curl -sS http://localhost:26657/net_info | jq -r '.result.peers[] | "\(.node_inf
 **SET MINIMUM GAS PRICE**
 
 ```
-sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"30apell\"/" $HOME/.pellcored/config/app.toml
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"20000untiv\"/" $HOME/.gonative/config/app.toml
 ```
 
 **ENABLE PROMETHEUS**
 
 ```
-sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.pellcored/config/config.toml
+sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.gonative/config/config.toml
 ```
 
 **RESET CHAIN DATA**
 
 ```
-pellcored tendermint unsafe-reset-all --keep-addr-book --home $HOME/.pellcored --keep-addr-book
+gonative tendermint unsafe-reset-all --keep-addr-book --home $HOME/.gonative --keep-addr-book
 ```
 
 **REMOVE NODE**
@@ -274,12 +269,12 @@ Please, before proceeding with the next step! All chain data will be lost! Make 
 
 ```
 cd $HOME
-sudo systemctl stop pellcored
-sudo systemctl disable pellcored
-sudo rm /etc/systemd/system/pellcored.service
+sudo systemctl stop gonatived
+sudo systemctl disable gonatived
+sudo rm /etc/systemd/system/gonatived.service
 sudo systemctl daemon-reload
-rm -f $(which pellcored)
-rm -rf $HOME/.pellcored
+rm -f $(which gonative)
+rm -rf $HOME/.gonative
 ```
 
 ### ⚙️ Service Management <a href="#service-management" id="service-management"></a>
@@ -293,41 +288,41 @@ sudo systemctl daemon-reload
 **ENABLE SERVICE**
 
 ```
-sudo systemctl enable pellcored
+sudo systemctl enable gonatived
 ```
 
 **DISABLE SERVICE**
 
 ```
-sudo systemctl disable pellcored
+sudo systemctl disable gonatived
 ```
 
 **START SERVICE**
 
 ```
-sudo systemctl start pellcored
+sudo systemctl start gonatived
 ```
 
 **STOP SERVICE**
 
 ```
-sudo systemctl stop pellcored
+sudo systemctl stop gonatived
 ```
 
 **RESTART SERVICE**
 
 ```
-sudo systemctl restart pellcored
+sudo systemctl restart gonatived
 ```
 
 **CHECK SERVICE STATUS**
 
 ```
-sudo systemctl status pellcored
+sudo systemctl status gonatived
 ```
 
 **CHECK SERVICE LOGS**
 
 ```
-sudo journalctl -u pellcored -f --no-hostname -o cat
+sudo journalctl -u gonatived -f --no-hostname -o cat
 ```
