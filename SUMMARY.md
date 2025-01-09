@@ -204,3 +204,8 @@
     * [Installation](testnet/pell/installation.md)
     * [Snapshots](testnet/pell/snapshots.md)
     * [Useful commands](testnet/pell/useful-commands.md)
+  * [Native Network](testnet/native-network/README.md)
+    * [Service](testnet/native-network/service.md)
+    * [Installation](testnet/native-network/installation.md)
+    * [Snapshots](testnet/native-network/snapshots.md)
+    * [Useful commands](testnet/native-network/useful-commands.md)
