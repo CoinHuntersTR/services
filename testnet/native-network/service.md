@@ -2,12 +2,12 @@
 
 ### API
 
-{% embed url="https://pell-testnet-api.itrocket.net" %}
+{% embed url="https://native-api.coinhunterstr.com" %}
 
 ### RPC
 
-{% embed url="https://pell-testnet-rpc.itrocket.net" %}
+{% embed url="https://native-api.coinhunterstr.com" %}
 
 ### EXPLORER
 
-{% embed url="https://explorer.coinhunterstr.com/Pell-Testnet" %}
+{% embed url="https://explorer.coinhunterstr.com/Native-Testnet/staking" %}
