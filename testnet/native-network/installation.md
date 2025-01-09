@@ -1,6 +1,6 @@
 # Installation
 
-### Manual Installation <a href="#installation" id="installation"></a>
+## Manual Installation <a href="#installation" id="installation"></a>
 
 #### Gerekli Sistem <a href="#install-dependencies" id="install-dependencies"></a>
 
@@ -179,13 +179,13 @@ LimitNOFILE=65535
 WantedBy=multi-user.target
 EOF
 ```
-# enable and start service
+### enable and start service
 ```
 sudo systemctl daemon-reload
 sudo systemctl enable gonatived
 sudo systemctl restart gonatived && sudo journalctl -fu gonatived -o cat
 ```
-### Automatic Installation <a href="#auto-installation" id="auto-installation"></a>
+## Automatic Installation <a href="#auto-installation" id="auto-installation"></a>
 
 > Moniker yerine Validator isminizi yazıp enter basın.
 
@@ -197,7 +197,7 @@ bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/refs/head
 
 > Node ağ ile eşleşmiş olması gerekiyor. Bunun için `gonative status 2>&1 | jq` komutunu çalıştırdığınızda `false` çıktısı vermesi gerekir. `True` çıktı alırsanız aşağıdaki adımlara devam etmeyin.
 
-### Run a Validator
+## Run a Validator
 
 ```
 cd $HOME
