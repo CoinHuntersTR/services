@@ -37,16 +37,13 @@ source $HOME/.bash_profile
 
 ```
 cd $HOME
-wget -O pellcored https://github.com/0xPellNetwork/network-config/releases/download/v1.0.20-ignite/pellcored-v1.0.20-linux-amd64
-chmod +x $HOME/pellcored
-mv $HOME/pellcored $HOME/go/bin/pellcored
-
-WASMVM_VERSION="v2.1.2"
-export LD_LIBRARY_PATH=$HOME/.pellcored/lib
-mkdir -p $LD_LIBRARY_PATH
-wget "https://github.com/CosmWasm/wasmvm/releases/download/$WASMVM_VERSION/libwasmvm.$(uname -m).so" -O "$LD_LIBRARY_PATH/libwasmvm.$(uname -m).so"
-echo "export LD_LIBRARY_PATH=$HOME/.pellcored/lib:$LD_LIBRARY_PATH" >> $HOME/.bash_profile
-source $HOME/.bash_profile
+wget -O gonative-v0.1.1-linux-amd64.gz https://github.com/gonative-cc/gonative/releases/download/v0.1.1/gonative-v0.1.1-linux-amd64.gz
+gunzip gonative-v0.1.1-linux-amd64.gz
+mv gonative-v0.1.1-linux-amd64 gonative
+chmod +x gonative
+mv gonative $HOME/go/bin/
+echo "export PATH=$PATH:$HOME/go/bin" >> ~/.bashrc
+source ~/.bashrc
 ```
 
 #### Set Vars
@@ -54,82 +51,150 @@ source $HOME/.bash_profile
 > `Moniker` yerine validator adınızı ekliyoruz.
 
 ```
-pellcored config node tcp://localhost:26657
-pellcored config keyring-backend os
-pellcored config chain-id ignite_186-1
-pellcored init "$MONIKER" --chain-id ignite_186-1
+gonative config set client keyring-backend os
+gonative config set client chain-id native-t1
+gonative init $MONIKER --chain-id native-t1
 ```
 
 #### Download Genesis and Addrbook
 
 ```
-wget -O $HOME/.pellcored/config/genesis.json https://raw.githubusercontent.com/CoinHuntersTR/props/refs/heads/main/pellnetwork/genesis.json
-wget -O $HOME/.pellcored/config/addrbook.json https://raw.githubusercontent.com/CoinHuntersTR/props/refs/heads/main/pellnetwork/addrbook.json
+wget -O $HOME/.gonative/config/genesis.json https://raw.githubusercontent.com/CoinHuntersTR/props/refs/heads/main/native/genesis.json
+wget -O $HOME/.gonative/config/addrbook.json https://raw.githubusercontent.com/CoinHuntersTR/props/refs/heads/main/native/addrbook.json
 ```
 
-#### Config Pruning
+### Update config.toml
+cat > $HOME/.gonative/config/config.toml << EOF
+minimum-gas-prices = "0.08untiv"
+pruning = "custom"
+pruning-keep-recent = "100"
+pruning-keep-every = "0"
+pruning-interval = "50"
+halt-height = 0
+halt-time = 0
+min-retain-blocks = 0
+inter-block-cache = true
+index-events = []
 
-```
-sed -i -e "s/^pruning *=.*/pruning = \"custom\"/" $HOME/.pellcored/config/app.toml
-sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"100\"/" $HOME/.pellcored/config/app.toml
-sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"50\"/" $HOME/.pellcored/config/app.toml
+[telemetry]
+enabled = true
+prometheus-retention-time = 60
 
-# Set minimum gas price, enable Prometheus, and disable indexing
-sed -i 's|minimum-gas-prices =.*|minimum-gas-prices = "0apell"|g' $HOME/.pellcored/config/app.toml
-sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.pellcored/config/config.toml
-sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.pellcored/config/config.toml
-```
+[api]
+enable = true
+swagger = true
+address = "tcp://0.0.0.0:${NATIVE_PORT}317"
+max-open-connections = 1000
 
-#### Set seeds and peers
+[grpc]
+enable = false
+address = "0.0.0.0:${NATIVE_PORT}090"
 
-```
-URL="https://pell-testnet-rpc.itrocket.net/net_info"
-response=$(curl -s $URL)
-SEEDS="5f10959cc96b5b7f9e08b9720d9a8530c3d08d19@pell-testnet-seed.itrocket.net:58656"
-PEERS=$(echo $response | jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip):" + (.node_info.listen_addr | capture("(?<ip>.+):(?<port>[0-9]+)$").port)' | paste -sd "," -)
-echo "PEERS=\"$PEERS\""
-sed -i -e "s|^seeds *=.*|seeds = \"$SEEDS\"|; s|^persistent_peers *=.*|persistent_peers = \"$PEERS\"|" $HOME/.pellcored/config/config.toml
-```
+[grpc-web]
+enable = false
+address = "0.0.0.0:${NATIVE_PORT}091"
 
-#### create service file
+[state-sync]
+snapshot-interval = 0
+snapshot-keep-recent = 2
 
-```
-sudo tee /etc/systemd/system/pellcored.service > /dev/null <<EOF
+[p2p]
+laddr = "tcp://0.0.0.0:${NATIVE_PORT}656"
+external-address = "$(wget -qO- eth0.me):${NATIVE_PORT}656"
+seeds = "${SEEDS}"
+persistent-peers = "${PEERS}"
+max-num-inbound-peers = 50
+max-num-outbound-peers = 50
+max-connections = 100
+handshake-timeout = "20s"
+dial-timeout = "3s"
+
+[mempool]
+size = 5000
+max-tx-bytes = 1048576
+max-batch-bytes = 0
+
+[consensus]
+wal-file = "data/cs.wal/wal"
+timeout-propose = "2s"
+timeout-propose-delta = "500ms"
+timeout-prevote = "1s"
+timeout-prevote-delta = "500ms"
+timeout-precommit = "1s"
+timeout-precommit-delta = "500ms"
+timeout-commit = "3s"
+skip-timeout-commit = false
+create-empty-blocks = true
+create-empty-blocks-interval = "0s"
+peer-gossip-sleep-duration = "100ms"
+peer-query-maj23-sleep-duration = "2s"
+EOF
+
+### Update app.toml
+cat > $HOME/.gonative/config/app.toml << EOF
+minimum-gas-prices = "0.08untiv"
+pruning = "custom"
+pruning-keep-recent = "100"
+pruning-keep-every = "0"
+pruning-interval = "50"
+halt-height = 0
+halt-time = 0
+
+[telemetry]
+enabled = true
+prometheus-retention-time = 60
+
+[api]
+enable = true
+swagger = true
+address = "tcp://0.0.0.0:${NATIVE_PORT}317"
+max-open-connections = 1000
+
+[grpc]
+enable = false
+address = "0.0.0.0:${NATIVE_PORT}090"
+
+[state-sync]
+snapshot-interval = 0
+snapshot-keep-recent = 2
+EOF
+
+sleep 1
+echo done
+
+### create service file
+sudo tee /etc/systemd/system/gonatived.service > /dev/null <<EOF
 [Unit]
-Description=Pell node
+Description=gonative node
 After=network-online.target
+
 [Service]
 User=$USER
-WorkingDirectory=$HOME/.pellcored
-ExecStart=$(which pellcored) start --home $HOME/.pellcored
-Environment=LD_LIBRARY_PATH=$HOME/.pellcored/lib/
-Restart=on-failure
-RestartSec=5
+ExecStart=$(which gonative) start
+Restart=always
+RestartSec=3
 LimitNOFILE=65535
+
 [Install]
 WantedBy=multi-user.target
 EOF
-```
 
-#### enable and start service
-
-```
+# enable and start service
 sudo systemctl daemon-reload
-sudo systemctl enable pellcored
-sudo systemctl restart pellcored && sudo journalctl -fu pellcored -o cat
-```
+sudo systemctl enable gonatived
+sudo systemctl restart gonatived && sudo journalctl -fu gonatived -o cat
 
 ### Automatic Installation <a href="#auto-installation" id="auto-installation"></a>
 
 > Moniker yerine Validator isminizi yazıp enter basın.
 
 ```
-bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/refs/heads/main/AutoInstall/pellnetwork.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/refs/heads/main/AutoInstall/native.sh)
 ```
 
 ### Sync Node
 
-> Node ağ ile eşleşmiş olması gerekiyor. Bunun için `pellcored status 2>&1 | jq` komutunu çalıştırdığınızda `false` çıktısı vermesi gerekir. `True` çıktı alırsanız aşağıdaki adımlara devam etmeyin.
+> Node ağ ile eşleşmiş olması gerekiyor. Bunun için `gonative status 2>&1 | jq` komutunu çalıştırdığınızda `false` çıktısı vermesi gerekir. `True` çıktı alırsanız aşağıdaki adımlara devam etmeyin.
 
 ### Run a Validator
 
@@ -141,47 +206,27 @@ cd $HOME
 >
 > ```
 > # yeni cüzdan oluşturmak için wallet yerine istediğiniz bir ismi yazın.
-> pellcored keys add wallet
+> gonative keys add wallet
 >
 > # Var olan bir cüzdan eklemek için aşağıdaki komutu kullanabilirsiniz. 
-> pellcored keys add wallet--recover
+> gonative keys add wallet--recover
 > ```
 
 > Aşağıdaki dosyayı kendinize göre düzenlemeyi unutmayın. Validator ismi, site linkleri vs.
 
 ```
-cat > ./validator.json << EOF
-{
-	"pubkey": $(pellcored tendermint show-validator),
-	"amount": "1000000000000000000apell",
-	"moniker": "",
-	"identity": "",
-	"website": "",
-	"security": "",
-	"details": "",
-	"commission-rate": "0.1",
-	"commission-max-rate": "0.2",
-	"commission-max-change-rate": "0.01",
-	"min-self-delegation": "1"
-}
-EOF
-
-```
-
-> terminale yapıştırdıktan sonra, CTRL X Y enter ile çıkıyoruz.
->
-> Şimdi tekrardan node restart atalım
-
-```
-sudo systemctl restart pellcored && sudo journalctl -fu pellcored -o cat
-```
-
-> Şimdi aşağıdaki komutu çalıştırıyoruz. `wallet` yerine kendi cüzdan isminizi yazmayı unutmayın.&#x20;
-
-```
-pellcored tx staking create-validator ./validator.json \
---chain-id=ignite_186-1 \
---fees=0.000001pell \
---gas=1000000 \
---from=wallet
+gonative tx staking create-validator \
+--amount=1000000untiv \
+--pubkey=$(gonative comet show-validator) \
+--moniker="<Your moniker>" \
+--identity=<Your identity> \
+--details="<Your details>" \
+--chain-id=native-t1 \
+--commission-rate=0.05 \
+--commission-max-rate=0.20 \
+--commission-max-change-rate=0.1 \
+--min-self-delegation=1 \
+--from=<YOUR_WALLET> \
+--fees=20000untiv \
+-y
 ```
