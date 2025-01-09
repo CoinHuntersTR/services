@@ -64,6 +64,7 @@ wget -O $HOME/.gonative/config/addrbook.json https://raw.githubusercontent.com/C
 ```
 
 ### Update config.toml
+```
 cat > $HOME/.gonative/config/config.toml << EOF
 minimum-gas-prices = "0.08untiv"
 pruning = "custom"
@@ -83,24 +84,24 @@ prometheus-retention-time = 60
 [api]
 enable = true
 swagger = true
-address = "tcp://0.0.0.0:${NATIVE_PORT}317"
+address = "tcp://0.0.0.0:1317"
 max-open-connections = 1000
 
 [grpc]
 enable = false
-address = "0.0.0.0:${NATIVE_PORT}090"
+address = "0.0.0.0:9090"
 
 [grpc-web]
 enable = false
-address = "0.0.0.0:${NATIVE_PORT}091"
+address = "0.0.0.0:9091"
 
 [state-sync]
 snapshot-interval = 0
 snapshot-keep-recent = 2
 
 [p2p]
-laddr = "tcp://0.0.0.0:${NATIVE_PORT}656"
-external-address = "$(wget -qO- eth0.me):${NATIVE_PORT}656"
+laddr = "tcp://0.0.0.0:26656"
+external-address = "$(wget -qO- eth0.me):26656"
 seeds = "${SEEDS}"
 persistent-peers = "${PEERS}"
 max-num-inbound-peers = 50
@@ -147,22 +148,21 @@ prometheus-retention-time = 60
 [api]
 enable = true
 swagger = true
-address = "tcp://0.0.0.0:${NATIVE_PORT}317"
+address = "tcp://0.0.0.0:1317"
 max-open-connections = 1000
 
 [grpc]
 enable = false
-address = "0.0.0.0:${NATIVE_PORT}090"
+address = "0.0.0.0:9090"
 
 [state-sync]
 snapshot-interval = 0
 snapshot-keep-recent = 2
 EOF
-
-sleep 1
-echo done
+```
 
 ### create service file
+```
 sudo tee /etc/systemd/system/gonatived.service > /dev/null <<EOF
 [Unit]
 Description=gonative node
@@ -178,12 +178,13 @@ LimitNOFILE=65535
 [Install]
 WantedBy=multi-user.target
 EOF
-
+```
 # enable and start service
+```
 sudo systemctl daemon-reload
 sudo systemctl enable gonatived
 sudo systemctl restart gonatived && sudo journalctl -fu gonatived -o cat
-
+```
 ### Automatic Installation <a href="#auto-installation" id="auto-installation"></a>
 
 > Moniker yerine Validator isminizi yazıp enter basın.
