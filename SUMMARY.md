@@ -29,6 +29,7 @@
     * [Service](mainnet/zeta-chain/service.md)
     * [Installation](mainnet/zeta-chain/installation.md)
     * [Useful commands](mainnet/zeta-chain/useful-commands.md)
+    * [Upgrade](mainnet/zeta-chain/upgrade.md)
   * [Mantra Chain](mainnet/mantra-chain/README.md)
     * [Installation](mainnet/mantra-chain/installation.md)
     * [Service](mainnet/mantra-chain/service.md)
