@@ -41,6 +41,7 @@
     * [Service](mainnet/kopi-money/service.md)
     * [Useful commands](mainnet/kopi-money/useful-commands.md)
     * [Snapshot](mainnet/kopi-money/snapshot.md)
+    * [Upgrade](mainnet/kopi-money/upgrade.md)
 * [Testnet](testnet/README.md)
   * [0G Labs](testnet/0g-labs/README.md)
     * [Service](testnet/0g-labs/service.md)
