@@ -25,7 +25,7 @@ sudo systemctl restart kopid.service
 sudo journalctl -u kopid.service -f
 ```
 
-### v8 Upgrrade
+### v8 Upgrade
 
 Upgrade height: [3930000](https://explorer.coinhunterstr.com/Kopi-Money/block/3930000) Please don\`t upgrade before the specified height;
 
