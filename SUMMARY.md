@@ -45,6 +45,7 @@
     * [Upgrade](mainnet/kopi-money/upgrade.md)
   * [Story Protocol](mainnet/story-protocol/README.md)
     * [Story Dev Mainnet](mainnet/story-protocol/illiad-testnet/README.md)
+      * [Service](mainnet/story-protocol/illiad-testnet/service.md)
       * [Installation](mainnet/story-protocol/illiad-testnet/installation.md)
       * [Snapshots](mainnet/story-protocol/illiad-testnet/snapshots.md)
 * [Testnet](testnet/README.md)
