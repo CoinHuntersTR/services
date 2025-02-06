@@ -52,7 +52,7 @@ make install
 sided config node tcp://localhost:26657
 sided config keyring-backend os
 sided config chain-id sidechain-1
-sided init "test" --chain-id sidechain-1
+sided init "Moniker" --chain-id sidechain-1
 ```
 
 #### Download Genesis and Addrbook
