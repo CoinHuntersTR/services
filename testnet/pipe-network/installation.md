@@ -142,3 +142,13 @@ pipe-tool list-nodes --node-registry-url="https://rpc.pipedev.network"
 ```
 
 <figure><img src="../../.gitbook/assets/Ekran görüntüsü 2024-11-29 115256.png" alt=""><figcaption></figcaption></figure>
+
+
+
+### Auto Script
+
+```
+bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/refs/heads/main/AutoInstall/PipeNetwork.sh)
+```
+
+Solana Wallet addresinizi giriyoruz. Sonraki seçimlerde seçenek 2 seçip devam ediyoruz. İşlem bu kadar.
