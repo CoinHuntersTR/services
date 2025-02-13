@@ -6,7 +6,7 @@ Linux 22.04 arm64
 
 <table><thead><tr><th width="241">Hardware</th><th>Minimum Requirement</th></tr></thead><tbody><tr><td>CPU</td><td>8 Cores</td></tr><tr><td>RAM</td><td>32 GB</td></tr><tr><td>DISK</td><td>500 SSD</td></tr></tbody></table>
 
-#### Offical Doc: [https://docs.story.foundation/docs/node-setup-dev-mainnet](https://docs.story.foundation/docs/node-setup-dev-mainnet)
+#### Offical Doc: [https://docs.story.foundation/docs/node-setup-mainnet](https://docs.story.foundation/docs/node-setup-mainnet)
 
 #### Auto Install
 
