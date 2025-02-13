@@ -43,11 +43,19 @@ Get wallet key and import to Metamask wallet&#x20;
 sudo nano ~/.story/story/config/private_key.txt
 ```
 
-Import the private key of your validator wallet into your MetaMask wallet. Then, use the faucet to request IP test tokens.
+Import the private key of your validator wallet into your MetaMask wallet. min delegate 1024 IP
 
 #### Register validator
 
 ```
-story validator create --stake 1000000000000000000 --private-key $(cat $HOME/.story/story/config/private_key.txt | grep "PRIVATE_KEY" | awk -F'=' '{print $2}')
+story validator create \
+--stake 1024000000000000000000 \
+--moniker "" \
+--chain-id 1514 \
+--private-key $(cat $HOME/.story/story/config/private_key.txt | grep "PRIVATE_KEY" | awk -F'=' '{print $2}') \
+--commission-rate 800 \
+--max-commission-rate 5000 \
+--max-commission-change-rate 500 \
+--unlocked=false
 ```
 
