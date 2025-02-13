@@ -13,7 +13,7 @@ Linux 22.04 arm64
 While setting up Story Protocol, you will be asked for your **Moniker** name and the **port number** you want to use. After entering this information, you can successfully set up the Story Protocol  Devoloper Mainnet network.
 
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/refs/heads/main/AutoInstall/story-dev.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/refs/heads/main/AutoInstall/story.sh)
 ```
 
 #### Check Logs for story-geth and story
