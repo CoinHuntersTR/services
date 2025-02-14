@@ -51,7 +51,7 @@ To create validator please refer to [official documentation](https://union.build
 **UNJAIL VALIDATOR**
 
 ```
-uniond tx slashing unjail --from wallet --chain-id union-testnet-8 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
+uniond tx slashing unjail --from wallet --chain-id union-testnet-9 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
 ```
 
 **JAIL REASON**
@@ -83,43 +83,43 @@ uniond q staking validator $(uniond keys show wallet --bech val -a)
 **WITHDRAW REWARDS FROM ALL VALIDATORS**
 
 ```
-uniond tx distribution withdraw-all-rewards --from wallet --chain-id union-testnet-8 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
+uniond tx distribution withdraw-all-rewards --from wallet --chain-id union-testnet-9 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
 ```
 
 **WITHDRAW COMMISSION AND REWARDS FROM YOUR VALIDATOR**
 
 ```
-uniond tx distribution withdraw-rewards $(uniond keys show wallet --bech val -a) --commission --from wallet --chain-id union-testnet-8 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
+uniond tx distribution withdraw-rewards $(uniond keys show wallet --bech val -a) --commission --from wallet --chain-id union-testnet-9 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
 ```
 
 **DELEGATE TOKENS TO YOURSELF**
 
 ```
-uniond tx staking delegate $(uniond keys show wallet --bech val -a) 1000000muno --from wallet --chain-id union-testnet-8 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
+uniond tx staking delegate $(uniond keys show wallet --bech val -a) 1000000muno --from wallet --chain-id union-testnet-9 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
 ```
 
 **DELEGATE TOKENS TO VALIDATOR**
 
 ```
-uniond tx staking delegate <TO_VALOPER_ADDRESS> 1000000muno --from wallet --chain-id union-testnet-8 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
+uniond tx staking delegate <TO_VALOPER_ADDRESS> 1000000muno --from wallet --chain-id union-testnet-9 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
 ```
 
 **REDELEGATE TOKENS TO ANOTHER VALIDATOR**
 
 ```
-uniond tx staking redelegate $(uniond keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000muno --from wallet --chain-id union-testnet-8 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
+uniond tx staking redelegate $(uniond keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000muno --from wallet --chain-id union-testnet-9 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
 ```
 
 **UNBOND TOKENS FROM YOUR VALIDATOR**
 
 ```
-uniond tx staking unbond $(uniond keys show wallet --bech val -a) 1000000muno --from wallet --chain-id union-testnet-8 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
+uniond tx staking unbond $(uniond keys show wallet --bech val -a) 1000000muno --from wallet --chain-id union-testnet-9 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
 ```
 
 **SEND TOKENS TO THE WALLET**
 
 ```
-uniond tx bank send wallet <TO_WALLET_ADDRESS> 1000000muno --from wallet --chain-id union-testnet-8 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
+uniond tx bank send wallet <TO_WALLET_ADDRESS> 1000000muno --from wallet --chain-id union-testnet-9 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
 ```
 
 ### 🗳 Governance <a href="#governance" id="governance"></a>
@@ -139,25 +139,25 @@ uniond query gov proposal 1
 **VOTE ‘YES’**
 
 ```
-uniond tx gov vote 1 yes --from wallet --chain-id union-testnet-8 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
+uniond tx gov vote 1 yes --from wallet --chain-id union-testnet-9 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
 ```
 
 **VOTE ‘NO’**
 
 ```
-uniond tx gov vote 1 no --from wallet --chain-id union-testnet-8 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
+uniond tx gov vote 1 no --from wallet --chain-id union-testnet-9 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
 ```
 
 **VOTE ‘ABSTAIN’**
 
 ```
-uniond tx gov vote 1 abstain --from wallet --chain-id union-testnet-8 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
+uniond tx gov vote 1 abstain --from wallet --chain-id union-testnet-9 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
 ```
 
 **VOTE ‘NOWITHVETO’**
 
 ```
-uniond tx gov vote 1 NoWithVeto --from wallet --chain-id union-testnet-8 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
+uniond tx gov vote 1 NoWithVeto --from wallet --chain-id union-testnet-9 --gas-adjustment 1.4 --gas auto --gas-prices 0muno -y
 ```
 
 ### ⚡️ Utility <a href="#utility" id="utility"></a>
@@ -251,9 +251,9 @@ Please, before proceeding with the next step! All chain data will be lost! Make 
 
 ```
 cd $HOME
-sudo systemctl stop union.service
-sudo systemctl disable union.service
-sudo rm /etc/systemd/system/union.service
+sudo systemctl stop union-testnet.service
+sudo systemctl disable union-testnet.service
+sudo rm /etc/systemd/system/union-testnet.service
 sudo systemctl daemon-reload
 rm -f $(which uniond)
 rm -rf $HOME/.union
@@ -270,41 +270,41 @@ sudo systemctl daemon-reload
 **ENABLE SERVICE**
 
 ```
-sudo systemctl enable union.service
+sudo systemctl enable union-testnet.service
 ```
 
 **DISABLE SERVICE**
 
 ```
-sudo systemctl disable union.service
+sudo systemctl disable union-testnet.service
 ```
 
 **START SERVICE**
 
 ```
-sudo systemctl start union.service
+sudo systemctl start union-testnet.service
 ```
 
 **STOP SERVICE**
 
 ```
-sudo systemctl stop union.service
+sudo systemctl stop union-testnet.service
 ```
 
 **RESTART SERVICE**
 
 ```
-sudo systemctl restart union.service
+sudo systemctl restart union-testnet.service
 ```
 
 **CHECK SERVICE STATUS**
 
 ```
-sudo systemctl status union.service
+sudo systemctl status union-testnet.service
 ```
 
 **CHECK SERVICE LOGS**
 
 ```
-sudo journalctl -u union.service -f --no-hostname -o cat
+sudo journalctl -u union-testnet.service -f --no-hostname -o cat
 ```
