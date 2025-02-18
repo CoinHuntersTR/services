@@ -1,4 +1,4 @@
-# Copy of Useful commands
+# Useful commands
 
 ### 🔑 Key management <a href="#key-management" id="key-management"></a>
 
