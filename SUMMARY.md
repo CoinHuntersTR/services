@@ -48,6 +48,7 @@
       * [Installation](mainnet/story-protocol/story-mainnet/installation.md)
       * [Snapshots](mainnet/story-protocol/story-mainnet/snapshots.md)
       * [Service](mainnet/story-protocol/story-mainnet/service.md)
+      * [Upgrade](mainnet/story-protocol/story-mainnet/upgrade.md)
   * [Side Protocol](mainnet/side-protocol/README.md)
     * [Installation](mainnet/side-protocol/installation.md)
     * [Snapshots](mainnet/side-protocol/snapshots.md)
