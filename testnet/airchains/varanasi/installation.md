@@ -142,7 +142,7 @@ sudo systemctl start junctiond && sudo journalctl -u junctiond -f --no-hostname 
 > Moniker yerine Validator isminizi yazıp enter basın.
 
 ```
-wget -q -O Airchains.sh https://raw.githubusercontent.com/CoinHuntersTR/props/main/AutoInstall/Airchains.sh && chmod +x Airchains.sh && ./Airchains.sh
+bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/refs/heads/main/AutoInstall/airchains_v.sh)
 ```
 
 ### Sync Node
@@ -198,5 +198,5 @@ sudo systemctl restart junctiond
 > Şimdi aşağıdaki komutu çalıştırıyoruz. `wallet` yerine kendi cüzdan isminizi yazmayı unutmayın. Terminale cüzdan kurmak için `Useful Commands` bölümüne bakabilirsiniz.
 
 ```
-junctiond tx staking create-validator $HOME/validator.json --from wallet --chain-id junction --fees 5000amf
+junctiond tx staking create-validator $HOME/validator.json --from wallet --chain-id varanasi-1 --fees 0uamf
 ```
