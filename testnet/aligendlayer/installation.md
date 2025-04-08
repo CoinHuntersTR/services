@@ -273,3 +273,34 @@ nano ./config-files/config-operator.yaml
 ./operator/build/aligned-operator start --config ./config-files/config-operator.yaml
 ```
 
+#### Service kurulumu
+
+```
+sudo nano /etc/systemd/system/aligned-operator.service
+```
+```
+[Unit]
+Description=Aligned Layer Operator Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/aligned_layer
+ExecStart=/root/aligned_layer/operator/build/aligned-operator start --config /root/aligned_layer/config-files/config-operator.yaml
+Restart=always
+RestartSec=10
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target
+```
+```
+sudo systemctl daemon-reload
+sudo systemctl enable aligned-operator
+sudo systemctl start aligned-operator
+```
+```
+sudo systemctl status aligned-operator
+sudo journalctl -u aligned-operator -f
+```
