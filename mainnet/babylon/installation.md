@@ -168,7 +168,7 @@ fi
 babylond tendermint unsafe-reset-all --home $HOME/.babylond  
   
 # Download and extract snapshot  
-curl https://snapshots.polkachu.com/snapshots/babylon/babylon_26504.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.babylond  
+curl https://snapshots.coinhunterstr.com/mainnet/babylon/snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.babylond  
 ```
 
 #### 10. Start the Node
