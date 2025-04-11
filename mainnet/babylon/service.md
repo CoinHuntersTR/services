@@ -2,12 +2,12 @@
 
 ### API
 
-{% embed url="https://mantramainnet-api.chainad.org/" %}
+{% embed url="https://babylon-api.polkachu.com" %}
 
 ### RPC
 
-{% embed url="https://mantramainnet-rpc.chainad.org/" %}
+{% embed url="https://babylon-rpc.polkachu.com" %}
 
 ### EXPLORER
 
-{% embed url="https://explorer.coinhunterstr.com/Mantra" %}
+{% embed url="https://explorer.coinhunterstr.com/Babylon" %}
