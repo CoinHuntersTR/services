@@ -241,3 +241,8 @@
     * [Installation](testnet/native-network/installation.md)
     * [Snapshots](testnet/native-network/snapshots.md)
     * [Useful commands](testnet/native-network/useful-commands.md)
+  * [XRPL EVM](testnet/xrpl-evm/README.md)
+    * [Installation](testnet/xrpl-evm/installation.md)
+    * [Useful commands](testnet/xrpl-evm/useful-commands.md)
+    * [Snapshot](testnet/xrpl-evm/snapshot.md)
+    * [Service](testnet/xrpl-evm/service.md)
