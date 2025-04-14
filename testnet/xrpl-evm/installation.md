@@ -123,22 +123,22 @@ systemctl restart exrpd && journalctl -u exrpd -f -o cat
 #### Stop the service and reset the data <a href="#stop-the-service-and-reset-the-data" id="stop-the-service-and-reset-the-data"></a>
 
 ```
-sudo systemctl stop mantrachaind
-cp $HOME/.mantrachain/data/priv_validator_state.json $HOME/.mantrachain/priv_validator_state.json.backup
-rm -rf $HOME/.mantrachain/data
+sudo systemctl stop exrpd
+cp $HOME/.exrpd/data/priv_validator_state.json $HOME/.exrpd/priv_validator_state.json.backup
+rm -rf $HOME/.exrpd/data
 ```
 
 #### Download latest snapshot <a href="#download-latest-snapshot" id="download-latest-snapshot"></a>
 
 ```
-curl -L https://snapshots.coinhunterstr.com/snap_mantra.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.mantrachain
-mv $HOME/.mantrachain/priv_validator_state.json.backup $HOME/.mantrachain/data/priv_validator_state.json
+curl -L https://snapshots.coinhunterstr.com/testnet/xrplevm/snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.exrpd
+mv $HOME/.exrpd/priv_validator_state.json.backup $HOME/.exrpd/data/priv_validator_state.json
 ```
 
 #### Restart the service and check the log <a href="#restart-the-service-and-check-the-log" id="restart-the-service-and-check-the-log"></a>
 
 ```
-sudo systemctl restart mantrachaind && sudo journalctl -u mantrachaind -f --no-hostname -o cat
+sudo systemctl restart exrpd && sudo journalctl -u exrpd -f --no-hostname -o cat
 ```
 
 ## Auto Installation
