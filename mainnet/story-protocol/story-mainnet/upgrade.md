@@ -1,5 +1,7 @@
 # Upgrade
 
+## STORY-GETH UPGRADE
+
 ### story-geth upgraded to v1.0.2
 
 ```
@@ -13,6 +15,8 @@ sudo mv ./story-geth $HOME/go/bin/story-geth
 sudo systemctl restart story-geth && sleep 5 && sudo systemctl restart story
 journalctl -u story -u story-geth -f
 ```
+
+## STORY UPGRADE
 
 ### Story upgraded to v1.1.1
 
@@ -28,4 +32,28 @@ sudo mv ./story $HOME/go/bin/story
 
 # Servisi tekrar başlat
 sudo systemctl start story
+```
+
+### Story upgraded v1.1.3
+
+```
+sudo systemctl stop story
+
+wget http://snapshots.coinhunterstr.com/site/story-linux-arm64-1.1.3-38313e8 -O story.tar
+
+mkdir -p story_extract
+tar -xf story.tar -C story_extract
+
+chmod +x /root/story_extract/story-linux-arm64-1.1.3-38313e8/story
+mv /root/story_extract/story-linux-arm64-1.1.3-38313e8/story $HOME/go/bin/story
+
+sudo systemctl restart story
+
+story version
+
+
+rm -rf story.tar story_extract
+
+sudo systemctl restart story-geth && sleep 5 && sudo systemctl restart story
+journalctl -u story -u story-geth -f
 ```
