@@ -57,3 +57,20 @@ rm -rf story.tar story_extract
 sudo systemctl restart story-geth && sleep 5 && sudo systemctl restart story
 journalctl -u story -u story-geth -f
 ```
+
+### Story upgraded v1.2.0
+
+```
+# Servisi durdur
+sudo systemctl stop story
+
+# Yeni binary'yi indir
+wget https://github.com/piplabs/story/releases/download/v1.2.0/story-linux-arm64
+sudo mv story-linux-arm64 story
+sudo chmod +x story
+sudo mv ./story $HOME/go/bin/story
+
+# Servisi tekrar başlat
+sudo systemctl restart story-geth && sleep 5 && sudo systemctl restart story
+journalctl -u story -u story-geth -f
+```
