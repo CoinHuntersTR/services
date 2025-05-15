@@ -2,12 +2,12 @@
 
 ### API
 
-{% embed url="https://xrplevm-testnet-api.itrocket.net" %}
+{% embed url="https://lumera-testnet.api.kjnodes.com" %}
 
 ### RPC
 
-{% embed url="https://xrplevm-testnet-rpc.itrocket.net" %}
+{% embed url="https://lumera-testnet.rpc.kjnodes.com" %}
 
 ### EXPLORER
 
-{% embed url="https://explorer.coinhunterstr.com/XRPL%20EVM-Testnet" %}
+{% embed url="https://explorer.coinhunterstr.com/Lumera-Testnet" %}
