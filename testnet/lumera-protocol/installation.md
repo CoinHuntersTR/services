@@ -138,29 +138,30 @@ sudo systemctl restart lumerad && sudo journalctl -u lumerad -f
 
 #### Stop the service and reset the data <a href="#stop-the-service-and-reset-the-data" id="stop-the-service-and-reset-the-data"></a>
 
-```
-sudo systemctl stop exrpd
-cp $HOME/.exrpd/data/priv_validator_state.json $HOME/.exrpd/priv_validator_state.json.backup
-rm -rf $HOME/.exrpd/data
-```
+<pre><code>sudo systemctl stop lumerad
+cp $HOME/.lumera/data/priv_validator_state.json $HOME/.lumera/priv_validator_state.json.backup
+<strong>rm -rf $HOME/.lumera/data
+</strong>rm -rf $HOME/.lumera/wasm
+lumerad tendermint unsafe-reset-all --home ~/.lumera/ --keep-addr-book
+</code></pre>
 
 #### Download latest snapshot <a href="#download-latest-snapshot" id="download-latest-snapshot"></a>
 
 ```
-curl -L https://snapshots.coinhunterstr.com/testnet/xrplevm/snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.exrpd
-mv $HOME/.exrpd/priv_validator_state.json.backup $HOME/.exrpd/data/priv_validator_state.json
+https://snapshots.coinhunterstr.com/testnet/lumera/lumera/lumera_snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.lumera
+mv $HOME/.lumera/priv_validator_state.json.backup $HOME/.lumera/data/priv_validator_state.json
 ```
 
 #### Restart the service and check the log <a href="#restart-the-service-and-check-the-log" id="restart-the-service-and-check-the-log"></a>
 
 ```
-sudo systemctl restart exrpd && sudo journalctl -u exrpd -f --no-hostname -o cat
+sudo systemctl restart lumerad && sudo journalctl -u lumerad -f --no-hostname -o cat
 ```
 
 ## Auto Installation
 
 ```
-bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/main/AutoInstall/xrpl.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/CoinHuntersTR/props/main/AutoInstall/lumera.sh)
 ```
 
 ### Sync Node
@@ -176,7 +177,7 @@ cd $HOME
 > İlk önce Pubkeyimizi alıyoruz.
 
 ```
-exrpd comet show-validator
+lumerad comet show-validator
 ```
 
 `{"@type":"/cosmos.crypto.ed25519.PubKey","key":"0LuMdRNJpWGiH+b+................"}` buna benzer bir çıktı alacaksınız.
@@ -189,7 +190,7 @@ exrpd comet show-validator
 cat << EOF > ~/validator.json
 {   
     "pubkey":{"@type":"/cosmos.crypto.ed25519.PubKey","key":"BVTxen+wn6ZgBPUqsgdFDonZ3cr2r+eoYRfF8sTx6kQ="},
-    "amount": "1000000uxrp",
+    "amount": "1000000ulume",
     "moniker": "",
     "identity": "",
     "website": "",
@@ -208,11 +209,11 @@ EOF
 > Şimdi tekrardan node restart atalım
 
 ```
-systemctl restart exrpd && journalctl -u exrpd -f -o cat
+sudo systemctl restart lumerad && sudo journalctl -u lumerad -f --no-hostname -o cat
 ```
 
 > Şimdi aşağıdaki komutu çalıştırıyoruz. `wallet` yerine kendi cüzdan isminizi yazmayı unutmayın. Terminale cüzdan kurmak için `Useful Commands` bölümüne bakabilirsiniz.
 
 ```
-exrpd tx staking create-validator ~/validator.json --from wallet --chain-id xrplevm_1449000-1 --gas="auto" --gas-adjustment 2 --gas-prices="0axrp"
+lumerad tx staking create-validator ~/validator.json --from coinhunters --chain-id lumera-testnet-1 --gas="auto" --gas-adjustment 1.4 --gas-prices="0.025ulume"
 ```
