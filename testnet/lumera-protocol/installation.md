@@ -140,15 +140,15 @@ sudo systemctl restart lumerad && sudo journalctl -u lumerad -f
 
 <pre><code>sudo systemctl stop lumerad
 cp $HOME/.lumera/data/priv_validator_state.json $HOME/.lumera/priv_validator_state.json.backup
-<strong>rm -rf $HOME/.lumera/data
-</strong>rm -rf $HOME/.lumera/wasm
+rm -rf $HOME/.lumera/data
+rm -rf $HOME/.lumera/wasm
 lumerad tendermint unsafe-reset-all --home ~/.lumera/ --keep-addr-book
 </code></pre>
 
 #### Download latest snapshot <a href="#download-latest-snapshot" id="download-latest-snapshot"></a>
 
 ```
-https://snapshots.coinhunterstr.com/testnet/lumera/lumera/lumera_snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.lumera
+curl -L https://snapshots.coinhunterstr.com/testnet/lumera/lumera/lumera_snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.lumera
 mv $HOME/.lumera/priv_validator_state.json.backup $HOME/.lumera/data/priv_validator_state.json
 ```
 
