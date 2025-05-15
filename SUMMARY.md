@@ -250,3 +250,8 @@
     * [Useful commands](testnet/xrpl-evm/useful-commands.md)
     * [Snapshot](testnet/xrpl-evm/snapshot.md)
     * [Service](testnet/xrpl-evm/service.md)
+  * [Lumera Protocol](testnet/lumera-protocol/README.md)
+    * [Installation](testnet/lumera-protocol/installation.md)
+    * [Useful commands](testnet/lumera-protocol/useful-commands.md)
+    * [Snapshot](testnet/lumera-protocol/snapshot.md)
+    * [Service](testnet/lumera-protocol/service.md)
