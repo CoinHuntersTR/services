@@ -74,3 +74,13 @@ sudo mv ./story $HOME/go/bin/story
 sudo systemctl restart story-geth && sleep 5 && sudo systemctl restart story
 journalctl -u story -u story-geth -f
 ```
+
+### Story upgraded v1.2.1
+
+```
+sudo systemctl stop story
+wget -O $(which story) https://github.com/piplabs/story/releases/download/v1.2.1/story-linux-arm64
+chmod +x $(which story)
+sudo systemctl restart story-geth && sleep 5 && sudo systemctl restart story
+journalctl -u story -u story-geth -f
+```
