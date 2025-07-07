@@ -70,7 +70,7 @@ sudo docker run hello-world
 
 ```
 cd $HOME
-ver="1.21.0"
+ver="1.22.2"
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz"
 sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz"
@@ -201,7 +201,7 @@ Bu adımdan sonra sıra geldi Aligend Layer Operatör kurulum adımlarına.
 * İlk olarak bu adımları yapabilmek için Whitelist'e girmeniz gerekiyor. Onun için [BURADAN ](https://docs.google.com/forms/d/e/1FAIpQLSdH9sgfTz4v33lAvwj6BvYJGAeIshQia3FXz36PFfF-WQAWEQ/viewform)formu doldurup başvurunuzu tamamlayabilirsiniz.
 
 ```
-git clone https://github.com/yetanotherco/aligned_layer.git --branch v0.10.2
+git clone https://github.com/yetanotherco/aligned_layer.git --branch  v0.17.0
 cd aligned_layer
 ```
 
@@ -249,7 +249,7 @@ make operator_build ENVIRONMENT=testnet
 ./operator/build/aligned-operator --version
 ```
 
-Aligned Operator v0.10.2 çıktısı almamız gerekiyor.
+Aligned Operator v0.17.0 çıktısı almamız gerekiyor.
 
 ```
 nano ./config-files/config-operator.yaml
