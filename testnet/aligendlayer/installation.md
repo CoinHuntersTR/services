@@ -230,12 +230,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 #### Foundury kurulumunu yapalım.
 
 ```
-sudo apt install make
-```
-
-```
-make install_foundry
-export PATH="$HOME/.foundry/bin:$PATH"
+curl -L https://foundry.paradigm.xyz | bash
+source ~/.bashrc
 foundryup
 ```
 
