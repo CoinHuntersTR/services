@@ -18,6 +18,16 @@ journalctl -u story -u story-geth -f
 
 ## STORY UPGRADE
 
+### Story v1.3.2
+
+```
+sudo systemctl stop story
+wget -O $(which story) https://github.com/piplabs/story/releases/download/v1.3.2/story-linux-arm64
+chmod +x $(which story)
+sudo systemctl restart geth && sleep 5 && sudo systemctl restart story
+journalctl -u story -u geth -f
+```
+
 ### Story v1.3.1
 
 ```
