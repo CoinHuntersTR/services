@@ -2,6 +2,16 @@
 
 ## STORY-GETH UPGRADE
 
+### Geth v1.1.2
+
+```
+sudo systemctl stop story geth
+wget -O $(which geth) https://github.com/piplabs/story-geth/releases/download/v1.1.2/geth-linux-arm64
+chmod +x $(which geth)
+sudo systemctl restart geth && sleep 5 && sudo systemctl restart story
+journalctl -u story -u geth -f
+```
+
 ### story-geth upgraded to v1.0.2
 
 ```
