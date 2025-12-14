@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Introduction
 
 <figure><img src="https://pbs.twimg.com/profile_banners/1408025751463600128/1716412022/1500x500" alt=""><figcaption></figcaption></figure>
